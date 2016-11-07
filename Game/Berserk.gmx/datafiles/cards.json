@@ -1,0 +1,583 @@
+[
+	{
+		"cardIndex": 0,
+		"hp": 3,
+		"dmg": 3,
+		"armor": 1,
+		"usesMana": true,
+		"mana": 4,
+		"actionNames": {
+			"English":
+			[
+				"Attack",  
+				"Heal", 
+				"Fulminate potion", 
+				"Pass the turn" 
+			],
+			"Russian":
+			[
+				"Attack",  
+				"Heal", 
+				"Fulminate potion", 
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 2,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2
+			},
+			{
+				"ENUM": 3,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			}
+		],
+		"description": {
+			"Russian": "Доктор Конча. Доктор алхимических наук. Кушает гуано.",
+			"English": "Doctor Koncha"
+		},
+		"rarity": 1,
+		"AP": 2,
+		"resists": [
+			0
+		]
+	},
+
+	{
+		"cardIndex": 1,
+		"hp": 3,
+		"dmg": 3,
+		"armor": 0,
+		"usesMana": true,
+		"mana": 4,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Backstab",
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Attack",  
+				"Heal", 
+				"Fulminate potion", 
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 4,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			}
+		],
+		"description": {
+			"Russian": "Лисец. Он приходит ко всем. Рано или поздно.",
+			"English": "Lisetz. Come on!"
+		},
+		"rarity": 1,
+		"AP": 1,
+		"resists": [
+			0
+		]
+	},
+
+	{
+		"cardIndex": 2,
+		"hp": 4,
+		"dmg": 3,
+		"armor": 3,
+		"usesMana": false ,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack",
+				"Stun",
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Attack",
+				"Stun",
+				"",
+				"Pass the turn" 
+			]
+		},	
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 6,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			}
+		],
+		"description": {
+			 "Russian": "Дикий мимик. Намного сильнее и опаснее чем его городской родственник.",
+			 "English": "Wild mimic"
+		},
+		"rarity": 0,
+		"AP": 2,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 3,
+		"hp": 2,
+		"dmg": 2,
+		"armor": 1,
+		"usesMana": false ,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack",
+				"",
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Attack",
+				"",
+				"",
+				"Pass the turn" 				
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			}
+		],
+		"description": {
+			"Russian": "Городской мимик. Грозное оружие в руках унитазного воина",
+			"English": "City mimic"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 4,
+		"hp": 2,
+		"dmg": 1,
+		"armor": 0,
+		"usesMana": false ,
+		"mana": 0,
+		"actionNames": { 
+			"English": [
+				"Attack->death", 
+				"",
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Attack", 
+				"",
+				"",
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 9,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			}
+		],
+		"description": {
+			"Russian": "Грибы. Травят спорами случайного противника",
+			"English": "Mushrooms"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 5,
+		"hp": 1,
+		"dmg": 0,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": { 
+			"English": [
+				"Destroy Armor->death",
+				"",
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+			"Destroy Armor",
+			"",
+			"",
+			"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 10,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": false,
+				"targetType": -1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": true,
+				"targetType": -1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			}		],
+		"description": {
+			"Russian": "Банхаммер. Полностью снимает броню с выбранного противника и умирает.",
+			"English": "Banhammer. Destroys enemy's armor and dies."
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		]  
+	},
+
+	{
+		"cardIndex": 6,
+		"hp": 5,
+		"dmg": 4,
+		"armor": 4,
+		"usesMana": true ,
+		"mana": 4,
+		"actionNames": {
+			"English": [
+				"Sword strike", 
+				"Impact of the divine", 
+				"+1 Mana",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Sword strike", 
+				"Impact of the divine", 
+				"+1  мана",
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 11,
+				"mana": 2,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 12,
+				"mana": 2,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 15,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1
+			}
+		],
+		"description": {
+			"Russian": "Жожн. Совмещает в себе мага и воина. Бойтесь!!",
+			"English": "Jojn. Mage and warrior. 2 in 1."
+		},
+		"rarity": 2,
+		"AP": 4,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 7,
+		"hp": 3,
+		"dmg": 3,
+		"armor": 1,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Automatic fire", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Автоматная очередь", 
+				"",
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 13,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			}
+		],
+		"description": {
+			"Russian": "Артоникс. С пушкой.",
+			"English": "Artonix. With a gun."
+		},
+		"rarity": 2,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 8,
+		"hp": 2,
+		"dmg": 2,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Block (1 turn)", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Окаменение", 
+				"",
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 14,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			}
+
+		],
+		"description": {
+			"Russian": "Гаргулья",
+			"English": "Gargulia"
+		},
+		"rarity": 1,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 9,
+		"hp": 2,
+		"dmg": 6,
+		"armor": 6,
+		"usesMana": true,
+		"mana": 6,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Fireball", 
+				"Bless",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Шар огня", 
+				"Благословение",
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 16,
+				"mana": 2,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 17,
+				"mana": 2,
+				"needT": true,
+				"targetType": 2
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			}
+		],
+		"description": {
+			"Russian": "Рыцарь смемсов",
+			"English": "Smems knight"
+		},
+		"rarity": 2,
+		"AP": 3,
+		"resists": [
+			0
+		] 
+	}
+]

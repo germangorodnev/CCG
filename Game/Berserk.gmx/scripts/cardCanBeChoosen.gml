@@ -1,0 +1,2 @@
+return (global.AP >= AP);
+
