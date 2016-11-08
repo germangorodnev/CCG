@@ -72,7 +72,6 @@
         <script>scripts\cardTryToSetAction.gml</script>
         <script>scripts\cardSetAction.gml</script>
         <script>scripts\cardActionConfirm.gml</script>
-        <script>scripts\cardPerformActionsZeroTun.gml</script>
         <script>scripts\cardPerformAction.gml</script>
         <script>scripts\cardDone.gml</script>
       </scripts>
@@ -91,6 +90,7 @@
         <script>scripts\cardGetBuffIndexByEnum.gml</script>
         <script>scripts\cardGetDebuffIndexByEnum.gml</script>
         <script>scripts\cardTryToSteal.gml</script>
+        <script>scripts\cardIsPlayable.gml</script>
       </scripts>
       <scripts name="Buffs">
         <script>scripts\cardHasBuff.gml</script>
@@ -100,6 +100,13 @@
         <script>scripts\cardSetDebuffs.gml</script>
         <script>scripts\cardSetDebuff.gml</script>
         <script>scripts\cardHasDebuff.gml</script>
+      </scripts>
+      <scripts name="Deathrattles">
+        <script>scripts\cardAddDeathrattle.gml</script>
+        <script>scripts\cardPerfromDeathrattles.gml</script>
+      </scripts>
+      <scripts name="Battlecries">
+        <script>scripts\cardPerformBattlecry.gml</script>
       </scripts>
       <script>scripts\cardSetState.gml</script>
       <script>scripts\cardInit.gml</script>
@@ -128,21 +135,18 @@
         <script>scripts\clientBeginTurn.gml</script>
         <script>scripts\clientEndTurn.gml</script>
       </scripts>
+      <script>scripts\setGameState.gml</script>
       <script>scripts\clientSetState.gml</script>
       <script>scripts\sendOnStart.gml</script>
       <script>scripts\sendKeepAlive.gml</script>
       <script>scripts\clientGameStart.gml</script>
       <script>scripts\clientCardResponse.gml</script>
-      <script>scripts\setGameState.gml</script>
       <script>scripts\clientRespond.gml</script>
       <script>scripts\clientCheckCardsDone.gml</script>
       <script>scripts\clientEndPerforming.gml</script>
       <script>scripts\changeAP.gml</script>
     </scripts>
     <scripts name="Server">
-      <scripts name="Updating">
-        <script>scripts\serverInGameUpdate.gml</script>
-      </scripts>
       <script>scripts\beginTurn.gml</script>
       <script>scripts\endTurn.gml</script>
       <script>scripts\connectDisconnectClient.gml</script>
@@ -154,10 +158,12 @@
     <scripts name="Game">
       <script>scripts\gameGetListByTargetGroup.gml</script>
       <script>scripts\gameCheckWin.gml</script>
+      <script>scripts\gameGetCardsDatabase.gml</script>
     </scripts>
     <script>scripts\mouseOnUs.gml</script>
     <script>scripts\drawTextOutline.gml</script>
     <script>scripts\databasesInit.gml</script>
+    <script>scripts\databasesClear.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdDarkenSprite.shader</shader>
@@ -186,6 +192,7 @@
       <object>objects\oHeal</object>
       <object>objects\oCardStuff</object>
     </objects>
+    <object>objects\oGameDatabase</object>
     <object>objects\oControl</object>
     <objects name="Menu">
       <object>objects\oCreateServer</object>
@@ -202,6 +209,7 @@
     <objects name="Game">
       <object>objects\oEndTurn</object>
       <object>objects\oNewTurn</object>
+      <object>objects\oFrasePopup</object>
     </objects>
   </objects>
   <rooms name="rooms">

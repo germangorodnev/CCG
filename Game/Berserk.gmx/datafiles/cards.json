@@ -56,7 +56,8 @@
 		"AP": 2,
 		"resists": [
 			0
-		]
+		],
+		"deathrattle": []
 	},
 
 	{
@@ -114,7 +115,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		]
+		],
+		"deathrattle": []
 	},
 
 	{
@@ -172,7 +174,8 @@
 		"AP": 2,
 		"resists": [
 			0
-		] 
+		],
+		"deathrattle": []
 	},
 
 	{
@@ -180,7 +183,7 @@
 		"hp": 2,
 		"dmg": 2,
 		"armor": 1,
-		"usesMana": false ,
+		"usesMana": false,
 		"mana": 0,
 		"actionNames": {
 			"English": [
@@ -230,7 +233,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"deathrattle": [] 
 	},
 
 	{
@@ -238,7 +242,7 @@
 		"hp": 2,
 		"dmg": 1,
 		"armor": 0,
-		"usesMana": false ,
+		"usesMana": false,
 		"mana": 0,
 		"actionNames": { 
 			"English": [
@@ -345,7 +349,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		]  
+		],
+		"deathrattle": []  
 	},
 
 	{
@@ -353,7 +358,7 @@
 		"hp": 5,
 		"dmg": 4,
 		"armor": 4,
-		"usesMana": true ,
+		"usesMana": true,
 		"mana": 4,
 		"actionNames": {
 			"English": [
@@ -461,14 +466,15 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"deathrattle": [] 
 	},
 
 	{
 		"cardIndex": 8,
-		"hp": 2,
+		"hp": 6,
 		"dmg": 2,
-		"armor": 0,
+		"armor": 6,
 		"usesMana": false,
 		"mana": 0,
 		"actionNames": {
@@ -520,7 +526,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"deathrattle": []
 	},
 
 	{
@@ -578,6 +585,127 @@
 		"AP": 3,
 		"resists": [
 			0
-		] 
-	}
+		],
+		"deathrattle": [] 
+	},
+
+	{
+		"cardIndex": 10,
+		"hp": 7,
+		"dmg": 1,
+		"armor": 1,
+		"usesMana": true,
+		"mana": 3,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Corruption", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Зараза", 
+				"",
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": 18,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			}
+
+		],
+		"description": {
+			"Russian": "Порчанка.#Заражает союзника гнойниками",
+			"English": "Corupty"
+		},
+		"rarity": 1,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"deathrattle": []
+	},
+	
+	{
+		"cardIndex": 11,
+		"hp": 1,
+		"dmg": 1,
+		"armor": 1,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Pass the turn" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1
+			}
+
+		],
+		"description": {
+			"Russian": "Гнойник",
+			"English": "Pusy"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"deathrattle": []
+	},
 ]

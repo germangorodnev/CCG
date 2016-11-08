@@ -13,6 +13,7 @@ ds_list_destroy(actions);
 ds_list_destroy(resists);
 ds_list_destroy(debuffs);
 ds_list_destroy(buffs);
+ds_list_destroy(deathrattles);
 if (path_exists(cardPath))
     path_delete(cardPath);
 actionsNames = 0; // actual name of action

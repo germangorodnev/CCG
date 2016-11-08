@@ -1,10 +1,4 @@
-if (ds_list_empty(actions))
-{
-    state = CARD_STATES.DONE_ACTION;
-    exit; //WARNING
-}
-
-if (actions[| 1] == false) // we just failed!
+if (ds_list_empty(actions) || !canTurn || !actions[| 1])
 {
     state = CARD_STATES.DONE_ACTION;
     exit; //WARNING
@@ -167,6 +161,16 @@ switch (act)
             sprite_index = sSmemsFireball;
             image_speed = 1;
         }
+        break;
+    // PORCHANKA
+    case ACTIONS.PORCHANKA_CORRUPTION:
+        var targetId = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        with (targetId)
+        {
+            cardAddDeathrattle(DEATHRATTLES.CORRUPTION);
+            cardChangeHp(-1);
+        }
+        cardDone();
         break;
     // not implemented
     default:

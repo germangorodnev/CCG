@@ -30,5 +30,7 @@
     <frame index="7">images\sCard_7.png</frame>
     <frame index="8">images\sCard_8.png</frame>
     <frame index="9">images\sCard_9.png</frame>
+    <frame index="10">images\sCard_10.png</frame>
+    <frame index="11">images\sCard_11.png</frame>
   </frames>
 </sprite>

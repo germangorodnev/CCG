@@ -47,10 +47,6 @@ global.name = "Player";
 
 // Deck
 global.deck = ds_list_create(); // LIST OF CARDS (CARDS enum)
-for (var i = 0; i &lt; 30; i++)
-{
-    ds_list_add(global.deck, irandom(CARDS.CARDS_COUNT));
-}
 
 // GAME CONTROL VARIABLES
 global.gameState = GAME_STATES.CARD_PREPARE;
@@ -63,8 +59,14 @@ loadGame();
 ds_list_clear(global.deck);
 for (var i = 0; i &lt; 30; i++)
 {
-    ds_list_add(global.deck, irandom(CARDS.CARDS_COUNT - 1));
+    var r = irandom(CARDS.CARDS_COUNT - 1);
+    while(!cardIsPlayable(r))
+    {
+        r = irandom(CARDS.CARDS_COUNT - 1);
+    }
+    ds_list_add(global.deck, r);
 }
+
 </string>
           </argument>
         </arguments>

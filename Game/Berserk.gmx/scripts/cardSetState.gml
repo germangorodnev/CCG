@@ -17,6 +17,7 @@ case CARD_STATES.PERFORM_ACTION:
     cardPerformAction();
     break;
 case CARD_STATES.DESTROY:
+    cardPerfromDeathrattles(true);
     break;
 }
 

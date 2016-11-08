@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>-1</persistent>
+  <depth>-2000</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,42 +25,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Server
+            <string>///Show the frase and dies
 image_speed = 0;
-global.haveserver = true;
+text = "";
+c = c_black;
+rC = c_white;
+alarm[0] = 3 * room_speed;
 
-// Our server creation. It may fail if there is already a server running
-playerBuffer = buffer_create(16384, buffer_fixed, 1);
-
-server = network_create_server(global.serverType, 6510, 2);
-if (server &lt; 0)
-{
-    // fail!
-    global.haveserver = false;
-    buffer_delete(playerBuffer);
-    instance_destroy();
-    exit;
-}
-
-global.turnDone = false;
-global.opTurnDone = false;
-
-global.playerDone = false;
-global.opDone = false;
-
-// Other player's information
-opName = "Player"; // Name
-opDeck = ds_list_create(); // Deck
-opSocket = -1; // Socket
-opIP = 0; // IP
-
+x1 = 0;
+y1 = 0;
+x2 = 0;
+y2 = 0;
 
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -77,15 +59,15 @@ opIP = 0; // IP
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Clear
-ds_list_destroy(global.opDeck);
-buffer_delete(playerBuffer);
+            <string>///Begin to close
+image_alpha = 0.99;
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -102,28 +84,22 @@ buffer_delete(playerBuffer);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///All cards initialised, go to the next state - 0 turn
-switch (global.gameState)
+            <string>///Move
+if (image_alpha &lt; 1)
 {
-case GAME_STATES.CARD_PREPARE:
-    changeGameState(GAME_STATES.ZERO_TURN);
-    break;
-case GAME_STATES.ZERO_TURN:
-    if (global.turnDone &amp;&amp; global.opTurnDone)
+    image_alpha = max(image_alpha - 0.05, 0);
+    if (!image_alpha)
     {
-        // WOO HO NEXT STATE
-        changeGameState(GAME_STATES.PERFORM_ACTIONS);
+        instance_destroy();
     }
-    else
-        alarm[1] = 0.5 * room_speed;
-    break;
+    y -= 0.5; 
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="68">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -140,55 +116,10 @@ case GAME_STATES.ZERO_TURN:
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Server netwrok control
-var eventid = async_load[? "id"];
-
-if (server == eventid)
-{
-    // If the socket id is the server one, then we've got a new client disconect/connect
-    connectDisconnectClient();
-}
-else if (eventid = global.client)
-{
-    // do nothing if that is for our local client
-}
-else
-{
-    // all other sockets are connected client sockets and we've recieved commands from them'
-    serverRecievedData();
-}   
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Play button
-switch (room)
-{
-case rLobby:
-    instance_create(656, 656, oToGame);
-    break;
-case rGame:
-    gameStart();
-    break;
-}
+            <string>///Draw
+draw_set_font(fGame);
+draw_rectangle_colour(x1, y1, x2, y2, rC, rC, rC, rC, 0);
+draw_text_colour(x, y, text, c, c, c, c, image_alpha);
 </string>
           </argument>
         </arguments>

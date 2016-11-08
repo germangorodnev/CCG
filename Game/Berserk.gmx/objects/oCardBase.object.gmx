@@ -30,6 +30,8 @@ image_speed = 0;
 
 state = CARD_STATES.DONE_ACTION;
 
+canTurn = true;
+
 ind = 0;
 player = 0;
 borderIndex = 0;
@@ -79,6 +81,10 @@ event[EV.COUNT] = 0;
 debuffs = ds_list_create();
 // Our buffs
 buffs = ds_list_create();
+// battlecries
+
+// deathrattles
+deathrattles = ds_list_create();
  
 manaCol = c_white;
 _manaCol = manaCol;
@@ -184,28 +190,28 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_font(fParams);
 
-var offX = 34 * image_xscale,
+var lenOffX = lengthdir_x(34 * image_xscale, image_angle),
     offY = 57 * image_yscale;
     
 // draw hp
-drawTextOutline(x - lengthdir_x(offX, image_angle), y + lengthdir_y(offY, 120 + image_angle), string(hp), 
+drawTextOutline(x - lenOffX, y + lengthdir_y(offY, 120 + image_angle), string(hp), 
     hpCol, c_black, hpSc, hpSc, image_angle, 1);
 
 // draw mana if needed
 if (usesMana)
-    drawTextOutline(x + lengthdir_x(offX, image_angle), y + lengthdir_y(offY, 60 + image_angle), string(mana), 
+    drawTextOutline(x + lenOffX, y + lengthdir_y(offY, 60 + image_angle), string(mana), 
     manaCol, c_black, manaSc, manaSc, image_angle, 1);
     //draw_text_transformed_colour(x + lengthdir_x(34, image_angle), y + lengthdir_y(57, 60 + image_angle), string(mana), image_xscale, image_yscale, image_angle, 
        // manaCol, manaCol, manaCol, manaCol, image_alpha);
         
 // draw dmg
-    drawTextOutline(x - lengthdir_x(offX, image_angle), y + lengthdir_y(offY, 235 + image_angle), string(dmg), 
+    drawTextOutline(x - lenOffX, y + lengthdir_y(offY, 240 + image_angle), string(dmg), 
     dmgCol, c_black, dmgSc, dmgSc, image_angle, 1);
 //draw_text_transformed_colour(x - lengthdir_x(34, image_angle), y + lengthdir_y(58, 235 + image_angle), string(dmg), image_xscale, image_yscale, image_angle, 
 //    dmgCol, dmgCol, dmgCol, dmgCol, image_alpha);
 
 // draw armor
-    drawTextOutline(x + lengthdir_x(offX, image_angle), y + lengthdir_y(offY, 300 + image_angle), string(armor), 
+    drawTextOutline(x + lenOffX, y + lengthdir_y(offY, 300 + image_angle), string(armor), 
     armorCol, c_black, armorSc, armorSc, image_angle, 1);
 
 //draw_text_transformed_colour(x + lengthdir_x(34, image_angle), y + lengthdir_y(57, 300 + image_angle), string(armor), image_xscale, image_yscale, image_angle, 

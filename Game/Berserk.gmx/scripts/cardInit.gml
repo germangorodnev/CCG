@@ -24,6 +24,7 @@ for (var i = 0; i < 4; i++)
     actionsMana[i] = ds_map_find_value(currMap, "mana");
     actionsNeedTarget[i] = ds_map_find_value(currMap, "needT");
     actionsTargetType[i] = ds_map_find_value(currMap, "targetType");
+    ds_map_destroy(currMap);
 }   
 
 // Now parameters
@@ -51,7 +52,21 @@ if (c > 0)
         ds_list_add(resists, ds_list_find_value(ourParams[? "resists"], i));
     }
 }
-ds_map_destroy(json);
+
+if (global.gameState == GAME_STATES.PERFORM_ACTIONS)
+    cardPerformBattlecry(true);
+    
+switch (type)
+{
+case CARDS.KONCHA:
+    cardAddDeathrattle(DEATHRATTLES.KONCHA_MUSHROOMS);
+    break;
+}
+/*ds_map_destroy(objects);
+ds_map_destroy(ourParams);
+ds_map_destroy(allActions);
+ds_list_destroy(actionsList);
+ds_list_destroy(actionsIndexes);
 
 
 
