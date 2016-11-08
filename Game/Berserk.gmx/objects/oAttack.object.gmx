@@ -114,10 +114,10 @@ speed = spd;
             <kind>1</kind>
             <string>///Moving
 image_angle = direction;
-if (!active)
-    exit;
 if (instance_exists(target))
     direction = point_direction(x, y, target.x, target.y);
+if (!active)
+    exit;
 
 var c = instance_place(x, y, oCardBase);
 if (c != noone)

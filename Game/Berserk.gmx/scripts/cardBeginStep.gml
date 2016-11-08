@@ -1,5 +1,5 @@
 /// performing debuffs
-
+canTurn = true;
 for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
 {
     var db = ds_list_find_value(debuffs, 0);
@@ -30,6 +30,7 @@ for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
             if (db[| 1] == 0)
             {
                 ds_list_delete(debuffs, ds_list_find_index(debuffs, db));
+                canTurn = true;
                 continue;
             }
 
