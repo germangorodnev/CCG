@@ -54,7 +54,11 @@
       <sprite>sprites\sDebuffStun</sprite>
       <sprite>sprites\sDebuffPoison</sprite>
     </sprites>
+    <sprites name="Helpers">
+      <sprite>sprites\sPlaceNotFree</sprite>
+    </sprites>
     <sprite>sprites\sNewTurn</sprite>
+    <sprite>sprites\sInstant</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -89,6 +93,7 @@
         <script>scripts\cardGetArrIndexByEnum.gml</script>
         <script>scripts\cardGetBuffIndexByEnum.gml</script>
         <script>scripts\cardGetDebuffIndexByEnum.gml</script>
+        <script>scripts\cardGetActionInstant.gml</script>
         <script>scripts\cardTryToSteal.gml</script>
         <script>scripts\cardIsPlayable.gml</script>
       </scripts>
@@ -191,6 +196,8 @@
       <object>objects\oCardActionChoose</object>
       <object>objects\oHeal</object>
       <object>objects\oCardStuff</object>
+      <object>objects\oPlaceNotFree</object>
+      <object>objects\oInstant</object>
     </objects>
     <object>objects\oGameDatabase</object>
     <object>objects\oControl</object>

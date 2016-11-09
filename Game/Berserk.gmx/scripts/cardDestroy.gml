@@ -20,6 +20,7 @@ actionsNames = 0; // actual name of action
 actionsIndex = 0; // index in ACTIONS enum
 actionsMana = 0; // mana needed
 actionsNeedTarget = 0;
+actionsInstant = 0;
 event = 0;
 
 gameCheckWin();

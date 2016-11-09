@@ -32,6 +32,7 @@ image_index = 2;
 
 target = noone; // id of the obj
 parent = noone; // the creator
+pl = 0;
 
 blockable = true;
 absolute = false;
@@ -89,6 +90,8 @@ if (instance_exists(target))
 var c = instance_place(x, y, oCardBase);
 if (c != noone)
 {
+    if (c.player == pl)
+        exit;
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {

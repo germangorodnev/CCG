@@ -26,6 +26,7 @@ else
         var pos = cardTryToSteal();
         if (pos == -1) // cannot place the stolen card anywhere
         {
+            exit;
         } 
         else
         {
@@ -35,15 +36,22 @@ else
             path_set_closed(cardPath, false);
             var w = global.cardsOnBoard / 2;
             var xB = CARD_X - (w - 5) * 64;
+            var xend = xB + (pos % w) * 128,
+                yend = yB + ((pos div w) * 128) * s;
+                
             path_add_point(cardPath, x, y, 100);
-            path_add_point(cardPath, xB + (pos % w) * 128, yB + ((pos div w) * 128) * s, 100);
-            path_start(cardPath, 5, path_action_stop, true);
+            path_add_point(cardPath, xend, yend, 100);
+            path_start(cardPath, 8, path_action_stop, true);
+            
             ds_list_insert(ls, pos, id);
             
             var pos = ds_list_find_index(otherLs, id);
             ds_list_delete(otherLs, pos);
             
             player = 1 * (player == 0);
+            
+            // placer
+            instance_create(xend, yend, oPlaceNotFree);
         } 
     }
 }

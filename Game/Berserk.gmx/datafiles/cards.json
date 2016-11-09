@@ -27,25 +27,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 2,
 				"mana": 1,
 				"needT": true,
-				"targetType": 2
+				"targetType": 2,
+				"instant": false
 			},
 			{
 				"ENUM": 3,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -56,8 +60,7 @@
 		"AP": 2,
 		"resists": [
 			0
-		],
-		"deathrattle": []
+		]
 	},
 
 	{
@@ -86,25 +89,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 4,
 				"mana": 1,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -115,8 +122,7 @@
 		"AP": 1,
 		"resists": [
 			0
-		],
-		"deathrattle": []
+		]
 	},
 
 	{
@@ -145,25 +151,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 6,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": true
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -174,8 +184,7 @@
 		"AP": 2,
 		"resists": [
 			0
-		],
-		"deathrattle": []
+		] 
 	},
 
 	{
@@ -204,25 +213,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -233,8 +246,7 @@
 		"AP": 1,
 		"resists": [
 			0
-		],
-		"deathrattle": [] 
+		] 
 	},
 
 	{
@@ -263,25 +275,29 @@
 				"ENUM": 9,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -321,25 +337,29 @@
 				"ENUM": 10,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 1,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": true,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			}		],
 		"description": {
 			"Russian": "Банхаммер. Полностью снимает броню с выбранного противника и умирает.",
@@ -349,8 +369,7 @@
 		"AP": 1,
 		"resists": [
 			0
-		],
-		"deathrattle": []  
+		]  
 	},
 
 	{
@@ -379,25 +398,29 @@
 				"ENUM": 11,
 				"mana": 2,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 12,
 				"mana": 2,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 15,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": -1
+				"targetType": -1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -437,25 +460,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 13,
 				"mana": 1,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -466,8 +493,7 @@
 		"AP": 1,
 		"resists": [
 			0
-		],
-		"deathrattle": [] 
+		] 
 	},
 
 	{
@@ -496,25 +522,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 14,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			}
 
 		],
@@ -526,8 +556,7 @@
 		"AP": 1,
 		"resists": [
 			0
-		],
-		"deathrattle": []
+		] 
 	},
 
 	{
@@ -556,25 +585,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 16,
 				"mana": 2,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 17,
 				"mana": 2,
 				"needT": true,
-				"targetType": 2
+				"targetType": 2,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			}
 		],
 		"description": {
@@ -585,8 +618,7 @@
 		"AP": 3,
 		"resists": [
 			0
-		],
-		"deathrattle": [] 
+		] 
 	},
 
 	{
@@ -615,25 +647,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 18,
 				"mana": 1,
 				"needT": true,
-				"targetType": 2
+				"targetType": 2,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			}
 
 		],
@@ -645,8 +681,7 @@
 		"AP": 1,
 		"resists": [
 			0
-		],
-		"deathrattle": []
+		]
 	},
 	
 	{
@@ -675,25 +710,29 @@
 				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": -1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			},
 			{
 				"ENUM": 1,
 				"mana": 0,
 				"needT": false,
-				"targetType": 1
+				"targetType": 1,
+				"instant": false
 			}
 
 		],
@@ -705,7 +744,6 @@
 		"AP": 1,
 		"resists": [
 			0
-		],
-		"deathrattle": []
+		] 
 	},
 ]

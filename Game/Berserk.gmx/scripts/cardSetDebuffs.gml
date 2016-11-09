@@ -22,6 +22,7 @@ for (var i = 0, c = ds_list_size(argument0); i < c; i++)
         case DEBUFFS.STUN:
             var ls = debuffs[| pos];
             ls[| 1] = l[| 1];
+            canTurn = false;
             break;
         }
     }

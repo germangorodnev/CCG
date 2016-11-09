@@ -72,7 +72,7 @@ switch (act)
         var p = ds_list_create();
         ds_list_add(p, DEBUFFS.STUN, 2);
         ds_list_add(debuffs, p); 
-        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, atkSpd, debuffs);    
+        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, -1, debuffs);    
         break;
     // ARMOR HAMMER
     case ACTIONS.ARMOR_HAMMER_USE:
@@ -111,6 +111,7 @@ switch (act)
         break;
     case ACTIONS.JOJN_IMPACT_OF_THE_DIVINE: // steals the card if all its stats are <= 3
         var s = instance_create(x, y, oJojnImpact);
+        s.pl = player;
         s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
         s.parent = id;
         s.speed = atkSpd;

@@ -12,8 +12,14 @@ if (player == 0)
     
 for (var i = 0; i < global.cardsOnBoard; i++)
 {
-    var card = instance_position(xB + (i % w) * 128, yB + ((i div w) * 128) * s, oCardBase);
+    var xp = xB + (i % w) * 128,
+        yp = yB + ((i div w) * 128) * s;
+    var card = instance_position(xp, yp, oCardBase);
     if (card == noone)
-        return i;
+    {
+        card = instance_position(xp, yp, oPlaceNotFree);
+        if (card == noone)
+            return i;
+    }
 }
 return -1;

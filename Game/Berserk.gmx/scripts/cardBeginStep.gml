@@ -1,4 +1,5 @@
 /// performing debuffs
+actionPos = -1;
 canTurn = true;
 for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
 {

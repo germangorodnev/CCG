@@ -10,11 +10,11 @@ if (argument1 != -1)
 }
 // decrease the AP
 changeAP(-AP);
-// decrease the mana 
-if (player == 0)
+var pos = cardGetArrIndexByEnum(argument0);
+if (pos != -1)
 {
-    var pos = cardGetArrIndexByEnum(argument0);
-    if (pos != -1)
+    // decrease the mana 
+    if (player == 0)
         cardChangeMana(-actionsMana[pos]);
 }
 

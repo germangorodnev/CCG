@@ -54,6 +54,9 @@ actionsIndex[3] = 0; // index in ACTIONS enum
 actionsMana[3] = 0; // mana needed
 actionsNeedTarget[3] = false;
 actionsTargetType[3] = -1; // -1 - noone, 0 - ally or enemy, 1 - enemy, 2 - ally
+actionsInstant[3] = false;
+
+actionInstant = false;
 
 hp = 1;
 _hp = hp;

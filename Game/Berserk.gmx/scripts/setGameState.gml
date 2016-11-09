@@ -24,11 +24,22 @@ case GAME_STATES.WAIT_OTHER_PLAYER:
     break;
 case GAME_STATES.PERFORM_ACTIONS:
     // begin to perform
+    // first of all - the insta actions
+    var c = 0;
     with (oCardBase)
     {
-        cardSetState(CARD_STATES.PERFORM_ACTION);
+        if (cardGetActionInstant())
+        {
+            c++;
+            cardPerformAction();
+            cardDone();
+            instance_create(x, y, oInstant);
+        }
     }
-    alarm[1] = 3 * room_speed;
+    if (c > 0)
+        alarm[11] = 0.5 * room_speed;
+    else   
+        alarm[11] = 1;
     break;
 }
 

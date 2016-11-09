@@ -24,6 +24,7 @@ for (var i = 0; i < 4; i++)
     actionsMana[i] = ds_map_find_value(currMap, "mana");
     actionsNeedTarget[i] = ds_map_find_value(currMap, "needT");
     actionsTargetType[i] = ds_map_find_value(currMap, "targetType");
+    actionsInstant[i] = ds_map_find_value(currMap, "instant");
     ds_map_destroy(currMap);
 }   
 

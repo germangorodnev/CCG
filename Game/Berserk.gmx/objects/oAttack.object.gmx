@@ -30,6 +30,7 @@ speed = 0;
 image_speed = 0;
 target = noone; // id of the obj
 parent = noone; // the creator
+pl = 0;
 spd = 0;
 dmg = 0;
 debuffs = ds_list_create();
@@ -122,6 +123,8 @@ if (!active)
 var c = instance_place(x, y, oCardBase);
 if (c != noone)
 {
+    if (c.player == pl)
+        exit;
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {
