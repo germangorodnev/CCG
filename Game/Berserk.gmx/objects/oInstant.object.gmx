@@ -50,7 +50,7 @@ image_speed = 0;
           <argument>
             <kind>1</kind>
             <string>///Alpha
-image_alpha = max(image_alpha - 0.07, 0);
+image_alpha = max(image_alpha - 0.03, 0);
 if (image_alpha &lt;= 0)
     instance_destroy();
 </string>

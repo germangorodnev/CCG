@@ -159,12 +159,12 @@ alarm[1] = 3 * room_speed;
           <argument>
             <kind>1</kind>
             <string>///Cards done checking
-if (time == 6) // you ohuel
+/*if (time == 6) // you ohuel
 {
     clientEndPerforming();
     time = 0;
     exit;
-}
+}*/
 if (clientCheckCardsDone())
 {
     clientEndPerforming();
@@ -406,7 +406,7 @@ case rGame:
                 // icon in center
                 var xc = objFrom.x + lengthdir_x(dist / 2, angle),
                     yc = objFrom.y + lengthdir_y(dist / 2, angle);
-                draw_sprite_ext(sAttackIcons, global.attackTypeIndex, xc, yc, 1, 1, angle - 90, global.attackTypeCol, 1);
+                draw_sprite_ext(sAttackIcons, global.attackTypeIndex, xc, yc, 1, 1, 0, global.attackTypeCol, 1);
             }
             else
             {

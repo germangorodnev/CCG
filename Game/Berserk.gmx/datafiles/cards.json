@@ -439,8 +439,8 @@
 		"hp": 3,
 		"dmg": 3,
 		"armor": 1,
-		"usesMana": false,
-		"mana": 0,
+		"usesMana": true,
+		"mana": 3,
 		"actionNames": {
 			"English": [
 				"Attack", 

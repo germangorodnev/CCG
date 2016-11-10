@@ -21,6 +21,7 @@ actionsIndex = 0; // index in ACTIONS enum
 actionsMana = 0; // mana needed
 actionsNeedTarget = 0;
 actionsInstant = 0;
+deathrattlesIcos = 0;
 event = 0;
 
 gameCheckWin();

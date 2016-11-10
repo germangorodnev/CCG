@@ -65,6 +65,7 @@ switch (act)
         state = CARD_STATES.PERFORM_ACTION;
         var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1); 
         a.absolute = true;    
+        a.image_index = 4;
         break;
     // MIMIC WILD
     case ACTIONS.MIMIC_WILD_STUN:
@@ -112,6 +113,7 @@ switch (act)
     case ACTIONS.JOJN_IMPACT_OF_THE_DIVINE: // steals the card if all its stats are <= 3
         var s = instance_create(x, y, oJojnImpact);
         s.pl = player;
+        s.startPl = player;
         s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
         s.parent = id;
         s.speed = atkSpd;
@@ -131,6 +133,7 @@ switch (act)
         var group = gameGetListByTargetGroup(actions[| 3], target);
         var bull = cardAttack(target, group, dmg, atkSpd * 2, -1);
         bull.parent = noone;
+        bull.image_index = 5;
         var i = 0;
         repeat(2)
         {
@@ -140,6 +143,7 @@ switch (act)
             b.alarm[0] = 0.5 * (i + 1) * room_speed;
             b.spd = bull.speed;
             b.speed = 0;
+            b.image_index = 5;
             if (i == 0)
                 bull.parent = noone;
             i++;

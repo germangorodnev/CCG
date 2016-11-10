@@ -88,7 +88,9 @@ buffs = ds_list_create();
 
 // deathrattles
 deathrattles = ds_list_create();
- 
+deathrattlesIcons[0] = 0;
+deathrattlesCnt = 0;
+
 manaCol = c_white;
 _manaCol = manaCol;
 manaSc = 1;
@@ -160,6 +162,13 @@ for (var i = 0, c = ds_list_size(debuffs); i &lt; c; i++)
     var spr = cardGetDebuffIndexByEnum(ds_list_find_value(ds_list_find_value(debuffs, i), 0));
     draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha / 2);
 }
+
+// drawing deathrattles
+for (var i = 0; i &lt; deathrattlesCnt; i++)
+{
+    draw_sprite_ext(deathrattlesIcons[i], 0, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+}
+
 
 // choosen to choose an action
 if (choosen)

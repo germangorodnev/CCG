@@ -40,7 +40,6 @@
       <sprite>sprites\sCardActionsBack</sprite>
       <sprite>sprites\sEndTurn</sprite>
       <sprite>sprites\sArrow</sprite>
-      <sprite>sprites\sAttackIcons</sprite>
       <sprite>sprites\sCrystal</sprite>
     </sprites>
     <sprites name="Cursor">
@@ -51,13 +50,17 @@
       <sprite>sprites\sBuffBlock</sprite>
     </sprites>
     <sprites name="Debuff Icons">
-      <sprite>sprites\sDebuffStun</sprite>
       <sprite>sprites\sDebuffPoison</sprite>
+      <sprite>sprites\sDebuffStun</sprite>
     </sprites>
     <sprites name="Helpers">
       <sprite>sprites\sPlaceNotFree</sprite>
     </sprites>
+    <sprites name="Dt icons">
+      <sprite>sprites\sDtIco</sprite>
+    </sprites>
     <sprite>sprites\sNewTurn</sprite>
+    <sprite>sprites\sAttackIcons</sprite>
     <sprite>sprites\sInstant</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -96,6 +99,7 @@
         <script>scripts\cardGetActionInstant.gml</script>
         <script>scripts\cardTryToSteal.gml</script>
         <script>scripts\cardIsPlayable.gml</script>
+        <script>scripts\cardFindDeathrattleIcon.gml</script>
       </scripts>
       <scripts name="Buffs">
         <script>scripts\cardHasBuff.gml</script>
@@ -125,6 +129,7 @@
       <scripts name="Attacks">
         <script>scripts\cardAttackPerformer.gml</script>
         <script>scripts\cardJojnImpactPerformer.gml</script>
+        <script>scripts\cardAttackDestroy.gml</script>
       </scripts>
     </scripts>
     <scripts name="Client">

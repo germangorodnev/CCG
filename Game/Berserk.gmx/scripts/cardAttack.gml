@@ -12,6 +12,7 @@ with (a)
     dmg = argument2;
     speed = argument3;
     spd = speed; 
+    startPl = pl;
     if (argument4 != -1)
     {
         ds_list_copy(debuffs, argument4);
