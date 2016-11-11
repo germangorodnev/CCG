@@ -7,8 +7,10 @@ var c = argument0,
 with (c)
 {
     cardDealDamage(d, a);
+    if (hp <= 0)
+        exit;
     cardSetDebuffs(dbf);
     if (brA)
         cardChangeArmor(-armor);
 }
-cardAttackDestroy();
+

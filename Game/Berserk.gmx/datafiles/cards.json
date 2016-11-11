@@ -10,16 +10,16 @@
 			"English":
 			[
 				"Attack",  
-				"Heal", 
-				"Fulminate potion", 
+				"Heal on 2", 
+				"Fulminate potion - 2 turns, 1 dmg", 
 				"Pass the turn" 
 			],
 			"Russian":
 			[
-				"Attack",  
-				"Heal", 
-				"Fulminate potion", 
-				"Pass the turn" 
+				"Атака",  
+				"Исцеление на 2", 
+				"Отравленная склянка - 2 хода, 1 урон", 
+				"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -73,15 +73,15 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Backstab",
+				"Backstab - 3 abs. dmg.",
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Attack",  
-				"Heal", 
-				"Fulminate potion", 
-				"Pass the turn" 
+				"Атака",  
+				"Удар в спину - 3 ур. жз.", 
+				"", 
+				"Пропуск хода"
 			]
 		},
 		"actionIndex": [
@@ -135,15 +135,15 @@
 		"actionNames": {
 			"English": [
 				"Attack",
-				"Stun",
+				"Stun on 1 turn",
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Attack",
-				"Stun",
+				"Атака",
+				"Оглушение на 1 ход",
 				"",
-				"Pass the turn" 
+				"Пропуск хода"
 			]
 		},	
 		"actionIndex": [
@@ -205,7 +205,7 @@
 				"Attack",
 				"",
 				"",
-				"Pass the turn" 				
+				"Pass the turn"				
 			]
 		},
 		"actionIndex": [
@@ -264,10 +264,10 @@
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Attack", 
+				"Атака->смерть", 
 				"",
 				"",
-				"Pass the turn" 
+				"Пропусук хода" 
 			]
 		},
 		"actionIndex": [
@@ -326,10 +326,10 @@
 				"Pass the turn" 
 			],
 			"Russian": [
-			"Destroy Armor",
+			"Уничтожить броню->умереть",
 			"",
 			"",
-			"Pass the turn" 
+			"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -381,16 +381,16 @@
 		"mana": 4,
 		"actionNames": {
 			"English": [
-				"Sword strike", 
-				"Impact of the divine", 
+				"Sword strike - destroy armor/abs. dmg/miss", 
+				"Impact of the divine - steal the enemy card if all the params <=3", 
 				"+1 Mana",
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Sword strike", 
-				"Impact of the divine", 
+				"Удар мечом - снятие брони/абс. урон/промах", 
+				"Влияние божества - ворует карту, если все параметры <=3", 
 				"+1  мана",
-				"Pass the turn" 
+				"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -444,15 +444,15 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Automatic fire", 
+				"Automatic fire - 3 shots", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Автоматная очередь", 
+				"Автоматная очередь - 3 выстрела", 
 				"",
-				"Pass the turn" 
+				"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -506,15 +506,15 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Block (1 turn)", 
+				"Block on 1 turn", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Окаменение", 
+				"Блокирование на 1 ход", 
 				"",
-				"Pass the turn" 
+				"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -569,15 +569,15 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Fireball", 
-				"Bless",
+				"Fireball - 6 dmg", 
+				"Bless - +2 dmg; +1 hp",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Шар огня", 
-				"Благословение",
-				"Pass the turn" 
+				"Шар огня - 6 ур.", 
+				"Благословение - +2 атк; +1 жз.",
+				"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -631,15 +631,15 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Corruption", 
+				"Corruption - after the death card creates a pus", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Зараза", 
+				"Зараза - при смерти создаст гнойника", 
 				"",
-				"Pass the turn" 
+				"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -702,7 +702,7 @@
 				"Атака", 
 				"", 
 				"",
-				"Pass the turn" 
+				"Пропуск хода" 
 			]
 		},
 		"actionIndex": [
@@ -739,6 +739,69 @@
 		"description": {
 			"Russian": "Гнойник",
 			"English": "Pusy"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 12,
+		"hp": 7,
+		"dmg": 2,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Rut - 1 dmg, +2 hp if kills enemy", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Гон - 1 ур; при убийстве восстановит 2 жз.", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 19,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1,
+				"instant": false
+			}
+
+		],
+		"description": {
+			"Russian": "Зомбированная печенька",
+			"English": "Zombie-cookie"
 		},
 		"rarity": 0,
 		"AP": 1,

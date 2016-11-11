@@ -129,6 +129,7 @@
       <scripts name="Attacks">
         <script>scripts\cardAttackPerformer.gml</script>
         <script>scripts\cardJojnImpactPerformer.gml</script>
+        <script>scripts\cardCookieRutPerformer.gml</script>
         <script>scripts\cardAttackDestroy.gml</script>
       </scripts>
     </scripts>
@@ -169,6 +170,7 @@
       <script>scripts\gameGetListByTargetGroup.gml</script>
       <script>scripts\gameCheckWin.gml</script>
       <script>scripts\gameGetCardsDatabase.gml</script>
+      <script>scripts\gameEnd.gml</script>
     </scripts>
     <script>scripts\mouseOnUs.gml</script>
     <script>scripts\drawTextOutline.gml</script>
@@ -197,6 +199,7 @@
       <objects name="Attacks">
         <object>objects\oAttack</object>
         <object>objects\oJojnImpact</object>
+        <object>objects\oCookieRut</object>
       </objects>
       <object>objects\oCardActionChoose</object>
       <object>objects\oHeal</object>

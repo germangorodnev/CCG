@@ -1,5 +1,7 @@
 ///cardSetDebuffs(ds_list* debuffs)
 // add an debuff
+if (!ds_list_empty(argument0))
+{
 for (var i = 0, c = ds_list_size(argument0); i < c; i++)
 {
     var l = argument0[| i]; // list
@@ -31,4 +33,5 @@ for (var i = 0, c = ds_list_size(argument0); i < c; i++)
         cardSetDebuff(l);
     }
 }
-ds_list_destroy(argument0);
+}
+

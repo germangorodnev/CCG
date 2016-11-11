@@ -53,7 +53,7 @@ alarm[0] = 2 * room_speed;
 
 // In-game
 //DATABASE
-databasesInit();
+//databasesInit();
 
 global.clientState = CLIENT_STATES.CHOOSING_CARD; // enum CLIENT_STATES
 global.choosenCard = noone;
@@ -68,8 +68,12 @@ arrW = sprite_get_width(sArrow);
 global.cards = ds_list_create();
 global.opCards = ds_list_create();
 
-global.AP = 15;
+global.AP = 14;
 global.beginAP = global.AP;
+apbeginx = 1080;
+apbeginy = 306;
+apbetw = sprite_get_width(sCrystal) + 4;
+apinline = global.AP / 2;
 
 // draw
 chatStr = "";
@@ -103,6 +107,7 @@ chatSep = 20;
           <argument>
             <kind>1</kind>
             <string>///Clear
+ds_list_destroy(chat);
 ds_list_destroy(global.cards);
 ds_list_destroy(global.opCards);
 
@@ -380,9 +385,8 @@ case rLobby:
     break;
     
 case rGame:  
-    // Drawing the APs
+    // Names
     draw_set_font(fGame);
-    drawTextOutline(global.guiW - 30, global.guiH / 2 - 50, string(global.AP), c_white, c_black, 1, 1, 0, 1);
     
     // Arrow to target
     if (global.choosenToPerform != noone)
@@ -415,6 +419,19 @@ case rGame:
             }
         }
     };
+    
+    // Action points
+    var av = 0;
+    for (var i = 0; i &lt; global.beginAP; i++)
+    {
+        var xp = apbeginx + apbetw * (i mod apinline),
+            yp = apbeginy + (i div apinline) * apbetw,
+            ind = 0;
+        if (av &lt; global.AP)
+            ind = 1;
+        draw_sprite_ext(sCrystal, ind, xp, yp, 1, 1, 0, image_blend, 1);
+        av++;
+    }
     break;
 }
 </string>

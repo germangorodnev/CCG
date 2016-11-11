@@ -68,7 +68,7 @@ if (mouse_check_button_released(mb_left))
 if (!active)
     exit;
 if (keyboard_check(vk_anykey))
-    text = keyboard_string;
+    text = string_copy(keyboard_string, 1, min(string_length(keyboard_string), 25));
 global.name = text;
 </string>
           </argument>

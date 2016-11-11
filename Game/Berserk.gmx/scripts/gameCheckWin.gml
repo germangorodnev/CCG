@@ -11,13 +11,20 @@ if (ourC == 0)
 {
     // we lost
     show_message("You are peedor");
-    game_end();
+    gameEnd();
+    global.loses++;
+    saveGame();
+    room_goto(rMainMenu);  
+    exit; 
 }
 if (otherC == 0)
 {
     // we won
     show_message("You are not peedor");
-    game_end();
-
+    gameEnd();
+    global.wins++;
+    saveGame();
+    room_goto(rMainMenu);   
+    exit;
 }
 

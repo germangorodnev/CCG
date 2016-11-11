@@ -13,6 +13,7 @@ else
     var newL = ds_list_create();
     ds_list_add(newL, argument0, argument1);
     ds_list_add(buffs, newL);
+    ds_list_mark_as_list(buffs, 0);
 }   
 
 

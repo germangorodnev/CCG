@@ -29,6 +29,7 @@ enum CARDS
     RITTER = 9,
     PORCHANKA = 10,
     PUS = 11,
+    COOKIE = 12,
     CARDS_COUNT
 };
 
@@ -117,6 +118,8 @@ enum ACTIONS
     SMEMS_BLESSING = 17,
     // PORCHANKA
     PORCHANKA_CORRUPTION = 18,
+    // PECHENKA
+    COOKIE_RUT = 19,
 }
 
 enum EV

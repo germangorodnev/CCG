@@ -78,8 +78,9 @@ opIP = 0; // IP
           <argument>
             <kind>1</kind>
             <string>///Clear
-ds_list_destroy(global.opDeck);
+ds_list_destroy(opDeck);
 buffer_delete(playerBuffer);
+//network_destroy(server);
 </string>
           </argument>
         </arguments>

@@ -9,6 +9,7 @@ else
     var pos = ds_list_find_index(global.opCards, id);
     ds_list_delete(global.opCards, pos);
 }
+
 ds_list_destroy(actions);
 ds_list_destroy(resists);
 ds_list_destroy(debuffs);

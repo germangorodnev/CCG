@@ -204,7 +204,7 @@ for (var i = 0; i &lt; actionsCount; i++)
         draw_rectangle_colour(x1, y1, x2, y2, tC, tC, tC, tC, 1);
     }
 
-    var am = '#' + string(actionMana[i]);
+    var am = '#' + "(" + string(actionMana[i]) + ")";
     var c = tC;
     if (cardId.usesMana)
     {

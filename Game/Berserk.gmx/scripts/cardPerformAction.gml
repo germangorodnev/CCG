@@ -35,11 +35,12 @@ switch (act)
         break;
                             /* PASSIVE */
     case ACTIONS.MUSHROOMS_POISON_PASSIVE:
-        var debuffs = ds_list_create();
+        var dbf = ds_list_create();
         var p = ds_list_create();
         ds_list_add(p, DEBUFFS.POISON, 2, 1);
-        ds_list_add(debuffs, p); 
-        var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, debuffs); 
+        ds_list_add(dbf, p); 
+        //ds_list_mark_as_list(dbf, 0);
+        var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, atkSpd, dbf); 
         a.image_index = 1;
         // - HP
         cardChangeHp(-1);
@@ -53,11 +54,12 @@ switch (act)
         break;
     case ACTIONS.KONCHA_POISON: // poison the enemy
         state = CARD_STATES.PERFORM_ACTION;
-        var debuffs = ds_list_create();
+        var dbf = ds_list_create();
         var p = ds_list_create();
         ds_list_add(p, DEBUFFS.POISON, 2, 1);
-        ds_list_add(debuffs, p); 
-        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, atkSpd, debuffs);
+        ds_list_add(dbf, p); 
+        //ds_list_mark_as_list(dbf, 0);
+        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, atkSpd, dbf);
         s.image_index = 3;
         break;
     // LISA
@@ -69,11 +71,12 @@ switch (act)
         break;
     // MIMIC WILD
     case ACTIONS.MIMIC_WILD_STUN:
-        var debuffs = ds_list_create();
+        var dbf = ds_list_create();
         var p = ds_list_create();
-        ds_list_add(p, DEBUFFS.STUN, 2);
-        ds_list_add(debuffs, p); 
-        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, -1, debuffs);    
+        ds_list_add(p, DEBUFFS.STUN, 1);
+        ds_list_add(dbf, p); 
+        ds_list_mark_as_list(dbf, 0);
+        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, -1, dbf);    
         break;
     // ARMOR HAMMER
     case ACTIONS.ARMOR_HAMMER_USE:
@@ -176,6 +179,16 @@ switch (act)
             cardChangeHp(-1);
         }
         cardDone();
+        break;
+    // PECHENKA
+    case ACTIONS.COOKIE_RUT:
+        state = CARD_STATES.PERFORM_ACTION;
+        var s = instance_create(x, y, oCookieRut);
+        s.pl = player;
+        s.startPl = player;
+        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.parent = id;
+        s.speed = atkSpd;
         break;
     // not implemented
     default:
