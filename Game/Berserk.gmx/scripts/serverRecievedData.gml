@@ -6,6 +6,8 @@ var cmd = buffer_read(buff, buffer_u16);
 switch (cmd)
 {
 case CL_CONNECT_INF:
+    if (opIP == 0)
+        exit;
     // Getting initial information about the player (name, deck)
     opName = buffer_read(buff, buffer_string);
     ds_list_clear(opDeck);

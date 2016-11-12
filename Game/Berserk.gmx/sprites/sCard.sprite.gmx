@@ -33,5 +33,6 @@
     <frame index="10">images\sCard_10.png</frame>
     <frame index="11">images\sCard_11.png</frame>
     <frame index="12">images\sCard_12.png</frame>
+    <frame index="13">images\sCard_13.png</frame>
   </frames>
 </sprite>

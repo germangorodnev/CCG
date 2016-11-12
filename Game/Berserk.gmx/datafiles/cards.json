@@ -301,8 +301,8 @@
 			}
 		],
 		"description": {
-			"Russian": "Грибы. Травят спорами случайного противника",
-			"English": "Mushrooms"
+			"Russian": "Грибы. Травят спорами случайного противника, если нет иного действия",
+			"English": "Mushrooms. Poison random enemy every turn if no other action"
 		},
 		"rarity": 0,
 		"AP": 1,
@@ -802,6 +802,68 @@
 		"description": {
 			"Russian": "Зомбированная печенька",
 			"English": "Zombie-cookie"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 13,
+		"hp": 3,
+		"dmg": 2,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Грибы-гнойники. Травят спорами случайного противника, если нет иного действия",
+			"English": "Mushroompus. Poison random enemy if no other action."
 		},
 		"rarity": 0,
 		"AP": 1,

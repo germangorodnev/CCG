@@ -29,9 +29,9 @@
 image_speed = 0;
 global.haveserver = true;
 
-// Our server creation. It may fail if there is already a server running
 playerBuffer = buffer_create(16384, buffer_fixed, 1);
 
+// Our server creation. It may fail if there is already a server running
 server = network_create_server(global.serverType, 6510, 2);
 if (server &lt; 0)
 {
@@ -54,6 +54,8 @@ opDeck = ds_list_create(); // Deck
 opSocket = -1; // Socket
 opIP = 0; // IP
 
+// broadcast our ip
+alarm[0] = 1 * room_speed;
 
 </string>
           </argument>
@@ -119,6 +121,43 @@ case GAME_STATES.ZERO_TURN:
         alarm[1] = 0.5 * room_speed;
     break;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///IP broadcast
+switch (room)
+{
+case rLobby:
+    if (opIP == 0)
+    {
+        // broadcast our IP
+        buffer_seek(playerBuffer, buffer_seek_start, 0);
+        buffer_write(playerBuffer, buffer_u16, SR_BROADCAST);
+        buffer_write(playerBuffer, buffer_string, global.name);
+        network_send_broadcast(server, 6511, playerBuffer, buffer_tell(playerBuffer));
+    }   
+    break;  
+}   
+alarm[0] = 1 * room_speed;
 </string>
           </argument>
         </arguments>

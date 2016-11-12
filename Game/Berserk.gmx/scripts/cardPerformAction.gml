@@ -75,7 +75,7 @@ switch (act)
         var p = ds_list_create();
         ds_list_add(p, DEBUFFS.STUN, 1);
         ds_list_add(dbf, p); 
-        ds_list_mark_as_list(dbf, 0);
+        //ds_list_mark_as_list(dbf, 0);
         var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, -1, dbf);    
         break;
     // ARMOR HAMMER

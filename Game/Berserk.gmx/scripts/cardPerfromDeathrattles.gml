@@ -6,7 +6,6 @@ for (var i = 0, c = ds_list_size(deathrattles); i < c; i++)
     switch (dt)
     {
     case DEATHRATTLES.CORRUPTION:
-    {
         // create a new card instead of us
         var gn = instance_create(x, y, oCard);
         gn.type = CARDS.PUS;
@@ -18,13 +17,19 @@ for (var i = 0, c = ds_list_size(deathrattles); i < c; i++)
         var myg = cardGetGroup();
         var p = ds_list_find_index(myg, id);
         ds_list_replace(myg, p, gn);
-    }
         break;
     case DEATHRATTLES.KONCHA_MUSHROOMS:
-    {
         var m = instance_create(x, y, oCard);
-        m.type = CARDS.MUSHROOMS;
         m.player = player;
+        if (!cardHasDeathrattle(DEATHRATTLES.CORRUPTION))
+        {
+            m.type = CARDS.MUSHROOMS;
+        }
+        else
+        {
+            // cretae corrupted mushrooms
+            m.type = CARDS.CORRUPTED_MUSHROOMS;
+        }
         with (m)
         {
             cardInit();
@@ -32,7 +37,6 @@ for (var i = 0, c = ds_list_size(deathrattles); i < c; i++)
         var myg = cardGetGroup();
         var p = ds_list_find_index(myg, id);
         ds_list_replace(myg, p, m);  
-    }  
         break;
     }
 }

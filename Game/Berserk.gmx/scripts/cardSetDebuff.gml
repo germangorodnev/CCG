@@ -2,7 +2,9 @@
 switch (argument0[| 0])
 {
 case DEBUFFS.POISON:
-    ds_list_add(debuffs, argument0);
+    var emptyLs = ds_list_create();
+    ds_list_copy(emptyLs, argument0);
+    ds_list_add(debuffs, emptyLs);
     ds_list_mark_as_list(debuffs, ds_list_size(debuffs) - 1);
     break;
 case DEBUFFS.STUN:

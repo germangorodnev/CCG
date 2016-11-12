@@ -16,7 +16,7 @@ with (a)
     if (argument4 != -1)
     {
         ds_list_copy(debuffs, argument4);
-        ds_list_destroy(argument4);
+        gameClearListOfLists(argument4);
     }
     if (argument3 == -1) // instant
     {

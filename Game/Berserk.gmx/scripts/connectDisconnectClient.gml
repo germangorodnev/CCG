@@ -9,7 +9,7 @@ if (t == network_type_connect) // Someone connected
     {
     case rLobby:
         // Someone joined while in the lobby
-        if (ip != "127.0.0.1")
+        if (ip != "127.0.0.1" && opIP == 0)
         {
             opSocket = sock;
             opIP = ip;

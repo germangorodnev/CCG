@@ -8,6 +8,7 @@ case CLIENT_STATES.CHOOSING_CARD:
         choosen = false;
     global.choosenCard = noone;
     global.choosenCardIndex = -1;
+    cursor_sprite = sCursor;
     break;
 case CLIENT_STATES.CHOOSING_ACTION:
     break;

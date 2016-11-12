@@ -35,6 +35,8 @@ canTurn = true;
 ind = 0;
 player = 0;
 borderIndex = 0;
+borderW = sprite_get_width(sCardBorder);
+borderH = sprite_get_height(sCardBorder);
 
 cardPath = path_add();
 
@@ -138,16 +140,48 @@ manaSc = clamp(manaSc - 0.03, 1, 1.5);
 dmgSc = clamp(dmgSc - 0.03, 1, 1.5);
 armorSc = clamp(armorSc - 0.03, 1, 1.5);
 
-switch (player)
-{
-case 0:
-    if (global.AP &lt; AP)
+if (global.gameState != GAME_STATES.PERFORM_ACTIONS)
+    switch (player)
     {
-        shader_set(shdDarkenSprite);
+    case 0:
+        if (global.AP &lt; AP)
+        {
+            shader_set(shdDarkenSprite);
+        }
+        break;
     }
-    break;
-}
+
 draw_self(); // us
+
+// choosen to choose an action
+if (choosen)
+{
+    shader_set(shdOutlineSprite);
+    var size = shader_get_uniform(shdOutlineSprite, "size");
+    shader_set_uniform_f(size, borderW, borderH);
+    var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
+    shader_set_uniform_f(col, 0.0, 0.0, 1.0, 1.0);
+}
+else if ((global.choosenToPerform == id) || (ds_list_size(actions) &gt; 0 &amp;&amp; (player == 0) &amp;&amp; global.gameState == GAME_STATES.CHOOSE_ACTIONS)) // as green
+{
+    shader_set(shdOutlineSprite);
+    var size = shader_get_uniform(shdOutlineSprite, "size");
+    shader_set_uniform_f(size, borderW, borderH);
+    var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
+    shader_set_uniform_f(col, 0.0, 1.0, 0.0, 1.0);
+}
+else if (global.choosenAsTarget == id) // as red
+{
+    shader_set(shdOutlineSprite);
+    var size = shader_get_uniform(shdOutlineSprite, "size");
+    shader_set_uniform_f(size, borderW, borderH);
+    var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
+    shader_set_uniform_f(col, 1.0, 0.0, 0.0, 1.0);    
+}
+
+draw_sprite_ext(sCardBorder, borderIndex, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
+
+shader_reset();
 
 // drawing buffs
 for (var i = 0, c = ds_list_size(buffs); i &lt; c; i++)
@@ -157,43 +191,17 @@ for (var i = 0, c = ds_list_size(buffs); i &lt; c; i++)
 }
 
 // drawing debuffs
-for (var i = 0, c = ds_list_size(debuffs); i &lt; c; i++)
+for (var j = 0, c = ds_list_size(debuffs); j &lt; c; j++)
 {
-    var spr = cardGetDebuffIndexByEnum(ds_list_find_value(ds_list_find_value(debuffs, i), 0));
-    draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha / 2);
+    var spr = cardGetDebuffIndexByEnum(ds_list_find_value(ds_list_find_value(debuffs, j), 0));
+    draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha / 2);
 }
 
 // drawing deathrattles
 for (var i = 0; i &lt; deathrattlesCnt; i++)
 {
-    draw_sprite_ext(deathrattlesIcons[i], 0, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+    draw_sprite_ext(deathrattlesIcons[i], 0, x, y + lengthdir_y(50, 270 + image_angle), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 }
-
-
-// choosen to choose an action
-if (choosen)
-{
-    shader_set(shdOutlineSprite);
-    var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
-    shader_set_uniform_f(col, 0.0, 0.0, 1.0, 1.0);
-}
-else if ((global.choosenToPerform == id) || (ds_list_size(actions) &gt; 0 &amp;&amp; (player == 0) &amp;&amp; global.gameState == GAME_STATES.CHOOSE_ACTIONS)) // as green
-{
-    shader_set(shdOutlineSprite);
-    var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
-    shader_set_uniform_f(col, 0.0, 1.0, 0.0, 1.0);
-}
-else if (global.choosenAsTarget == id) // as red
-{
-    shader_set(shdOutlineSprite);
-    var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
-    shader_set_uniform_f(col, 1.0, 0.0, 0.0, 1.0);    
-}
-
-draw_sprite_ext(sCardBorder, borderIndex, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
-
-
-shader_reset();
 
 
 

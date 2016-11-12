@@ -4,7 +4,7 @@
   <width>1280</width>
   <height>720</height>
   <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -30,6 +30,7 @@ enum CARDS
     PORCHANKA = 10,
     PUS = 11,
     COOKIE = 12,
+    CORRUPTED_MUSHROOMS = 13,
     CARDS_COUNT
 };
 
@@ -172,6 +173,7 @@ enum EV
     <instance objName="oConnectToServer" x="640" y="320" name="inst_81F20F7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oServerIPbox" x="512" y="224" name="inst_57A65690" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oMakeDeck" x="1184" y="64" name="inst_4B47DF24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oServerList" x="16" y="0" name="inst_42AF2012" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

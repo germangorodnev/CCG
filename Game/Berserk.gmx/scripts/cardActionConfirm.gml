@@ -19,6 +19,7 @@ case ACTIONS.JOJN_SWORD_STRIKE:
 switch (type)
 {
 case CARDS.MUSHROOMS: // random target
+case CARDS.CORRUPTED_MUSHROOMS:
     if (ds_list_empty(actions))
     {
          // set the random poison

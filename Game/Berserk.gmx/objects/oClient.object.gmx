@@ -393,6 +393,8 @@ case rGame:
     {
         if (global.choosenAsTarget != noone)
         {
+            if (instance_exists(global.choosenToPerform) &amp;&amp; instance_exists(global.choosenAsTarget))
+            {
             if (global.choosenToPerform != global.choosenAsTarget)
             {
                 var objFrom = global.choosenToPerform,
@@ -416,6 +418,7 @@ case rGame:
             {
                 var objFrom = global.choosenToPerform;
                 draw_sprite_ext(sAttackIcons, global.attackTypeIndex, objFrom.x, objFrom.y, 1, 1, 0, global.attackTypeCol, 1);            
+            }
             }
         }
     };

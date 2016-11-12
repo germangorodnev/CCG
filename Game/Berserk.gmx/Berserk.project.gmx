@@ -91,6 +91,7 @@
         <script>scripts\cardIncreaseMaxStat.gml</script>
       </scripts>
       <scripts name="Utility">
+        <script>scripts\cardIsPlayable.gml</script>
         <script>scripts\cardGetGroup.gml</script>
         <script>scripts\cardGetIconIndexByAttackIndex.gml</script>
         <script>scripts\cardGetArrIndexByEnum.gml</script>
@@ -98,7 +99,6 @@
         <script>scripts\cardGetDebuffIndexByEnum.gml</script>
         <script>scripts\cardGetActionInstant.gml</script>
         <script>scripts\cardTryToSteal.gml</script>
-        <script>scripts\cardIsPlayable.gml</script>
         <script>scripts\cardFindDeathrattleIcon.gml</script>
       </scripts>
       <scripts name="Buffs">
@@ -113,6 +113,7 @@
       <scripts name="Deathrattles">
         <script>scripts\cardAddDeathrattle.gml</script>
         <script>scripts\cardPerfromDeathrattles.gml</script>
+        <script>scripts\cardHasDeathrattle.gml</script>
       </scripts>
       <scripts name="Battlecries">
         <script>scripts\cardPerformBattlecry.gml</script>
@@ -171,6 +172,7 @@
       <script>scripts\gameCheckWin.gml</script>
       <script>scripts\gameGetCardsDatabase.gml</script>
       <script>scripts\gameEnd.gml</script>
+      <script>scripts\gameClearListOfLists.gml</script>
     </scripts>
     <script>scripts\mouseOnUs.gml</script>
     <script>scripts\drawTextOutline.gml</script>
@@ -215,6 +217,7 @@
       <object>objects\oConnectToServer</object>
       <object>objects\oServerIPbox</object>
       <object>objects\oMakeDeck</object>
+      <object>objects\oServerList</object>
     </objects>
     <objects name="Lobby">
       <object>objects\oChatbox</object>
@@ -242,7 +245,7 @@
     <constant name="CL_RESPOND">4</constant>
     <constant name="CL_ENDED_ACTION_PERFORM">5</constant>
     <constant name="for_server">__________</constant>
-    <constant name="SR_ADDOBJECT">0</constant>
+    <constant name="SR_BROADCAST">0</constant>
     <constant name="SR_CHAT_FRASE">1</constant>
     <constant name="SR_TO_NEXT_ROOM">2</constant>
     <constant name="SR_GAME_INIT">3</constant>
