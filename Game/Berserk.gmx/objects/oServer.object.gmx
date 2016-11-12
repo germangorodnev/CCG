@@ -49,7 +49,6 @@ global.playerDone = false;
 global.opDone = false;
 
 // Other player's information
-opName = "Player"; // Name
 opDeck = ds_list_create(); // Deck
 opSocket = -1; // Socket
 opIP = 0; // IP

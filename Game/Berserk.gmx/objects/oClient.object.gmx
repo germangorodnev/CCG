@@ -82,7 +82,11 @@ chatMaxW = 900;
 chatMaxH = 348;
 chatSep = 20;
 
-
+n1x = 42;
+n1y = 428;
+n2y = 300;
+nC = c_white;
+oC = c_black;
 
 </string>
           </argument>
@@ -387,6 +391,9 @@ case rLobby:
 case rGame:  
     // Names
     draw_set_font(fGame);
+    draw_set_halign(fa_left);
+    drawTextOutline(n1x, n1y, global.name, nC, oC, 1, 1, 0, 1); // our name
+    drawTextOutline(n1x, n2y, global.opName, nC, oC, 1, 1, 0, 1); // enemy name    
     
     // Arrow to target
     if (global.choosenToPerform != noone)

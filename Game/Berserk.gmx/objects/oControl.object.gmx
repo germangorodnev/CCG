@@ -47,6 +47,7 @@ global.serverType = network_socket_tcp;
 
 // Nickname
 global.name = "Player";
+global.opName = "None"; // Name
 
 // Deck
 global.deck = ds_list_create(); // LIST OF CARDS (CARDS enum)

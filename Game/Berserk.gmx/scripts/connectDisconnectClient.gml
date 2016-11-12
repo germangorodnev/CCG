@@ -31,20 +31,20 @@ else if (t == network_type_disconnect) // Someone went away
     switch (room)
     {
     case rLobby: // just discard him
-        var n = opName
+        var n = global.opName;
         with (oClient)
         {
             addChatFrase("Player disconnected", n);
         }
         ds_list_clear(opDeck);
-        opName = "Player";
+        global.opName = "Player";
         opIP = 0;
         opSocket = -1;
         global.client = -1;
         break;
     case rGame:  // we won
         ds_list_clear(opDeck);
-        opName = "Player";
+        global.opName = "Player";
         opIP = 0;
         opSocket = -1;
         global.client = -1;

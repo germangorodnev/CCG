@@ -23,7 +23,9 @@
     </datafile>
   </datafiles>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sndChat</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Cards">
       <sprite>sprites\sCard</sprite>

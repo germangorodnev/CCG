@@ -9,10 +9,10 @@ case CL_CONNECT_INF:
     if (opIP == 0)
         exit;
     // Getting initial information about the player (name, deck)
-    opName = buffer_read(buff, buffer_string);
+    global.opName = buffer_read(buff, buffer_string);
     ds_list_clear(opDeck);
     ds_list_read(opDeck, buffer_read(buff, buffer_string));
-    var n = opName;
+    var n = global.opName;
     with (oClient)
     {
         addChatFrase("New player connected", n);
