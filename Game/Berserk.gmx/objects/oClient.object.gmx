@@ -35,21 +35,25 @@ client = network_create_socket(global.serverType);
 // Remember this socket ID so the server can ignore it
 global.client = client;
 
+// List of Phrases in chat
+chat = ds_list_create();
+
+
 // Server connection
 var err = network_connect(client, global.connectip, 6510);
 if (err != 0)
 {
     // We can't :(
     show_debug_message("Cannot connect to server!");
-    game_restart();
+    instance_destroy();
+    room_goto(rMainMenu);
+    exit;
 }
-
-// List of Phrases in chat
-chat = ds_list_create();
 
 // Client has connected, so send out name to server
 sendOnStart();
 alarm[0] = 2 * room_speed;
+
 
 // In-game
 //DATABASE
@@ -114,7 +118,8 @@ oC = c_black;
 ds_list_destroy(chat);
 ds_list_destroy(global.cards);
 ds_list_destroy(global.opCards);
-
+buffer_delete(buff);
+network_destroy(client);
 </string>
           </argument>
         </arguments>
@@ -439,6 +444,9 @@ case rGame:
             ind = 0;
         if (av &lt; global.AP)
             ind = 1;
+        if (global.choosenCard != noone)
+            if (global.AP - av &lt;= global.choosenCard.AP)
+                ind = 2;
         draw_sprite_ext(sCrystal, ind, xp, yp, 1, 1, 0, image_blend, 1);
         av++;
     }

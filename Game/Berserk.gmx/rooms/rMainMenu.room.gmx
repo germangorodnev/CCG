@@ -3,7 +3,7 @@
   <caption></caption>
   <width>1280</width>
   <height>720</height>
-  <vsnap>32</vsnap>
+  <vsnap>16</vsnap>
   <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
@@ -11,10 +11,8 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>/// ENUMS
-with (oServer)
-    instance_destroy();
-with (oClient)
-    instance_destroy();
+global.haveserver = false; 
+
 enum CARDS
 {
     KONCHA = 0,
@@ -172,8 +170,9 @@ enum EV
     <instance objName="oNamebox" x="512" y="480" name="inst_DCBB497A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oConnectToServer" x="640" y="320" name="inst_81F20F7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oServerIPbox" x="512" y="224" name="inst_57A65690" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oMakeDeck" x="1184" y="64" name="inst_4B47DF24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oMakeDeck" x="1200" y="48" name="inst_4B47DF24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oServerList" x="16" y="0" name="inst_42AF2012" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oOpenPacks" x="1200" y="128" name="inst_715F2891" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

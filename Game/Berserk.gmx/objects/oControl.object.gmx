@@ -28,6 +28,8 @@
             <string>///Main data
 randomize();
 
+global.deckNumb = 0;
+
 cursor_sprite = sCursor;
 
 global.guiW = 1280;
@@ -50,7 +52,15 @@ global.name = "Player";
 global.opName = "None"; // Name
 
 // Deck
+global.decks = ds_list_create();
+global.decksCount = 0;
 global.deck = ds_list_create(); // LIST OF CARDS (CARDS enum)
+
+global.packs3 = 1;
+global.packs5 = 1;
+
+// ALL CARDS IN OUR COLLECTION
+global.collection = ds_list_create();
 
 // GAME CONTROL VARIABLES
 global.gameState = GAME_STATES.CARD_PREPARE;
@@ -60,7 +70,8 @@ global.turnDuration = 60;
 loadGame();
 
 // DEBUG
-ds_list_clear(global.deck);
+ds_list_clear(global.decks);
+var newD = ds_list_create();
 for (var i = 0; i &lt; 30; i++)
 {
     var r = irandom(CARDS.CARDS_COUNT - 1);
@@ -68,8 +79,13 @@ for (var i = 0; i &lt; 30; i++)
     {
         r = irandom(CARDS.CARDS_COUNT - 1);
     }
-    ds_list_add(global.deck, r);
+    ds_list_add(newD, r);
 }
+ds_list_add(global.decks, newD);
+
+global.packs3 = 1;
+global.packs5 = 1;
+
 
 </string>
           </argument>
@@ -156,6 +172,12 @@ room_goto(rLobby);
             <string>///Game variables initialising 
 switch (room)
 {
+case rMainMenu:
+    with (oServer)
+        instance_destroy();
+    with (oClient)
+        instance_destroy();
+    break;
 case rGame:
     global.gameState = GAME_STATES.CARD_PREPARE;
     break;

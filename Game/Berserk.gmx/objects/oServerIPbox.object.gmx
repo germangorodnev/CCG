@@ -27,16 +27,10 @@
             <kind>1</kind>
             <string>///Can enter your nickname here
 image_speed = 0;
-beginText = "192.168.0.100";
+beginText = "192.168.0.101";
 text = beginText;
 active = false;
 
-var answ = show_question("Are you Coole?");
-if (answ)
-{
-    text = "10.66.236.3";
-    global.name = "Coole";
-}
 </string>
           </argument>
         </arguments>

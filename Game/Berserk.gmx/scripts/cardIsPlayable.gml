@@ -1,4 +1,4 @@
-///cardIsUnplayable(CARDS ind)
+///cardIsPlayable(CARDS ind)
 switch (argument0)
 {
 case CARDS.MUSHROOMS:

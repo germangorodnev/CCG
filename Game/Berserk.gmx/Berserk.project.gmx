@@ -22,7 +22,9 @@
       <filename>cards.json</filename>
     </datafile>
   </datafiles>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Multiplayer without open ports</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\sndChat</sound>
   </sounds>
@@ -61,6 +63,12 @@
     <sprites name="Dt icons">
       <sprite>sprites\sDtIco</sprite>
     </sprites>
+    <sprites name="Decks">
+      <sprite>sprites\sDeck</sprite>
+    </sprites>
+    <sprites name="Boosters">
+      <sprite>sprites\sBooster</sprite>
+    </sprites>
     <sprite>sprites\sNewTurn</sprite>
     <sprite>sprites\sAttackIcons</sprite>
     <sprite>sprites\sInstant</sprite>
@@ -94,6 +102,7 @@
       </scripts>
       <scripts name="Utility">
         <script>scripts\cardIsPlayable.gml</script>
+        <script>scripts\cardGetRarity.gml</script>
         <script>scripts\cardGetGroup.gml</script>
         <script>scripts\cardGetIconIndexByAttackIndex.gml</script>
         <script>scripts\cardGetArrIndexByEnum.gml</script>
@@ -175,11 +184,21 @@
       <script>scripts\gameGetCardsDatabase.gml</script>
       <script>scripts\gameEnd.gml</script>
       <script>scripts\gameClearListOfLists.gml</script>
+      <script>scripts\cardGetTypeFromBooster.gml</script>
+    </scripts>
+    <scripts name="Deck making">
+      <script>scripts\dmCreateCards.gml</script>
+      <script>scripts\dmCardInit.gml</script>
+    </scripts>
+    <scripts name="Pack opening">
+      <script>scripts\packOpen.gml</script>
+      <script>scripts\packGetRandomCardType.gml</script>
     </scripts>
     <script>scripts\mouseOnUs.gml</script>
     <script>scripts\drawTextOutline.gml</script>
     <script>scripts\databasesInit.gml</script>
     <script>scripts\databasesClear.gml</script>
+    <script>scripts\getFraseLang.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdDarkenSprite.shader</shader>
@@ -219,7 +238,9 @@
       <object>objects\oConnectToServer</object>
       <object>objects\oServerIPbox</object>
       <object>objects\oMakeDeck</object>
+      <object>objects\oOpenPacks</object>
       <object>objects\oServerList</object>
+      <object>objects\oBack</object>
     </objects>
     <objects name="Lobby">
       <object>objects\oChatbox</object>
@@ -231,10 +252,19 @@
       <object>objects\oNewTurn</object>
       <object>objects\oFrasePopup</object>
     </objects>
+    <objects name="Deck making">
+      <object>objects\oCardCollectionContoller</object>
+      <object>objects\oCardDeck</object>
+    </objects>
+    <objects name="PackOpening">
+      <object>objects\oPackOpener</object>
+      <object>objects\oPack</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rMainMenu</room>
     <room>rooms\rDeckMake</room>
+    <room>rooms\rOpenPack</room>
     <room>rooms\rLobby</room>
     <room>rooms\rGame</room>
   </rooms>
