@@ -54,7 +54,7 @@ global.opName = "None"; // Name
 // Deck
 global.decks = ds_list_create();
 global.decksCount = 0;
-global.deck = ds_list_create(); // LIST OF CARDS (CARDS enum)
+global.deck = 0;
 
 global.packs3 = 1;
 global.packs5 = 1;
@@ -69,6 +69,20 @@ global.turnDuration = 60;
 
 loadGame();
 
+// Particles
+global.packOpenPs = part_system_create();
+part_system_depth(global.packOpenPs, -100);
+global.randomMLG = part_type_create();
+part_type_shape(global.randomMLG, pt_shape_circle);
+part_type_sprite(global.randomMLG, sMLG, false, false, true);
+part_type_speed(global.randomMLG, 3, 14, 0.1, 0.5);
+//part_type_gravity(global.randomMLG, 1, 270);
+part_type_alpha2(global.randomMLG, 1, 0.1);
+part_type_life(global.randomMLG, room_speed / 4, room_speed / 2);
+part_type_size(global.randomMLG, 1, 2, 0, 0);
+part_type_direction(global.randomMLG, 0, 360, 0, 20);
+part_type_orientation(global.randomMLG, 0, 360, 15, 20, false);
+
 // DEBUG
 ds_list_clear(global.decks);
 var newD = ds_list_create();
@@ -82,10 +96,32 @@ for (var i = 0; i &lt; 30; i++)
     ds_list_add(newD, r);
 }
 ds_list_add(global.decks, newD);
-
-global.packs3 = 1;
-global.packs5 = 1;
-
+global.deck = newD;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clear
+part_system_destroy(global.packOpenPs);
+part_type_destroy(global.randomMLG);
 
 </string>
           </argument>

@@ -34,5 +34,7 @@
     <frame index="11">images\sMenuButtons_11.png</frame>
     <frame index="12">images\sMenuButtons_12.png</frame>
     <frame index="13">images\sMenuButtons_13.png</frame>
+    <frame index="14">images\sMenuButtons_14.png</frame>
+    <frame index="15">images\sMenuButtons_15.png</frame>
   </frames>
 </sprite>

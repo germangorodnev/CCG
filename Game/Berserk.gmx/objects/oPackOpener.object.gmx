@@ -37,22 +37,26 @@ bx = 112;
 b5y = 176;
 b3y = room_height - b5y;
 
+xc = global.guiW / 2 + 150;
+yc = global.guiH / 2;
+
 // create the boosters
 if (global.packs5 &gt; 0 &amp;&amp; !global.packs3)
 {
-    var a = instance_create(bx, b5y, oPack);
+    var a = instance_create(bx, yc, oPack);
     a.type = 5;
+    a.image_index = 1;
     a.count = global.packs5;
     a.cnt = string(global.packs5);
 }
 else if (global.packs3 &gt; 0 &amp;&amp; !global.packs5)
 {
-    var a = instance_create(bx, b3y, oPack);
+    var a = instance_create(bx, yc, oPack);
     a.type = 3;
     a.count = global.packs3;
     a.cnt = string(global.packs3);
 }
-else
+else if (global.packs3 &gt; 0 &amp;&amp; global.packs5 &gt; 0)
 {
     var a = instance_create(bx, b3y, oPack);
     a.type = 3;
@@ -61,9 +65,11 @@ else
 
     a = instance_create(bx, b5y, oPack);
     a.type = 5;
+    a.image_index = 1;
     a.count = global.packs5;
     a.cnt = string(global.packs5);
 }
+
 
 </string>
           </argument>

@@ -30,6 +30,9 @@ image_speed = 0;
 type = 0; // type in enum CARDS
 mode = 0;
 
+xscN = 1;
+yscN = 1;
+
 desc = ""; // Description
 actionsCount = 4;
 actionsNames[3] = ""; // actual name of action
@@ -47,6 +50,60 @@ mana = 0;
 AP = 0;
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Some actions
+switch (mode) 
+{
+case 0: // in deck making
+    break;
+case 1: // in pack opening
+    var xd = xscN - image_xscale,
+        yd = yscN - image_yscale;
+    if (xd != 0)
+    {
+        image_xscale += min(abs(xd), 0.15) * sign(xd);
+    }
+    if (yd != 0)
+    {
+        image_yscale += min(abs(yd), 0.15) * sign(yd);
+    }
+    break;
+case 2:
+    var xd = xscN - image_xscale,
+        yd = yscN - image_yscale;
+    if (xd != 0)
+    {
+        image_xscale += min(abs(xd), 0.15) * sign(xd);
+    }
+    if (yd != 0)
+    {
+        image_yscale += min(abs(yd), 0.15) * sign(yd);
+    }
+    if (image_xscale &lt; 0.05)
+        instance_destroy();
+    break;
+}
 </string>
           </argument>
         </arguments>

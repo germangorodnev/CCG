@@ -26,6 +26,11 @@
     <extension index="0">extensions\Multiplayer without open ports</extension>
   </NewExtensions>
   <sounds name="sound">
+    <sounds name="Pack Openin">
+      <sound>sound\sndBOOM</sound>
+      <sound>sound\sndTRIPLE</sound>
+      <sound>sound\sndHorn</sound>
+    </sounds>
     <sound>sound\sndChat</sound>
   </sounds>
   <sprites name="sprites">
@@ -69,11 +74,16 @@
     <sprites name="Boosters">
       <sprite>sprites\sBooster</sprite>
     </sprites>
+    <sprites name="MLG">
+      <sprite>sprites\sMLG</sprite>
+    </sprites>
     <sprite>sprites\sNewTurn</sprite>
     <sprite>sprites\sAttackIcons</sprite>
     <sprite>sprites\sInstant</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Load">
@@ -208,6 +218,7 @@
     <font>fonts\f0</font>
     <font>fonts\fGame</font>
     <font>fonts\fParams</font>
+    <font>fonts\fPackNumber</font>
   </fonts>
   <objects name="objects">
     <objects name="Client">
@@ -259,6 +270,7 @@
     <objects name="PackOpening">
       <object>objects\oPackOpener</object>
       <object>objects\oPack</object>
+      <object>objects\oOk</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -444,14 +444,16 @@ case rGame:
             ind = 0;
         if (av &lt; global.AP)
             ind = 1;
-        if (global.choosenCard != noone)
-            if (global.AP - av &lt;= global.choosenCard.AP)
-                ind = 2;
+        if (global.gameState == GAME_STATES.CHOOSE_ACTIONS)
+            if (global.choosenCard != noone)
+                if (global.AP - av == median(1, global.AP - av, global.choosenCard.AP))
+                    ind = 2;
         draw_sprite_ext(sCrystal, ind, xp, yp, 1, 1, 0, image_blend, 1);
         av++;
     }
     break;
 }
+
 </string>
           </argument>
         </arguments>

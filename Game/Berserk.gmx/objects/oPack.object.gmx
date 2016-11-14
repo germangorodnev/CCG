@@ -29,11 +29,37 @@
 image_speed = 0;
 type = 0; //5 \ 3
 drag = false;
-half = sprite_height / 2 + 30;
+half = sprite_height / 2 - 50;
 cnt = 0;
 ci = c_white;
 co = c_black;
+// Particles
+em = part_emitter_create(global.packOpenPs);
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clear
+part_emitter_destroy(global.packOpenPs, em);
 </string>
           </argument>
         </arguments>
@@ -68,7 +94,9 @@ if (drag)
             // open
             packOpen();
             if (count == 0) // no more packs such type
+            {
                 instance_destroy();
+            }
         } 
         with (oPack)
         {
@@ -82,6 +110,11 @@ else
 {
     if (mouse_check_button_pressed(mb_left))
     {
+        if (instance_exists(oCardDeck))
+        {
+            drag = false;
+            exit;
+        }
         if (mouseOnUs())
         {
             with (oPack)
@@ -118,7 +151,8 @@ else
             <kind>1</kind>
             <string>///Count
 draw_self();
-draw_set_font(fGame);
+draw_set_font(fPackNumber);
+draw_set_valign(fa_middle);
 drawTextOutline(x, y + half, cnt, ci, co, 1, 1, image_angle, 1);
 </string>
           </argument>
