@@ -28,7 +28,7 @@
             <string>///Draw the border
 x1 = 0;
 y1 = 0;
-x2 = 300;
+x2 = 240;
 y2 = global.guiH;
 rc = make_colour_rgb(186, 95, 20);
 rco = c_black;

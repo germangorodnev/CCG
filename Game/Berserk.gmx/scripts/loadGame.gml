@@ -36,4 +36,7 @@ ds_list_read(global.collection, c);
 global.packs3 = file_text_read_real(f); file_text_readln(f);
 global.packs5 = file_text_read_real(f); file_text_readln(f);
 
+// money
+global.money = file_text_read_real(f); file_text_readln(f);
+
 file_text_close(f);

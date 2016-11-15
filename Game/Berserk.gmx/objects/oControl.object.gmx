@@ -28,7 +28,6 @@
             <string>///Main data
 randomize();
 
-global.deckNumb = 0;
 
 cursor_sprite = sCursor;
 
@@ -52,12 +51,17 @@ global.name = "Player";
 global.opName = "None"; // Name
 
 // Deck
+global.deckNumb = 0;
 global.decks = ds_list_create();
 global.decksCount = 0;
 global.deck = 0;
 
-global.packs3 = 1;
-global.packs5 = 1;
+// Boosters
+global.packs3 = 10;
+global.packs5 = 10;
+
+// MONEY
+global.money = 0;
 
 // ALL CARDS IN OUR COLLECTION
 global.collection = ds_list_create();
@@ -67,7 +71,18 @@ global.gameState = GAME_STATES.CARD_PREPARE;
 global.cardsOnBoard = 20; // for each player
 global.turnDuration = 60;
 
+// SELLOUT
+global.sellout = false;
+global.selloutStr = "";
+global.newSelloutStr = "";
+
+//////////////////////////////// LOAD /////////////////////////////
 loadGame();
+loadSellout();
+
+global.money = 100000;
+
+req = http_get("http://stickmangames.net16.net/index.php?sellout=1");
 
 // Particles
 global.packOpenPs = part_system_create();
@@ -82,6 +97,7 @@ part_type_life(global.randomMLG, room_speed / 4, room_speed / 2);
 part_type_size(global.randomMLG, 1, 2, 0, 0);
 part_type_direction(global.randomMLG, 0, 360, 0, 20);
 part_type_orientation(global.randomMLG, 0, 360, 15, 20, false);
+
 
 // DEBUG
 ds_list_clear(global.decks);
@@ -188,6 +204,50 @@ room_goto(rLobby);
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="62">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Getting response
+if (ds_map_find_value(async_load, "id") == req)
+{
+    if (ds_map_find_value(async_load, "status") == 0)
+    {
+        //now parsing
+        var js = async_load[? "result"];
+        global.newSelloutStr = string_copy(js, 1, string_pos("&lt;!--", js) - 3);
+    }
+    else
+        show_debug_message("NopeStatus: " + string(async_load[? "status"]));
+}
+else
+    show_debug_message("NopeId: " + string(cardId));
+    
+if (global.newSelloutStr != global.selloutStr) // we've got new sellout 
+{
+    global.sellout = true;
+    show_debug_message(global.selloutStr + ":" + global.newSelloutStr + ";");
+}
+else
+    global.sellout = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
@@ -206,6 +266,7 @@ room_goto(rLobby);
           <argument>
             <kind>1</kind>
             <string>///Game variables initialising 
+draw_texture_flush();
 switch (room)
 {
 case rMainMenu:
@@ -218,6 +279,29 @@ case rGame:
     global.gameState = GAME_STATES.CARD_PREPARE;
     break;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>saveGame();
 </string>
           </argument>
         </arguments>

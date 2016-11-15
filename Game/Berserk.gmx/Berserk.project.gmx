@@ -30,6 +30,7 @@
       <sound>sound\sndBOOM</sound>
       <sound>sound\sndTRIPLE</sound>
       <sound>sound\sndHorn</sound>
+      <sound>sound\sndDAMN</sound>
     </sounds>
     <sound>sound\sndChat</sound>
   </sounds>
@@ -73,9 +74,14 @@
     </sprites>
     <sprites name="Boosters">
       <sprite>sprites\sBooster</sprite>
+      <sprite>sprites\sRareLeg</sprite>
     </sprites>
     <sprites name="MLG">
       <sprite>sprites\sMLG</sprite>
+    </sprites>
+    <sprites name="Shop">
+      <sprite>sprites\sSellout</sprite>
+      <sprite>sprites\sBorder</sprite>
     </sprites>
     <sprite>sprites\sNewTurn</sprite>
     <sprite>sprites\sAttackIcons</sprite>
@@ -89,6 +95,10 @@
     <scripts name="Load">
       <script>scripts\loadGame.gml</script>
       <script>scripts\saveGame.gml</script>
+      <scripts name="Load Sellout">
+        <script>scripts\loadSellout.gml</script>
+        <script>scripts\saveSellout.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Cards">
       <scripts name="Actions">
@@ -195,6 +205,7 @@
       <script>scripts\gameEnd.gml</script>
       <script>scripts\gameClearListOfLists.gml</script>
       <script>scripts\cardGetTypeFromBooster.gml</script>
+      <script>scripts\gameAddCardToCollection.gml</script>
     </scripts>
     <scripts name="Deck making">
       <script>scripts\dmCreateCards.gml</script>
@@ -203,6 +214,9 @@
     <scripts name="Pack opening">
       <script>scripts\packOpen.gml</script>
       <script>scripts\packGetRandomCardType.gml</script>
+    </scripts>
+    <scripts name="Shopping">
+      <script>scripts\shopBuyThing.gml</script>
     </scripts>
     <script>scripts\mouseOnUs.gml</script>
     <script>scripts\drawTextOutline.gml</script>
@@ -219,6 +233,7 @@
     <font>fonts\fGame</font>
     <font>fonts\fParams</font>
     <font>fonts\fPackNumber</font>
+    <font>fonts\fBigNumbs</font>
   </fonts>
   <objects name="objects">
     <objects name="Client">
@@ -252,6 +267,7 @@
       <object>objects\oOpenPacks</object>
       <object>objects\oServerList</object>
       <object>objects\oBack</object>
+      <object>objects\oShop</object>
     </objects>
     <objects name="Lobby">
       <object>objects\oChatbox</object>
@@ -272,11 +288,18 @@
       <object>objects\oPack</object>
       <object>objects\oOk</object>
     </objects>
+    <objects name="Shop">
+      <object>objects\oShopController</object>
+      <object>objects\oPurchase</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rMainMenu</room>
-    <room>rooms\rDeckMake</room>
-    <room>rooms\rOpenPack</room>
+    <rooms name="Menu">
+      <room>rooms\rDeckMake</room>
+      <room>rooms\rOpenPack</room>
+      <room>rooms\rShop</room>
+    </rooms>
     <room>rooms\rLobby</room>
     <room>rooms\rGame</room>
   </rooms>

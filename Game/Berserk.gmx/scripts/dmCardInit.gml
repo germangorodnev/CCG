@@ -46,5 +46,8 @@ if (c > 0)
         ds_list_add(resists, ds_list_find_value(ourParams[? "resists"], i));
     }
 }*/
-
+ds_list_destroy(actionsIndexes);
+ds_list_destroy(actionsList);
+ds_list_destroy(objects);
+ds_map_destroy(json);
 

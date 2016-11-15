@@ -1,57 +1,63 @@
 var xb = oPackOpener.xc,
     yb = oPackOpener.yc - 75,
     l = 200;
-switch (type)
+var angle = 50, 
+    anglePlus = 120;
+    
+if (type == 5)
 {
-case 3: //  three cards
-    var angle = 50;
-    repeat (3)
+    angle = 90;
+    anglePlus = 72;
+}
+
+repeat (type)
+{
+    var c = instance_create(xb + lengthdir_x(l, angle), yb + lengthdir_y(l, angle), oCardDeck);
+    var t = packGetRandomCardType(type);
+    c.type = t;
+    c.mode = 1;
+    c.image_xscale = 0.05;
+    c.image_yscale = 0.05;
+    c.xscN = 1;
+    c.yscN = 1;
+    with (c)
+        dmCardInit();
+    var rarity = c.rarity;
+    // MLG
+    part_emitter_region(global.packOpenPs, em, c.x, c.x, c.y, c.y, ps_shape_ellipse, ps_distr_invgaussian);
+    part_emitter_burst(global.packOpenPs, em, global.randomMLG, 20 * rarity);
+    if (rarity == 1)
     {
-        var c = instance_create(xb + lengthdir_x(l, angle), yb + lengthdir_y(l, angle), oCardDeck);
-        c.type = packGetRandomCardType(3);
-        c.mode = 1;
-        c.image_xscale = 0.05;
-        c.image_yscale = 0.05;
-        c.xscN = 1;
-        c.yscN = 1;
-        // MLG
-        part_emitter_region(global.packOpenPs, em, c.x, c.x, c.y, c.y, ps_shape_ellipse, ps_distr_invgaussian);
-        part_emitter_burst(global.packOpenPs, em, global.randomMLG, 20 * c.type);
-        with (c)
-            dmCardInit();
-        angle += 120;   
-        if (c.type >= 1)
+        if (!audio_is_playing(sndHorn))
             audio_play_sound(sndHorn, 100, false);
     }
+    else if (rarity == 2)
+    {
+        if (!audio_is_playing(sndDAMN))
+            audio_play_sound(sndDAMN, 100, false);        
+    }
+    else
+    {        
+        if (!audio_is_playing(sndBOOM))
+            audio_play_sound(sndBOOM, 100, 0);
+    }
+    gameAddCardToCollection(t, 1);
+    angle += anglePlus;   
+}
+
+switch (type)
+{
+case 3:
     global.packs3--;
-    count--;
-    cnt = string(count);
-    audio_play_sound(sndTRIPLE, 100, false);
     break;
 case 5:
-    var angle = 90;
-    repeat (5)
-    {
-        var c = instance_create(xb + lengthdir_x(l, angle), yb + lengthdir_y(l, angle), oCardDeck);
-        c.type = packGetRandomCardType(5);
-        c.mode = 1;
-        c.image_xscale = 0.05;
-        c.image_yscale = 0.05;
-        c.xscN = 1;
-        c.yscN = 1;
-        // MLG
-        part_emitter_region(global.packOpenPs, em, c.x, c.x, c.y, c.y, ps_shape_ellipse, ps_distr_invgaussian);
-        part_emitter_burst(global.packOpenPs, em, global.randomMLG, 10 * c.type);
-        with (c)
-            dmCardInit();
-        angle += 72;   
-    }
     global.packs5--;
-    count--;
-    cnt = string(count);
     break;
 }
+
+count--;
+cnt = string(count);
+
 // OK BT
 instance_create(xb, yb + 320, oOk);
-audio_play_sound(sndBOOM, 100, 0);
-
+saveGame();

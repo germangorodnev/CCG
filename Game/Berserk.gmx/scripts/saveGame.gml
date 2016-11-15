@@ -23,4 +23,7 @@ file_text_write_string(f, ds_list_write(global.collection)); file_text_writeln(f
 file_text_write_real(f, global.packs3); file_text_writeln(f);
 file_text_write_real(f, global.packs5); file_text_writeln(f);
 
+// money
+file_text_write_real(f, global.money); file_text_writeln(f);
+
 file_text_close(f);

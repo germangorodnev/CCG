@@ -30,6 +30,8 @@ image_speed = 0;
 type = 0; // type in enum CARDS
 mode = 0;
 
+ang = 0;
+
 xscN = 1;
 yscN = 1;
 
@@ -50,6 +52,32 @@ mana = 0;
 AP = 0;
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>actionsNames = 0;
+actionsIndex = 0;
+actionsMana= 0;
+part_particles_clear(global.packOpenPs);
 </string>
           </argument>
         </arguments>
@@ -100,8 +128,12 @@ case 2:
     {
         image_yscale += min(abs(yd), 0.15) * sign(yd);
     }
-    if (image_xscale &lt; 0.05)
+    image_alpha -= 0.05;
+    if (image_alpha &lt; 0.1)
+    {
+        //part_type_clear(global.packOpenPs);
         instance_destroy();
+    }
     break;
 }
 </string>
@@ -127,6 +159,15 @@ case 2:
           <argument>
             <kind>1</kind>
             <string>///Draw
+// MLG ANIM
+if (borderIndex &gt; 0)
+{
+    if (mode == 1 || mode == 2)
+    {
+        draw_sprite_ext(sRareLeg, borderIndex - 1, x, y, image_xscale, image_yscale, ang, image_blend , 0.7);
+        ang += 3;
+    }
+}
 draw_self();
 
 // Border
@@ -160,6 +201,7 @@ if (usesMana)
 // draw armor
     drawTextOutline(x + lenOffX, y + lengthdir_y(offY, 300 + image_angle), string(armor), 
     c_white, c_black, image_xscale, image_yscale, image_angle, 1);
+
 
 </string>
           </argument>
