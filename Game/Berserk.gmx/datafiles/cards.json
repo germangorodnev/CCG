@@ -11,14 +11,14 @@
 			[
 				"Attack",  
 				"Heal on 2", 
-				"Fulminate potion - 2 turns, 1 dmg", 
+				"Fulminate potion: 2 turns, 1 dmg", 
 				"Pass the turn" 
 			],
 			"Russian":
 			[
 				"Атака",  
 				"Исцеление на 2", 
-				"Отравленная склянка - 2 хода, 1 урон", 
+				"Отравленная склянка: 2 хода, 1 урон", 
 				"Пропуск хода" 
 			]
 		},
@@ -73,13 +73,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Backstab - 3 abs. dmg.",
+				"Backstab: 3 abs. dmg.",
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака",  
-				"Удар в спину - 3 ур. жз.", 
+				"Удар в спину: 3 ур. жз.", 
 				"", 
 				"Пропуск хода"
 			]
@@ -381,14 +381,14 @@
 		"mana": 4,
 		"actionNames": {
 			"English": [
-				"Sword strike - destroy armor/abs. dmg/miss", 
-				"Impact of the divine - steal the enemy card if all the params <=3", 
+				"Sword strike: destroy armor/abs. dmg/miss", 
+				"Impact of the divine: steal the enemy card if all the params <=3", 
 				"+1 Mana",
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Удар мечом - снятие брони/абс. урон/промах", 
-				"Влияние божества - ворует карту, если все параметры <=3", 
+				"Удар мечом: снятие брони/абс. урон/промах", 
+				"Влияние божества: ворует карту, если все параметры <=3", 
 				"+1  мана",
 				"Пропуск хода" 
 			]
@@ -444,13 +444,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Automatic fire - 3 shots", 
+				"Automatic fire: 3 shots", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Автоматная очередь - 3 выстрела", 
+				"Автоматная очередь: 3 выстрела", 
 				"",
 				"Пропуск хода" 
 			]
@@ -569,14 +569,14 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Fireball - 6 dmg", 
-				"Bless - +2 dmg; +1 armor",
+				"Fireball: 6 dmg", 
+				"Bless: +2 dmg; +1 armor",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Шар огня - 6 ур.", 
-				"Благословение - +2 атк; +1 бр.",
+				"Шар огня: 6 ур.", 
+				"Благословение: +2 атк; +1 бр.",
 				"Пропуск хода" 
 			]
 		},
@@ -631,13 +631,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Corruption - after the death card creates a pus", 
+				"Corruption: after the death card creates a pus", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Зараза - при смерти создаст гнойника", 
+				"Зараза: при смерти создаст гнойника", 
 				"",
 				"Пропуск хода" 
 			]
@@ -757,13 +757,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Rut - 1 dmg, +2 hp if kills enemy", 
+				"Devour: 1 dmg, +2 hp if kills enemy, 0 dmg otherwise", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Гон - 1 ур; при убийстве восстановит 2 жз.", 
+				"Пожирание: 1 ур; при убийстве +2 жз; иначе 0 урона", 
 				"",
 				"Пропуск хода" 
 			]
@@ -871,4 +871,129 @@
 			0
 		] 
 	},
+
+	{
+		"cardIndex": 14,
+		"hp": 5,
+		"dmg": 4,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Devour: 2 dmg, +3 hp if kills enemy, 0 dmg otherwise", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Пожирание: 2 ур; при убийстве +3 жз, иначе 0 урона", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 20,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Слизнеывый голем.",
+			"English": "Slime golem."
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 15,
+		"hp": 5,
+		"dmg": 4,
+		"armor": 0,
+		"usesMana": true,
+		"mana": 4,
+		"actionNames": {
+			"English": [
+				"PRESSURE: 4 dmg, can be blocked with armor", 
+				"Lightning: -3 hp; -1 armor", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"ДАВЛЕНИЕ: 4 ур, может быть заблокирован броней", 
+				"Молния: -3 жз; -1 брони", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 21,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 22,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": true
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Каменный голем.",
+			"English": "Stone golem."
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
 ]

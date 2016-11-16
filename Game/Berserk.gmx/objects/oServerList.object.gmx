@@ -26,7 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>///Collects server lists and connects
-broadcast = network_create_server(network_socket_udp, 6511, 16);
+var port = 6511;
+broadcast = network_create_server(network_socket_udp, port, 16);
+while (broadcast &lt; 0 &amp;&amp; port &lt; 65535)
+{
+    port++
+    broadcast = network_create_server(network_socket_udp, port, 16);
+}
 global.serverlist = ds_list_create();
 global.servernames = ds_list_create();
 

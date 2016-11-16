@@ -43,6 +43,7 @@
       <sprite>sprites\sAttack</sprite>
       <sprite>sprites\sHeal</sprite>
       <sprite>sprites\sSmemsFireball</sprite>
+      <sprite>sprites\sLightning</sprite>
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sMenuButtons</sprite>
@@ -161,8 +162,9 @@
       <scripts name="Attacks">
         <script>scripts\cardAttackPerformer.gml</script>
         <script>scripts\cardJojnImpactPerformer.gml</script>
-        <script>scripts\cardCookieRutPerformer.gml</script>
+        <script>scripts\cardDevourPerformer.gml</script>
         <script>scripts\cardAttackDestroy.gml</script>
+        <script>scripts\cardPressurePerformer.gml</script>
       </scripts>
     </scripts>
     <scripts name="Client">
@@ -248,7 +250,9 @@
       <objects name="Attacks">
         <object>objects\oAttack</object>
         <object>objects\oJojnImpact</object>
-        <object>objects\oCookieRut</object>
+        <object>objects\oDevour</object>
+        <object>objects\oPressure</object>
+        <object>objects\oLightning</object>
       </objects>
       <object>objects\oCardActionChoose</object>
       <object>objects\oHeal</object>

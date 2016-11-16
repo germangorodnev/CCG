@@ -33,7 +33,6 @@ case GAME_STATES.PERFORM_ACTIONS:
             c++;
             cardPerformAction();
             cardDone();
-            instance_create(x, y, oInstant);
         }
     }
     if (c > 0)

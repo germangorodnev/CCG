@@ -3,9 +3,9 @@
   <spriteName>sAttack</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-5</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>oAttack</parentName>
+  <parentName>oCardStuff</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,41 +25,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Cookie rut
+            <string>///PAIN
 speed = 0;
-image_speed = 0;
 image_index = 6;
-
+image_speed = 0;
 target = noone; // id of the obj
 parent = noone; // the creator
+
 pl = 0;
+startPl = 0;
+
+spd = 0;
+dmg = 0;
 
 blockable = true;
 absolute = false;
 breakArmor = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Just clear parent
+
+active = true;
 </string>
           </argument>
         </arguments>
@@ -82,23 +65,23 @@ breakArmor = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Update
+            <string>///Moving
 image_angle = direction;
 if (instance_exists(target))
     direction = point_direction(x, y, target.x, target.y);
+if (!active)
+    exit;
 
 var c = instance_place(x, y, oCardBase);
 if (c != noone)
 {
-    if (c.player == pl)
-        exit;
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {
         if (blockable)
         {
-            cardCookieRutPerformer(c, parent);
-            exit;            
+            cardPressurePerformer(c);
+            cardAttackDestroy();
         }
         else
         {
@@ -109,8 +92,12 @@ if (c != noone)
                     cardAttackDestroy();
                     exit;
                 }
-                cardCookieRutPerformer(c, parent);
-                exit;            
+
+                if (c.player != startPlayer)
+                {
+                    cardPressurePerformer(c);
+                    cardAttackDestroy();
+                }
             }
         }
     }
@@ -118,8 +105,8 @@ if (c != noone)
     {
         if (c == target)
         {
-            cardCookieRutPerformer(c, parent);
-            exit;            
+            cardPressurePerformer(c);
+            cardAttackDestroy();
         }        
     }
 }

@@ -57,7 +57,7 @@ if (mouseOnUs())
     // Creating our own server and going to lobby
     if (mouse_check_button_released(mb_left))
     {
-        global.initObject.alarm[1] = 1;
+        oControl.alarm[1] = 1;
     }
 }
 else
@@ -89,7 +89,7 @@ if (keyboard_check_released(vk_enter))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.initObject.alarm[1] = 1;
+            <string>oControl.alarm[1] = 1;
 </string>
           </argument>
         </arguments>

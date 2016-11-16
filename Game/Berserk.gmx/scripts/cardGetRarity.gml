@@ -7,6 +7,8 @@ case CARDS.ARMOR_HAMMER:
 case CARDS.PUS:
 case CARDS.COOKIE:
 case CARDS.CORRUPTED_MUSHROOMS:
+case CARDS.GOLEM_SLIME:
+case CARDS.GOLEM_STONE:
     return 0;
     break;
 case CARDS.KONCHA:

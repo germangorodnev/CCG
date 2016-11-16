@@ -24,6 +24,7 @@ case ACTIONS.MIMIC_WILD_STUN:
     break;
 case ACTIONS.PORCHANKA_CORRUPTION:
 case ACTIONS.KONCHA_POISON:
+case ACTIONS.SMEMS_BLESSING:
     global.attackTypeIndex = 5;
     global.attackTypeCol = c_blue;
     break;

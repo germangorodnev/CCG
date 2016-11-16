@@ -76,7 +76,10 @@ switch (act)
         ds_list_add(p, DEBUFFS.STUN, 1);
         ds_list_add(dbf, p); 
         //ds_list_mark_as_list(dbf, 0);
-        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, -1, dbf);    
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = ds_list_find_value(ls, target);
+        instance_create(realTarget.x, realTarget.y, oInstant);
+        var s = cardAttack(target, ls, 0, -1, dbf);    
         break;
     // ARMOR HAMMER
     case ACTIONS.ARMOR_HAMMER_USE:
@@ -181,14 +184,49 @@ switch (act)
         cardDone();
         break;
     // PECHENKA
-    case ACTIONS.COOKIE_RUT:
+        case ACTIONS.COOKIE_DEVOUR:
         state = CARD_STATES.PERFORM_ACTION;
-        var s = instance_create(x, y, oCookieRut);
+        var s = instance_create(x, y, oDevour);
         s.pl = player;
         s.startPl = player;
         s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
         s.parent = id;
         s.speed = atkSpd;
+        s.dmg = 1;
+        s.heal = 2;
+        break;  
+    // SLIME GOLEM
+    case ACTIONS.GOLEM_SLIME_DEVOUR:
+        state = CARD_STATES.PERFORM_ACTION;
+        var s = instance_create(x, y, oDevour);
+        s.pl = player;
+        s.startPl = player;
+        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.parent = id;
+        s.speed = atkSpd;
+        s.dmg = 2;
+        s.heal = 3;
+        break;
+    // STONE GOLEM
+    case ACTIONS.GOLEM_STONE_PRESSURE:
+        state = CARD_STATES.PERFORM_ACTION;
+        var s = instance_create(x, y, oPressure);
+        s.pl = player;
+        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.startPl = player;
+        s.parent = id;
+        s.speed = atkSpd;
+        s.dmg = 4;
+        break;
+    case ACTIONS.GOLEM_STONE_LIGHTNING:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = ds_list_find_value(ls, target);
+        with (realTarget)
+        {
+            cardChangeHp(-3);
+            cardChangeArmor(-1);
+        }  
+        instance_create(realTarget.x, realTarget.y, oLightning);   
         break;
     // not implemented
     default:
