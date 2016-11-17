@@ -30,7 +30,7 @@ var port = 6511;
 broadcast = network_create_server(network_socket_udp, port, 16);
 while (broadcast &lt; 0 &amp;&amp; port &lt; 65535)
 {
-    port++
+    port++;
     broadcast = network_create_server(network_socket_udp, port, 16);
 }
 global.serverlist = ds_list_create();
@@ -97,6 +97,7 @@ for(var i = 0; i &lt; count; i++)
         if (point_in_rectangle(mouse_x, mouse_y, srX - 80, yP - 15, srX + 80, yP + 15))
         {
             global.serverip = global.serverlist[| i];
+            global.opName = global.servernames[| i];
             with (oConnectToServer)
                 event_perform(ev_other, ev_user0);
         }
@@ -130,7 +131,7 @@ if(eventid == broadcast)
 {
     var ip = ds_map_find_value(async_load, "ip");
 
-    // incoming data for the server from a connected saocket
+    // incoming data for the server from a connected socket
     var buff = ds_map_find_value(async_load, "buffer");
     var type = buffer_read(buff, buffer_u16);
     if (type == SR_BROADCAST)

@@ -2,9 +2,15 @@
 with (oCardDeck)
     instance_destroy();
 var pos = 0;
-for (var i = iMin; i <= iMax; i++)
+// getting all the cards from collection
+iMin = 0;
+iMax = min(crow *2 , ds_list_size(global.collection));
+if (ds_list_empty(global.collection))
+    exit;
+for (var i = iMin; i < iMax; i += 2)
 {
-    if (!cardIsPlayable(i))
+    var cardId = global.collection[| i];
+    if (!cardIsPlayable(cardId))
     {
         continue;
     }
@@ -12,7 +18,7 @@ for (var i = iMin; i <= iMax; i++)
         yp = ccy + ccbetwy * (pos div crow);
     // creating the card
     var c = instance_create(xp, yp, oCardDeck);
-    c.type = i;
+    c.type = cardId;
     with (c)
     {
         dmCardInit();

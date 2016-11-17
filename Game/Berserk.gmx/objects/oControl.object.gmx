@@ -112,6 +112,8 @@ for (var i = 0; i &lt; 30; i++)
 }
 ds_list_add(global.decks, newD);
 global.deck = newD;
+
+room_goto_next();
 </string>
           </argument>
         </arguments>

@@ -77,7 +77,7 @@ AP = 0;
             <string>actionsNames = 0;
 actionsIndex = 0;
 actionsMana= 0;
-part_particles_clear(global.packOpenPs);
+//part_particles_clear(global.packOpenPs);
 </string>
           </argument>
         </arguments>

@@ -298,6 +298,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rInit</room>
     <room>rooms\rMainMenu</room>
     <rooms name="Menu">
       <room>rooms\rDeckMake</room>

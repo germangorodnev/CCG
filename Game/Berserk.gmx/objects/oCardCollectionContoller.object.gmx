@@ -45,7 +45,7 @@ ccx = 256;
 ccy = 176;
 ccbetw =  sprite_get_width(sCard) + 50;
 ccbetwy = sprite_get_height(sCard) + 30;
-crow = 8;
+crow = 16;
 
 dmCreateCards();
 
