@@ -26,10 +26,21 @@
           <argument>
             <kind>1</kind>
             <string>///Cards
+localCol = ds_list_create();
+ds_list_copy(localCol, global.collection);
+
+localDeck = ds_list_create();
+deckCardsCount = ds_list_size(global.deck);
+makeDeckWithCopyCountFromRepeat(localDeck, global.deck);
+
+crow = 8;
 iMin = 0;
-iMax = CARDS.CARDS_COUNT - 1;
+iMax = min(crow * 2, ds_list_size(global.collection) / 2);
 iCurr = 0;
- 
+
+dMin = 0;
+dMax = min(crow * 2, ds_list_size(localDeck) / 2);
+
 dsx = 100;
 dsy = 528;
 dsc = c_white;
@@ -40,15 +51,50 @@ case 0:
     break;
 }
 
+
 // drawing
 ccx = 256;
-ccy = 176;
+ccy = 126;
 ccbetw =  sprite_get_width(sCard) + 50;
 ccbetwy = sprite_get_height(sCard) + 30;
-crow = 16;
+
+// deck pos
+cdx = ccx;
+cdy = room_height - ccy - ccbetwy;
+
+
+deckLineX1 = 130;
+deckLineX2 = room_width - 50;
+deckLineY = 365;
+black = c_black;
 
 dmCreateCards();
-
+dmCreateDeck();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clear
+ds_list_destroy(localCol);
+ds_list_destroy(localDeck);
 </string>
           </argument>
         </arguments>
@@ -73,6 +119,8 @@ dmCreateCards();
             <kind>1</kind>
             <string>///Draw deck sprite
 draw_sprite_ext(sDeck, 0, dsx, dsy, 1, 1, sin(current_time / 300), dsc, 1);
+
+draw_line_width_colour(deckLineX1, deckLineY, deckLineX2, deckLineY, 4, black, black);
 </string>
           </argument>
         </arguments>

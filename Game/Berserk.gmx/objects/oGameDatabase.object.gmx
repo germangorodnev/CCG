@@ -38,7 +38,6 @@ while(!file_text_eof(f))
 file_text_close(f);
 
 parsed = json_decode(stringJson);
-
 database = ds_map_find_value(parsed, "default");
 
 </string>

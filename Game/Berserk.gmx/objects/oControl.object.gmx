@@ -39,6 +39,8 @@ global.language = "English";
 global.wins = 0;
 global.loses = 0;
 
+global.maxCards = 30;
+
 global.client = -1;
 global.server = -1; // server we're connected to
 global.connectip = "127.0.0.1";
@@ -101,7 +103,7 @@ part_type_orientation(global.randomMLG, 0, 360, 15, 20, false);
 // DEBUG
 ds_list_clear(global.decks);
 var newD = ds_list_create();
-for (var i = 0; i &lt; 30; i++)
+/*for (var i = 0; i &lt; global.maxCards - 1; i++)
 {
     var r = irandom(CARDS.CARDS_COUNT - 1);
     while(!cardIsPlayable(r))
@@ -109,7 +111,7 @@ for (var i = 0; i &lt; 30; i++)
         r = irandom(CARDS.CARDS_COUNT - 1);
     }
     ds_list_add(newD, r);
-}
+}*/
 ds_list_add(global.decks, newD);
 global.deck = newD;
 

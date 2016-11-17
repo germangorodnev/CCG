@@ -1,17 +1,7 @@
-var f = file_text_open_read("cards.json");
-// now create stringJson
-var stringJson = "";
-while(!file_text_eof(f))
-{
-    stringJson += file_text_read_string(f);
-    file_text_readln(f);
-}
-file_text_close(f);
 
 image_index = type;
 
-var json = json_decode(stringJson);
-var objects = json[? "default"];
+var objects = oGameDatabase.database;
 var ourParams = objects[| type];
 var allActions = ds_map_find_value(ourParams, "actionNames");
 var actionsList = ds_map_find_value(allActions, global.language);
@@ -25,7 +15,6 @@ for (var i = 0; i < 4; i++)
     actionsNeedTarget[i] = ds_map_find_value(currMap, "needT");
     actionsTargetType[i] = ds_map_find_value(currMap, "targetType");
     actionsInstant[i] = ds_map_find_value(currMap, "instant");
-    ds_map_destroy(currMap);
 }   
 
 // Now parameters
@@ -65,11 +54,4 @@ case CARDS.KONCHA:
     cardAddDeathrattle(DEATHRATTLES.KONCHA_MUSHROOMS);
     break;
 }
-/*ds_map_destroy(objects);
-ds_map_destroy(ourParams);
-ds_map_destroy(allActions);
-ds_list_destroy(actionsList);
-ds_list_destroy(actionsIndexes);
-
-
 

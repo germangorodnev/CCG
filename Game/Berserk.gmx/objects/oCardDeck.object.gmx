@@ -28,7 +28,12 @@
             <string>///Just a card to move into deck \ from 
 image_speed = 0;
 type = 0; // type in enum CARDS
+count = 0;
 mode = 0;
+inDeck = false;
+drag = false;
+copyCount = 0;
+drawCount = false;
 
 ang = 0;
 
@@ -51,6 +56,8 @@ mana = 0;
 
 AP = 0;
 
+white = c_white;
+black = c_black;
 
 </string>
           </argument>
@@ -104,6 +111,124 @@ actionsMana= 0;
 switch (mode) 
 {
 case 0: // in deck making
+    // track the moving
+    if (drag)
+    {
+        if (!mouse_check_button(mb_left) || mouse_check_button_released(mb_left))
+        {
+            // move from deck or into it
+            if (!inDeck)
+            {
+                if (mouse_y &gt; oCardCollectionContoller.deckLineY)
+                {
+                    if (oCardCollectionContoller.deckCardsCount &lt; global.maxCards)
+                    {
+                        if (cardAmountInDeck(type, oCardCollectionContoller.localDeck) &lt; 5)
+                        {
+                            // add to deck
+                            copyCount--;
+                            var myp = findCardPosInDeckWithNumbByIndex(type, oCardCollectionContoller.localCol);
+                            oCardCollectionContoller.localCol[| myp + 1]--;
+                            oCardCollectionContoller.deckCardsCount++;
+                            var p = findCardPosInDeckWithNumbByIndex(type, oCardCollectionContoller.localDeck);
+                            if (p != -1)
+                            {
+                                oCardCollectionContoller.localDeck[| (p + 1)] += 1;                            
+                            }   
+                            else
+                            {
+                                ds_list_add(oCardCollectionContoller.localDeck, type, 1);
+                            }  
+                            with (oCardCollectionContoller)
+                            {
+                                if (p == -1)
+                                    dMax = min(dMax + 1, crow * 2, ds_list_size(localDeck) / 2);
+                                if (localCol[| myp + 1] == 0)
+                                    iMax = min(iMax - 1, crow * 2, ds_list_size(localCol) / 2);
+                                dmSaveDeck();
+                                dmCreateDeck();
+                                dmCreateCards(); 
+                            }
+                        }
+                        else
+                        {
+                            drag = false;
+                            depth = 0;
+                        }
+                    }
+                    else
+                    {
+                        drag = false;
+                        depth = 0;
+                    }
+                }
+                else
+                {
+                    drag = false;
+                    depth = 0;
+                }
+            }
+            else
+            {
+                if (mouse_y &lt; oCardCollectionContoller.deckLineY) 
+                {
+                    // remove from deck
+                    oCardCollectionContoller.deckCardsCount--;
+                    copyCount--;
+                    var myp = findCardPosInDeckWithNumbByIndex(type, oCardCollectionContoller.localDeck);
+                    oCardCollectionContoller.localDeck[| myp + 1]--;
+                    var p = findCardPosInDeckWithNumbByIndex(type, oCardCollectionContoller.localCol);
+                    if (p != -1)
+                    {
+                        oCardCollectionContoller.localCol[| (p + 1)] += 1;                            
+                    }   
+                    else
+                    {
+                        ds_list_add(oCardCollectionContoller.localCol, type, 1);
+                    }  
+                    with (oCardCollectionContoller)
+                    {
+                        if (localDeck[| myp + 1] == 0)
+                            dMax = min(dMax - 1, crow * 2, ds_list_size(localDeck) / 2);
+                        if (p == -1)
+                            iMax = min(iMax + 1, crow * 2, ds_list_size(localCol) / 2);
+                        dmSaveDeck();
+                        dmCreateDeck();
+                        dmCreateCards(); 
+                    }
+                }
+                else
+                {
+                    drag = false;
+                    depth = 0;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (mouseOnUs())
+        {
+            if (mouse_check_button_released(mb_left)) // just the info
+            {
+                // blocking window information
+            }
+            else if (mouse_check_button(mb_left))
+            {
+                var d = 0;
+                with (oCardDeck)
+                {
+                    if (drag)
+                        d++;
+                }
+                if (d == 0)
+                {
+                    drag = true;     
+                    depth = -100;           
+                }
+            }
+        }
+    }
     break;
 case 1: // in pack opening
     var xd = xscN - image_xscale,
@@ -178,6 +303,10 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_font(fParams);
 
+// count
+if (drawCount)
+    drawTextOutline(x, y, string(copyCount), white, black, image_xscale, image_yscale, 0, image_alpha); 
+
 var lenOffX = lengthdir_x(34 * image_xscale, image_angle),
     offY = 57 * image_yscale;
     
@@ -202,6 +331,42 @@ if (usesMana)
     drawTextOutline(x + lenOffX, y + lengthdir_y(offY, 300 + image_angle), string(armor), 
     c_white, c_black, image_xscale, image_yscale, image_angle, 1);
 
+if (drag)
+{
+    draw_sprite_ext(sprite_index, image_index, mouse_x, mouse_y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+    
+    // Border
+    draw_sprite_ext(sCardBorder, borderIndex, mouse_x, mouse_y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
+    
+    // PARAMS
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_font(fParams);
+        
+    var lenOffX = lengthdir_x(34 * image_xscale, image_angle),
+        offY = 57 * image_yscale;
+        
+    // draw hp
+    drawTextOutline(mouse_x - lenOffX, mouse_y + lengthdir_y(offY, 120 + image_angle), string(hp), 
+        c_white, c_black, image_xscale, image_yscale, image_angle, 1);
+    
+    // draw mana if needed
+    if (usesMana)
+        drawTextOutline(mouse_x + lenOffX, mouse_y + lengthdir_y(offY, 60 + image_angle), string(mana), 
+        c_white, c_black, image_xscale, image_yscale, image_angle, 1);
+        //draw_text_transformed_colour(x + lengthdir_x(34, image_angle), y + lengthdir_y(57, 60 + image_angle), string(mana), image_xscale, image_yscale, image_angle, 
+           // manaCol, manaCol, manaCol, manaCol, image_alpha);
+            
+    // draw dmg
+        drawTextOutline(mouse_x - lenOffX, mouse_y + lengthdir_y(offY, 240 + image_angle), string(dmg), 
+        c_white, c_black, image_xscale, image_yscale, image_angle, 1);
+    //draw_text_transformed_colour(x - lengthdir_x(34, image_angle), y + lengthdir_y(58, 235 + image_angle), string(dmg), image_xscale, image_yscale, image_angle, 
+    //    dmgCol, dmgCol, dmgCol, dmgCol, image_alpha);
+    
+    // draw armor
+        drawTextOutline(mouse_x + lenOffX, mouse_y + lengthdir_y(offY, 300 + image_angle), string(armor), 
+        c_white, c_black, image_xscale, image_yscale, image_angle, 1);
+}
 
 </string>
           </argument>

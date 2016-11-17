@@ -208,10 +208,16 @@
       <script>scripts\gameClearListOfLists.gml</script>
       <script>scripts\cardGetTypeFromBooster.gml</script>
       <script>scripts\gameAddCardToCollection.gml</script>
+      <script>scripts\findCardPosInDeckWithNumbByIndex.gml</script>
     </scripts>
     <scripts name="Deck making">
       <script>scripts\dmCreateCards.gml</script>
+      <script>scripts\dmCreateDeck.gml</script>
       <script>scripts\dmCardInit.gml</script>
+      <script>scripts\makeDeckWithCopyCountFromRepeat.gml</script>
+      <script>scripts\makeDeckWithRepeatFromCopyCount.gml</script>
+      <script>scripts\cardAmountInDeck.gml</script>
+      <script>scripts\dmSaveDeck.gml</script>
     </scripts>
     <scripts name="Pack opening">
       <script>scripts\packOpen.gml</script>

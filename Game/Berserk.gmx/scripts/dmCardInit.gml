@@ -1,17 +1,6 @@
-var f = file_text_open_read("cards.json");
-// now create stringJson
-var stringJson = "";
-while(!file_text_eof(f))
-{
-    stringJson += file_text_read_string(f);
-    file_text_readln(f);
-}
-file_text_close(f);
-
 image_index = type;
 
-var json = json_decode(stringJson);
-var objects = json[? "default"];
+var objects = oGameDatabase.database;
 var ourParams = objects[| type];
 var allActions = ds_map_find_value(ourParams, "actionNames");
 var actionsList = ds_map_find_value(allActions, global.language);
@@ -22,7 +11,6 @@ for (var i = 0; i < 4; i++)
     var currMap = actionsIndexes[| i];
     actionsIndex[i] = ds_map_find_value(currMap, "ENUM");
     actionsMana[i] = ds_map_find_value(currMap, "mana");
-    ds_map_destroy(currMap);
 }   
 
 // Now parameters
@@ -50,6 +38,6 @@ if (c > 0)
 /*ds_list_destroy(actionsIndexes);
 ds_list_destroy(actionsList);
 ds_list_destroy(allActions);
-ds_list_destroy(objects);*/
-ds_map_destroy(json);
+ds_list_destroy(objects);
+ds_map_destroy(json);*/
 
