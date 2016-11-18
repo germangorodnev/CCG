@@ -28,7 +28,6 @@
             <string>///Main data
 randomize();
 
-
 cursor_sprite = sCursor;
 
 global.guiW = 1280;
@@ -99,21 +98,6 @@ part_type_size(global.randomMLG, 1, 2, 0, 0);
 part_type_direction(global.randomMLG, 0, 360, 0, 20);
 part_type_orientation(global.randomMLG, 0, 360, 15, 20, false);
 
-
-// DEBUG
-ds_list_clear(global.decks);
-var newD = ds_list_create();
-/*for (var i = 0; i &lt; global.maxCards - 1; i++)
-{
-    var r = irandom(CARDS.CARDS_COUNT - 1);
-    while(!cardIsPlayable(r))
-    {
-        r = irandom(CARDS.CARDS_COUNT - 1);
-    }
-    ds_list_add(newD, r);
-}*/
-ds_list_add(global.decks, newD);
-global.deck = newD;
 
 room_goto_next();
 </string>

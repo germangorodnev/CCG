@@ -67,6 +67,7 @@ if (mouseOnUs())
             room_goto(rMainMenu);
             break;
         case rDeckMake:
+        case rDeckNumbChoose:
         case rOpenPack:
         case rShop:
             room_goto(rMainMenu);

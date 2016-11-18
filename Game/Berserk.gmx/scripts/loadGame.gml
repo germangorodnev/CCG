@@ -22,7 +22,15 @@ for (var i = 0; i < global.decksCount; i++)
     ds_list_read(newDeck, l);    
     ds_list_add(global.decks, newDeck);
 }
-
+if (global.decksCount > 0)
+    global.deck = global.decks[| 0];
+else
+{
+    newD = ds_list_create();
+    ds_list_add(global.decks, newD);
+    global.decksCount++;
+    global.deck = newD;
+}
 // Reading wins and loses
 global.wins = file_text_read_real(f); file_text_readln(f);
 global.loses = file_text_read_real(f); file_text_readln(f);

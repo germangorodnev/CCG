@@ -218,6 +218,7 @@
       <script>scripts\makeDeckWithRepeatFromCopyCount.gml</script>
       <script>scripts\cardAmountInDeck.gml</script>
       <script>scripts\dmSaveDeck.gml</script>
+      <script>scripts\collectionDecreaseOnDeck.gml</script>
     </scripts>
     <scripts name="Pack opening">
       <script>scripts\packOpen.gml</script>
@@ -292,6 +293,8 @@
     <objects name="Deck making">
       <object>objects\oCardCollectionContoller</object>
       <object>objects\oCardDeck</object>
+      <object>objects\oDeckChoose</object>
+      <object>objects\oNewDeck</object>
     </objects>
     <objects name="PackOpening">
       <object>objects\oPackOpener</object>
@@ -307,6 +310,7 @@
     <room>rooms\rInit</room>
     <room>rooms\rMainMenu</room>
     <rooms name="Menu">
+      <room>rooms\rDeckNumbChoose</room>
       <room>rooms\rDeckMake</room>
       <room>rooms\rOpenPack</room>
       <room>rooms\rShop</room>

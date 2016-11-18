@@ -131,23 +131,26 @@ case 0: // in deck making
                             oCardCollectionContoller.localCol[| myp + 1]--;
                             oCardCollectionContoller.deckCardsCount++;
                             var p = findCardPosInDeckWithNumbByIndex(type, oCardCollectionContoller.localDeck);
-                            if (p != -1)
-                            {
-                                oCardCollectionContoller.localDeck[| (p + 1)] += 1;                            
-                            }   
-                            else
-                            {
-                                ds_list_add(oCardCollectionContoller.localDeck, type, 1);
-                            }  
+                            var t = type;
                             with (oCardCollectionContoller)
                             {
-                                if (p == -1)
+                                if (p != -1)
+                                {
+                                    localDeck[| (p + 1)] += 1;                            
+                                }   
+                                else
+                                {
+                                    ds_list_add(localDeck, t, 1);
                                     dMax = min(dMax + 1, crow * 2, ds_list_size(localDeck) / 2);
+                                }  
                                 if (localCol[| myp + 1] == 0)
-                                    iMax = min(iMax - 1, crow * 2, ds_list_size(localCol) / 2);
+                                    iMax = min(iMax, crow * 2, ds_list_size(localCol) / 2);
+                                with (oCardCollectionContoller)
+                                {
                                 dmSaveDeck();
                                 dmCreateDeck();
                                 dmCreateCards(); 
+                                }
                             }
                         }
                         else
@@ -176,25 +179,29 @@ case 0: // in deck making
                     oCardCollectionContoller.deckCardsCount--;
                     copyCount--;
                     var myp = findCardPosInDeckWithNumbByIndex(type, oCardCollectionContoller.localDeck);
-                    oCardCollectionContoller.localDeck[| myp + 1]--;
                     var p = findCardPosInDeckWithNumbByIndex(type, oCardCollectionContoller.localCol);
-                    if (p != -1)
-                    {
-                        oCardCollectionContoller.localCol[| (p + 1)] += 1;                            
-                    }   
-                    else
-                    {
-                        ds_list_add(oCardCollectionContoller.localCol, type, 1);
-                    }  
+                    var t = type;
                     with (oCardCollectionContoller)
                     {
+                        localDeck[| myp + 1]--;
+                        if (p != -1)
+                        {
+                            localCol[| (p + 1)] += 1;                            
+                        }   
+                        else
+                        {
+                            ds_list_add(localCol, t, 1);
+                        }  
                         if (localDeck[| myp + 1] == 0)
-                            dMax = min(dMax - 1, crow * 2, ds_list_size(localDeck) / 2);
+                            dMax = min(dMax, crow * 2, ds_list_size(localDeck) / 2);
                         if (p == -1)
-                            iMax = min(iMax + 1, crow * 2, ds_list_size(localCol) / 2);
-                        dmSaveDeck();
+                            iMax = min(iMax, crow * 2, ds_list_size(localCol) / 2);
+                        with (oCardCollectionContoller)
+                        {
+                        dmSaveDeck(); 
                         dmCreateDeck();
-                        dmCreateCards(); 
+                        dmCreateCards();
+                        }
                     }
                 }
                 else
