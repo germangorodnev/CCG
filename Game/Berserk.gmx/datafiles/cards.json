@@ -996,4 +996,189 @@
 		] 
 	},
 
+	{
+		"cardIndex": 16,
+		"hp": 6,
+		"dmg": 5,
+		"armor": 6,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Block on 2 turns", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Блокирование на 2 хода", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 23,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Голем-отец. После смерти создаст голема-мать.",
+			"English": "Father golem. Creates mother golem on death."
+		},
+		"rarity": 2,
+		"AP": 2,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 17,
+		"hp": 4,
+		"dmg": 3,
+		"armor": 3,
+		"usesMana": true,
+		"mana": 4,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Kiss of love: +1 hp, +1 dmg", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Поцелуй любви: +1 жз, +1 урон", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 24,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Голем-мать. После смерти создаст голема-сына.",
+			"English": "Mother golem. Creates son golem on death."
+		},
+		"rarity": 1,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 18,
+		"hp": 3,
+		"dmg": 2,
+		"armor": 1,
+		"usesMana": true,
+		"mana": 3,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Rage attack: double dmg, -1 hp", 
+				"Generation gap: +2 dmg if there's mother or father on board",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Яростная атака: двойной урон, -1 жз.", 
+				"Конфликт поколений: +2 урона если на столе есть мать или отец.	",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 25,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 26,
+				"mana": 2,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Голем-сынишка. Очень опасен.",
+			"English": "Golem-son. Very dangerous"
+		},
+		"rarity": 2,
+		"AP": 2,
+		"resists": [
+			0
+		] 
+	},
 ]

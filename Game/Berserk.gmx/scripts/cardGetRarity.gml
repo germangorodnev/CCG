@@ -15,11 +15,14 @@ case CARDS.KONCHA:
 case CARDS.LISA:
 case CARDS.GARGULIA:
 case CARDS.PORCHANKA:
+case CARDS.GOLEM_MATYA:
     return 1;
     break;
 case CARDS.JOJN:
 case CARDS.ARTONIX:
 case CARDS.RITTER:
+case CARDS.GOLEM_BATYA:
+case CARDS.GOLEM_SON:
     return 2;
     break;
 }

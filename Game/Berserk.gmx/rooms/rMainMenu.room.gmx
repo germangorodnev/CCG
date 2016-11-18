@@ -31,6 +31,9 @@ enum CARDS
     CORRUPTED_MUSHROOMS = 13,
     GOLEM_SLIME = 14,
     GOLEM_STONE = 15,
+    GOLEM_BATYA = 16,
+    GOLEM_MATYA = 17,
+    GOLEM_SON = 18,
     CARDS_COUNT
 };
 
@@ -77,6 +80,8 @@ enum DEATHRATTLES
 {
     CORRUPTION = 0,
     KONCHA_MUSHROOMS = 1,
+    GOLEM_B_TO_M = 2,
+    GOLEM_M_TO_S = 3
 }
 
 enum TARGET_GROUPS
@@ -126,6 +131,13 @@ enum ACTIONS
     // STONE GOLEM
     GOLEM_STONE_PRESSURE = 21,
     GOLEM_STONE_LIGHTNING = 22,
+    // Batya golem
+    GOLEM_BATYA_BLOCK = 23,
+    // MATYA GOLEM
+    GOLEM_MATYA_KISS = 24,
+    // SON GOLEM
+    GOLEM_SON_RAGE = 25,
+    GOLEM_SON_GENGAP = 26
 }
 
 enum EV

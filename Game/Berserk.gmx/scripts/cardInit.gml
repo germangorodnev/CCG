@@ -53,5 +53,11 @@ switch (type)
 case CARDS.KONCHA:
     cardAddDeathrattle(DEATHRATTLES.KONCHA_MUSHROOMS);
     break;
+case CARDS.GOLEM_BATYA:
+    cardAddDeathrattle(DEATHRATTLES.GOLEM_B_TO_M);
+    break;
+case CARDS.GOLEM_MATYA:
+    cardAddDeathrattle(DEATHRATTLES.GOLEM_M_TO_S);
+    break;
 }
 
