@@ -228,6 +228,41 @@ switch (act)
         }  
         instance_create(realTarget.x, realTarget.y, oLightning);   
         break;
+    //////////////// FAMILY ////////////////////////
+    // GOLEM BATYA
+    case ACTIONS.GOLEM_BATYA_BLOCK: // 2 turn block
+        cardSetBuff(BUFFS.BLOCK, 2);
+        cardDone();       
+        break;
+    // GOLEM MATYA
+    case ACTIONS.GOLEM_MATYA_KISS:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = ds_list_find_value(ls, target);
+        with (realTarget)
+        {
+            cardIncreaseMaxStat(1, "hp");
+            cardIncreaseMaxStat(1, "dmg");
+        }  
+        cardDone();        
+        break;
+    // GOLEM SON
+    case ACTIONS.GOLEM_SON_RAGE:
+        // double dmg - 1 hp
+        state = CARD_STATES.PERFORM_ACTION;
+        var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg * 2, atkSpd, -1);
+        cardChangeHp(-1);
+        break;
+    case ACTIONS.GOLEM_SON_GENGAP:
+        var amountDad = cardGetCountOnBoard(CARDS.GOLEM_BATYA, cardGetGroup()),
+            amountMom = cardGetCountOnBoard(CARDS.GOLEM_MATYA, cardGetGroup());
+        if (amountDad > 0 || amountMom > 0)
+            cardIncreaseMaxStat(2, "dmg");
+        else
+        {
+            // fail
+        }
+        cardDone();
+        break;
     // not implemented
     default:
         cardDone();

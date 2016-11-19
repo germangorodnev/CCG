@@ -132,6 +132,8 @@
         <script>scripts\cardGetActionInstant.gml</script>
         <script>scripts\cardTryToSteal.gml</script>
         <script>scripts\cardFindDeathrattleIcon.gml</script>
+        <script>scripts\cardGetCountOnBoard.gml</script>
+        <script>scripts\cardCanBeChoosen.gml</script>
       </scripts>
       <scripts name="Buffs">
         <script>scripts\cardHasBuff.gml</script>
@@ -150,6 +152,19 @@
       <scripts name="Battlecries">
         <script>scripts\cardPerformBattlecry.gml</script>
       </scripts>
+      <scripts name="Impact">
+        <script>scripts\cardUpdateImpact.gml</script>
+        <script>scripts\cardAddImpact.gml</script>
+        <script>scripts\cardClearImpacts.gml</script>
+        <script>scripts\cardDeleteImpact.gml</script>
+      </scripts>
+      <scripts name="Attacks">
+        <script>scripts\cardAttackPerformer.gml</script>
+        <script>scripts\cardJojnImpactPerformer.gml</script>
+        <script>scripts\cardDevourPerformer.gml</script>
+        <script>scripts\cardAttackDestroy.gml</script>
+        <script>scripts\cardPressurePerformer.gml</script>
+      </scripts>
       <script>scripts\cardSetState.gml</script>
       <script>scripts\cardInit.gml</script>
       <script>scripts\cardActionChooserInit.gml</script>
@@ -158,14 +173,7 @@
       <script>scripts\cardWriteAction.gml</script>
       <script>scripts\cardEndStep.gml</script>
       <script>scripts\cardDestroy.gml</script>
-      <script>scripts\cardCanBeChoosen.gml</script>
-      <scripts name="Attacks">
-        <script>scripts\cardAttackPerformer.gml</script>
-        <script>scripts\cardJojnImpactPerformer.gml</script>
-        <script>scripts\cardDevourPerformer.gml</script>
-        <script>scripts\cardAttackDestroy.gml</script>
-        <script>scripts\cardPressurePerformer.gml</script>
-      </scripts>
+      <script>scripts\cardChangeTeam.gml</script>
     </scripts>
     <scripts name="Client">
       <scripts name="Chat">

@@ -53,7 +53,7 @@ image_yscale = image_xscale;
           <argument>
             <kind>1</kind>
             <string>///Clear
-cardDestroy();
+//cardDestroy();
 </string>
           </argument>
         </arguments>
@@ -93,6 +93,8 @@ case CARD_STATES.DESTROY: // we're dying
 default:
 image_xscale = max(image_xscale - 0.15, 1);
 image_yscale = image_xscale;
+if (speed == 0)
+    cardUpdateImpact();
 
 if (global.clientState == CLIENT_STATES.CHOOSING_CARD)
 {

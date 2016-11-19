@@ -43,12 +43,7 @@ else
             path_add_point(cardPath, xend, yend, 100);
             path_start(cardPath, 8, path_action_stop, true);
             
-            ds_list_insert(ls, pos, id);
-            
-            var pos = ds_list_find_index(otherLs, id);
-            ds_list_delete(otherLs, pos);
-            
-            player = 1 * (player == 0);
+            cardChangeTeam(ls, otherLs, pos); 
             
             // placer
             instance_create(xend, yend, oPlaceNotFree);

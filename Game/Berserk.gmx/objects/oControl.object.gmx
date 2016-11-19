@@ -43,6 +43,7 @@ global.maxCards = 30;
 global.client = -1;
 global.server = -1; // server we're connected to
 global.connectip = "127.0.0.1";
+global.serverip = 0;
 global.haveserver = false; 
 global.serverType = network_socket_tcp;
 
@@ -97,6 +98,10 @@ part_type_life(global.randomMLG, room_speed / 4, room_speed / 2);
 part_type_size(global.randomMLG, 1, 2, 0, 0);
 part_type_direction(global.randomMLG, 0, 360, 0, 20);
 part_type_orientation(global.randomMLG, 0, 360, 15, 20, false);
+
+var p = findCardPosInDeckWithNumbByIndex(CARDS.GOLEM_MENTOR, global.collection);
+if (p != -1)
+    global.collection[| p + 1] += 6;
 
 
 room_goto_next();

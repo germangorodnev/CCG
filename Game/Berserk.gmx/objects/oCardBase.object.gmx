@@ -86,7 +86,8 @@ event[EV.COUNT] = 0;
 debuffs = ds_list_create();
 // Our buffs
 buffs = ds_list_create();
-// battlecries
+// impacts
+impacts = ds_list_create();
 
 // deathrattles
 deathrattles = ds_list_create();
@@ -111,6 +112,10 @@ dmgSc = 1;
 
 moreCol = c_green;
 lessCol = c_red;
+
+// private individual
+hasImpacts = false;
+ls1 = 0;
 </string>
           </argument>
         </arguments>

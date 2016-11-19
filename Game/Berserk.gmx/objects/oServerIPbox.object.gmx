@@ -70,7 +70,6 @@ if (!active)
     exit;
 if (keyboard_check(vk_anykey))
     text = keyboard_string;
-global.serverip = text;
 if (keyboard_check_released(vk_enter))
 {
     with (oConnectToServer)

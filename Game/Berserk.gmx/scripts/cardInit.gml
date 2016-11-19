@@ -59,5 +59,9 @@ case CARDS.GOLEM_BATYA:
 case CARDS.GOLEM_MATYA:
     cardAddDeathrattle(DEATHRATTLES.GOLEM_M_TO_S);
     break;
+case CARDS.GOLEM_MENTOR:   
+    hasImpact = true; 
+    ls1 = ds_list_create();
+    break;
 }
 

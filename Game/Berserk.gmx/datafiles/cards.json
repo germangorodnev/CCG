@@ -1019,7 +1019,7 @@
 		},
 		"actionIndex": [
 			{
-				"ENUM": 1,
+				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
 				"targetType": 1,
@@ -1081,7 +1081,7 @@
 		},
 		"actionIndex": [
 			{
-				"ENUM": 1,
+				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
 				"targetType": 1,
@@ -1137,7 +1137,7 @@
 			"Russian": [
 				"Атака", 
 				"Яростная атака: двойной урон, -1 жз.", 
-				"Конфликт поколений: +2 урона если на столе есть мать или отец.	",
+				"Конфликт поколений: +2 урона если на столе есть мать или отец",
 				"Пропуск хода" 
 			]
 		},
@@ -1172,11 +1172,73 @@
 			}
 		],
 		"description": {
-			"Russian": "Голем-сынишка. Очень опасен.",
+			"Russian": "Голем-сынишка. Очень опасен",
 			"English": "Golem-son. Very dangerous"
 		},
 		"rarity": 2,
-		"AP": 2,
+		"AP": 3,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 18,
+		"hp": 4,
+		"dmg": 1,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Голем-наставник. +2 атаки к прилежащим картам",
+			"English": "Golem-mentor. +2 attack to adjecent cards"
+		},
+		"rarity": 0,
+		"AP": 1,
 		"resists": [
 			0
 		] 
