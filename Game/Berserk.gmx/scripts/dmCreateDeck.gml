@@ -7,7 +7,7 @@ with (oCardDeck)
 var pos = 0;
 // getting all the cards from collection
 //if (ds_list_empty(localDeck))
-    //exit;
+//    exit;
     
 for (var i = dMin; i < dMax; i++)
 {

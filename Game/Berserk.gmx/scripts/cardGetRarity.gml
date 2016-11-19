@@ -10,6 +10,7 @@ case CARDS.CORRUPTED_MUSHROOMS:
 case CARDS.GOLEM_SLIME:
 case CARDS.GOLEM_STONE:
 case CARDS.GOLEM_MENTOR:
+case CARDS.GOLEM_AIR:
     return 0;
     break;
 case CARDS.KONCHA:
@@ -17,6 +18,7 @@ case CARDS.LISA:
 case CARDS.GARGULIA:
 case CARDS.PORCHANKA:
 case CARDS.GOLEM_MATYA:
+case CARDS.SCOUT:
     return 1;
     break;
 case CARDS.JOJN:
@@ -24,6 +26,7 @@ case CARDS.ARTONIX:
 case CARDS.RITTER:
 case CARDS.GOLEM_BATYA:
 case CARDS.GOLEM_SON:
+case CARDS.GOLEM_SMASHER:
     return 2;
     break;
 }

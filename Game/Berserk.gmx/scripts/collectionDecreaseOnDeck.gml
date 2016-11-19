@@ -1,6 +1,8 @@
 ///collectionDecreaseOnDeck(Collection, Deck)
 var col = argument0,
     d = argument1;
+if (ds_list_empty(d))
+    exit;
 for (var i = 0, c = ds_list_size(d) / 2; i < c; i++)
 {
     var card = d[| i * 2];

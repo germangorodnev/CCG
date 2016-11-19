@@ -52,6 +52,7 @@
       <sprite>sprites\sEndTurn</sprite>
       <sprite>sprites\sArrow</sprite>
       <sprite>sprites\sCrystal</sprite>
+      <sprite>sprites\sArrowScroll</sprite>
     </sprites>
     <sprites name="Cursor">
       <sprite>sprites\sCursor</sprite>
@@ -63,6 +64,7 @@
     <sprites name="Debuff Icons">
       <sprite>sprites\sDebuffPoison</sprite>
       <sprite>sprites\sDebuffStun</sprite>
+      <sprite>sprites\sVisible</sprite>
     </sprites>
     <sprites name="Helpers">
       <sprite>sprites\sPlaceNotFree</sprite>
@@ -134,8 +136,10 @@
         <script>scripts\cardFindDeathrattleIcon.gml</script>
         <script>scripts\cardGetCountOnBoard.gml</script>
         <script>scripts\cardCanBeChoosen.gml</script>
+        <script>scripts\cardCanBeTargeted.gml</script>
       </scripts>
       <scripts name="Buffs">
+        <script>scripts\cardRecreateBuffs.gml</script>
         <script>scripts\cardHasBuff.gml</script>
         <script>scripts\cardSetBuff.gml</script>
       </scripts>
@@ -164,6 +168,7 @@
         <script>scripts\cardDevourPerformer.gml</script>
         <script>scripts\cardAttackDestroy.gml</script>
         <script>scripts\cardPressurePerformer.gml</script>
+        <script>scripts\cardTripleAttackPerformer.gml</script>
       </scripts>
       <script>scripts\cardSetState.gml</script>
       <script>scripts\cardInit.gml</script>
@@ -227,6 +232,8 @@
       <script>scripts\cardAmountInDeck.gml</script>
       <script>scripts\dmSaveDeck.gml</script>
       <script>scripts\collectionDecreaseOnDeck.gml</script>
+      <script>scripts\dmPageChange.gml</script>
+      <script>scripts\dmCreateArrows.gml</script>
     </scripts>
     <scripts name="Pack opening">
       <script>scripts\packOpen.gml</script>
@@ -268,6 +275,7 @@
         <object>objects\oDevour</object>
         <object>objects\oPressure</object>
         <object>objects\oLightning</object>
+        <object>objects\oTriple</object>
       </objects>
       <object>objects\oCardActionChoose</object>
       <object>objects\oHeal</object>
@@ -303,6 +311,7 @@
       <object>objects\oCardDeck</object>
       <object>objects\oDeckChoose</object>
       <object>objects\oNewDeck</object>
+      <object>objects\oArrowScroll</object>
     </objects>
     <objects name="PackOpening">
       <object>objects\oPackOpener</object>

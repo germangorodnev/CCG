@@ -99,10 +99,13 @@ part_type_size(global.randomMLG, 1, 2, 0, 0);
 part_type_direction(global.randomMLG, 0, 360, 0, 20);
 part_type_orientation(global.randomMLG, 0, 360, 15, 20, false);
 
-var p = findCardPosInDeckWithNumbByIndex(CARDS.GOLEM_MENTOR, global.collection);
-if (p != -1)
-    global.collection[| p + 1] += 6;
-
+if (ds_list_empty(global.decks))
+{
+    var d = ds_list_create();
+    ds_list_add(global.decks, d);
+    global.decksCount++;
+    global.deck = d;
+}
 
 room_goto_next();
 </string>

@@ -14,6 +14,7 @@
 var xb = 208,
     yb = 368,
     xbetw = sprite_get_width(sDeck) * 3;
+if (global.decksCount &gt; 0)
 for (var i = 0; i &lt; global.decksCount; i++)
 {
     var a = instance_create(xb + i * xbetw, yb, oDeckChoose);

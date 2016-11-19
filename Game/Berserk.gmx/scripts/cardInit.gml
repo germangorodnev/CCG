@@ -27,6 +27,7 @@ armor = ourParams[? "armor"];
 _armor = armor;
 usesMana = ourParams[? "usesMana"];
 mana = ourParams[? "mana"];
+_mana = mana;
 
 rarity = ourParams[? "rarity"];
 borderIndex = rarity;
@@ -62,6 +63,9 @@ case CARDS.GOLEM_MATYA:
 case CARDS.GOLEM_MENTOR:   
     hasImpact = true; 
     ls1 = ds_list_create();
+    break;
+case CARDS.GOLEM_AIR:
+    cardSetBuff(BUFFS.INVISIBILITY, 8000);
     break;
 }
 

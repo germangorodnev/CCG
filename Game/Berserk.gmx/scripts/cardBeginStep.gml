@@ -34,13 +34,21 @@ for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
                 canTurn = true;
                 continue;
             }
-
         }
         else
         {
             ds_list_delete(debuffs, ds_list_find_index(debuffs, db));        
             canTurn = true;
         }   
+        break;
+    case DEBUFFS.VISIBILITY:
+        --db[| 1];
+        if (db[| 1] == 0)
+        {
+            ds_list_delete(debuffs, ds_list_find_index(debuffs, db));
+            cardRecreateBuffs(DEBUFFS.VISIBILITY);
+            continue;
+        }
         break;
     }
 }

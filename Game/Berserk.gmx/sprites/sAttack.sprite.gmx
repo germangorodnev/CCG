@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>2</bboxmode>
-  <bbox_left>36</bbox_left>
-  <bbox_right>55</bbox_right>
-  <bbox_top>0</bbox_top>
-  <bbox_bottom>25</bbox_bottom>
+  <bbox_left>12</bbox_left>
+  <bbox_right>48</bbox_right>
+  <bbox_top>14</bbox_top>
+  <bbox_bottom>35</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -27,5 +27,6 @@
     <frame index="4">images\sAttack_4.png</frame>
     <frame index="5">images\sAttack_5.png</frame>
     <frame index="6">images\sAttack_6.png</frame>
+    <frame index="7">images\sAttack_7.png</frame>
   </frames>
 </sprite>

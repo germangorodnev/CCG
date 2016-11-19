@@ -263,6 +263,37 @@ switch (act)
         }
         cardDone();
         break;
+    // GOLEM CRUSHER
+    case ACTIONS.GOLEM_CRUSHER_TRIPLE:
+        state = CARD_STATES.PERFORM_ACTION;
+        var s = instance_create(x, y, oTriple);
+        s.pl = player;
+        s.startPl = player;
+        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.startPl = player;
+        s.parent = id;
+        s.speed = atkSpd;
+        s.dmg = dmg;
+        break;
+    // SCOUT
+    case ACTIONS.SCOUT_TRUE_VISION:
+        var db = ds_list_create();
+        ds_list_add(db, DEBUFFS.VISIBILITY, 2);
+        with (oCardBase)
+        {
+            cardSetDebuff(db);
+        }
+        break;
+    // SECTANT MAGE
+    case ACTIONS.SECTANT_MAGE_MANA:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = ds_list_find_value(ls, target);
+        with (realTarget)
+        {
+            cardChangeMana(1);
+        }  
+        cardDone();
+        break;
     // not implemented
     default:
         cardDone();

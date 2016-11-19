@@ -1143,7 +1143,7 @@
 		},
 		"actionIndex": [
 			{
-				"ENUM": 1,
+				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
 				"targetType": 1,
@@ -1183,7 +1183,7 @@
 	},
 
 	{
-		"cardIndex": 18,
+		"cardIndex": 19,
 		"hp": 4,
 		"dmg": 1,
 		"armor": 0,
@@ -1205,7 +1205,7 @@
 		},
 		"actionIndex": [
 			{
-				"ENUM": 1,
+				"ENUM": 0,
 				"mana": 0,
 				"needT": true,
 				"targetType": 1,
@@ -1238,6 +1238,254 @@
 			"English": "Golem-mentor. +2 attack to adjecent cards"
 		},
 		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 20,
+		"hp": 3,
+		"dmg": 7,
+		"armor": 7,
+		"usesMana": true,
+		"mana": 4,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Triple attack : also damages adjecent enemies", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 27,
+				"mana": 2,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Голем-сокрушитель",
+			"English": "Golem-crusher"
+		},
+		"rarity": 2,
+		"AP": 4,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 21,
+		"hp": 3,
+		"dmg": 3,
+		"armor": 4,
+		"usesMana": true,
+		"mana": 4,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Голем воздуха. Невидимость",
+			"English": "Air golem. Invisibility"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 22,
+		"hp": 5,
+		"dmg": 2,
+		"armor": 1,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"True vision: all cards lose invisibility for 2 turns", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Истинное зрение: все карты теряют невидимость на 2 хода", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 28,
+				"mana": 1,
+				"needT": false,
+				"targetType": 1,
+				"instant": true
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Скаут. Обладает прекрасным зрением",
+			"English": "Scout. He has great vision"
+		},
+		"rarity": 1,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 23,
+		"hp": 3,
+		"dmg": 2,
+		"armor": 3,
+		"usesMana": true,
+		"mana": 3,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Mana potion: +1 mana to the ally", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Зелье маны: +1 мана союзнику", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 29,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Колдун-сектант",
+			"English": "Sectarian mage"
+		},
+		"rarity": 1,
 		"AP": 1,
 		"resists": [
 			0

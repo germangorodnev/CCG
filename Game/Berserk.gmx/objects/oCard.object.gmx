@@ -159,11 +159,16 @@ else if (global.clientState == CLIENT_STATES.CHOOSING_TARGET)
             case TARGET_GROUPS.ENEMY_CARDS: // enemy only
                 if (player == 1)
                 {
-                    var p = ds_list_find_index(global.opCards, id);
-                    with (global.choosenCard)
+                    if (cardCanBeTargeted())
                     {
-                        cardSetAction(global.choosenCard.actionsIndex[global.choosenCardIndex], p, TARGET_GROUPS.ENEMY_CARDS);   
-                    }             
+                        var p = ds_list_find_index(global.opCards, id);
+                        with (global.choosenCard)
+                        {
+                            cardSetAction(global.choosenCard.actionsIndex[global.choosenCardIndex], p, TARGET_GROUPS.ENEMY_CARDS);   
+                        } 
+                    }
+                    else
+                        exit;            
                 }
                 else
                     exit;

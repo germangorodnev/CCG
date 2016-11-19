@@ -16,4 +16,9 @@ else
     ds_list_mark_as_list(buffs, 0);
 }   
 
-
+switch (b)
+{
+case BUFFS.INVISIBILITY:
+    image_alpha = 0.5;
+    break;
+}

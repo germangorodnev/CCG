@@ -32,6 +32,10 @@
     GOLEM_MATYA = 17,
     GOLEM_SON = 18,
     GOLEM_MENTOR = 19,
+    GOLEM_SMASHER = 20,
+    GOLEM_AIR = 21,
+    SCOUT = 22,
+    SECTANT_MAGE = 23,
     CARDS_COUNT
 };
 
@@ -66,12 +70,14 @@ enum CARD_STATES
 enum DEBUFFS
 {
     POISON = 0,
-    STUN
+    STUN,
+    VISIBILITY
 }
 
 enum BUFFS
 {
-    BLOCK
+    BLOCK,
+    INVISIBILITY
 }
 
 enum DEATHRATTLES
@@ -135,7 +141,13 @@ enum ACTIONS
     GOLEM_MATYA_KISS = 24,
     // SON GOLEM
     GOLEM_SON_RAGE = 25,
-    GOLEM_SON_GENGAP = 26
+    GOLEM_SON_GENGAP = 26,
+    // GOLEM CRUSER
+    GOLEM_CRUSHER_TRIPLE = 27,
+    // SCOUT
+    SCOUT_TRUE_VISION = 28,
+    // SECTANT MAGE
+    SECTANT_MAGE_MANA = 29,
 }
 
 enum EV

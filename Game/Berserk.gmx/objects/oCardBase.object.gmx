@@ -114,7 +114,7 @@ moreCol = c_green;
 lessCol = c_red;
 
 // private individual
-hasImpacts = false;
+hasImpact = false;
 ls1 = 0;
 </string>
           </argument>
