@@ -11,6 +11,7 @@ case CARDS.GOLEM_SLIME:
 case CARDS.GOLEM_STONE:
 case CARDS.GOLEM_MENTOR:
 case CARDS.GOLEM_AIR:
+case CARDS.MINI_BOT:
     return 0;
     break;
 case CARDS.KONCHA:
@@ -19,6 +20,7 @@ case CARDS.GARGULIA:
 case CARDS.PORCHANKA:
 case CARDS.GOLEM_MATYA:
 case CARDS.SCOUT:
+case CARDS.CHEMIS_INVENTOR:
     return 1;
     break;
 case CARDS.JOJN:
@@ -27,6 +29,7 @@ case CARDS.RITTER:
 case CARDS.GOLEM_BATYA:
 case CARDS.GOLEM_SON:
 case CARDS.GOLEM_SMASHER:
+case CARDS.UNDER_DEVOURER:
     return 2;
     break;
 }

@@ -1491,4 +1491,190 @@
 			0
 		] 
 	},
+
+	{
+		"cardIndex": 24,
+		"hp": 2,
+		"dmg": 2,
+		"armor": 0,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Devour: destroy adjecent cards, gains their stats", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Пожирание: убивает прилежащие карты, получает их параметры", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 30,
+				"mana": 2,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Подземный пожиратель",
+			"English": "Underground devourer"
+		},
+		"rarity": 2,
+		"AP": 3,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 25,
+		"hp": 2,
+		"dmg": 2,
+		"armor": 0,
+		"usesMana": true,
+		"mana": 3,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"To me: summons mini-bot in ally team", 
+				"Transformation: transforms ally minion in another minion with some chance. Chance depends on the amount of Inventor's mini-bots",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Ко мне: призывает в вашу команду мини-бота", 
+				"Трансоформация: с определенным шансом превращает союзное существо в другое существо. Шанс зависит от количества мини-ботов изобретателя",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 31,
+				"mana": 1,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 32,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Химик-изобретатель. Неуязвим к ядам",
+			"English": "Chemist-inventor. Poison resist"
+		},
+		"rarity": 1,
+		"AP": 2,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 26,
+		"hp": 2,
+		"dmg": 1,
+		"armor": 2,
+		"usesMana": true,
+		"mana": 1,
+		"actionNames": {
+			"English": [
+				"Attcak", 
+				"Secret code: all mini-bots gain +1 attack", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Ко мне: призывает в вашу команду мини-бота", 
+				"Трансоформация: с определенным шансом превращает союзное существо в другое существо. Шанс зависит от количества мини-ботов изобретателя",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 33,
+				"mana": 1,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 32,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Мини-бот. БИП-БИП. Increases Chemist-inventor's luck",
+			"English": "Mini-bot: BEEP-BEEP. Увеличивает удачу Химика-изобретателя"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
 ]

@@ -28,6 +28,7 @@
             <string>///Very cool cards inside
 image_speed = 0;
 type = 0; //5 \ 3
+
 drag = false;
 half = sprite_height / 2 - 50;
 cnt = 0;
@@ -179,6 +180,7 @@ draw_set_font(fPackNumber);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 drawTextOutline(x, y + half, cnt, ci, co, 1, 1, image_angle, 1);
+
 </string>
           </argument>
         </arguments>

@@ -85,8 +85,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.serverip = oServerIPbox.text;
-oControl.alarm[0] = 1;
+            <string>oControl.alarm[0] = 1;
 </string>
           </argument>
         </arguments>

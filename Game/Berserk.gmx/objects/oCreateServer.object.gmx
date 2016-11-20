@@ -62,7 +62,7 @@ if (mouseOnUs())
 }
 else
     image_index = 2;
-if (keyboard_check_released(vk_enter))
+/*if (keyboard_check_released(vk_enter))
 {
     with (oCreateServer)
         event_perform(ev_other, ev_user0);

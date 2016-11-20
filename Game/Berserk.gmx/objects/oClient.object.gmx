@@ -145,8 +145,9 @@ network_destroy(client);
             <string>///Perform non-instant events
 with (oCardBase)
 {
-    if (!cardGetActionInstant())
-        cardSetState(CARD_STATES.PERFORM_ACTION);
+    if (state != CARD_STATES.DESTROY)
+        if (!cardGetActionInstant())
+            cardSetState(CARD_STATES.PERFORM_ACTION);
 }
 alarm[1] = 3 * room_speed;
 

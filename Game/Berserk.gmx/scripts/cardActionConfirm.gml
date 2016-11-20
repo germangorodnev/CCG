@@ -13,6 +13,19 @@ case ACTIONS.MIMIC_TOWN_BATTLECRY:
 case ACTIONS.JOJN_SWORD_STRIKE:
     ds_list_add(actions, choose(0, 0, 1, 2));
     break;
+    
+case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
+    // initila chance - 25 %
+    var chance = 25 + cardGetCountOnBoard(CARDS.MINI_BOT, cardGetGroup()) * 10;
+    var rng = random_range(0.0, 100.0);
+    if (rng <= chance)
+    {
+        actions[| 1] = true;
+        ds_list_add(actions, gameGetCard(false, 3));
+    }
+    else
+        actions[| 1] = false;
+    break;
 }
 
 // WARNING

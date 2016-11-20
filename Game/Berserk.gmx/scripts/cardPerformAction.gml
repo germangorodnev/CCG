@@ -1,20 +1,25 @@
-if (ds_list_empty(actions) || !canTurn || !actions[| 1])
+// decrease the mana 
+if (ds_list_empty(actions))
 {
-    state = CARD_STATES.DONE_ACTION;
-    exit; //WARNING
+    cardDone();
+    exit
 }
-
-var target = actions[| 2];
-
 var act = actions[| 0];
 
-// decrease the mana 
 if (player == 1)
 {
     var pos = cardGetArrIndexByEnum(act);
     if (pos != -1)
         cardChangeMana(-actionsMana[pos]);
 }
+
+if (!canTurn || !actions[| 1])
+{
+    state = CARD_STATES.DONE_ACTION;
+    exit; //WARNING
+}
+
+var target = actions[| 2];
 
 switch (act)
 {
@@ -160,8 +165,8 @@ switch (act)
         var targetId = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);  
         with (targetId)
         {
-            cardIncreaseMaxStat(2, "dmg");
-            cardIncreaseMaxStat(1, "armor");            
+            cardChangeDmg(2);
+            cardChangeArmor(1);            
         }
         cardDone();
         break;
@@ -292,6 +297,39 @@ switch (act)
         {
             cardChangeMana(1);
         }  
+        cardDone();
+        break;
+    // UNDERGROUND DEVOURER
+    case ACTIONS.UNDER_DEVOURER_DEVOUR:
+        // eats adjacent
+        break;
+    // CHEMIST INVENTOR
+    case ACTIONS.CHEMIST_INVENTOR_MINI_BOT: // summon a card
+        var c = cardSummon(player, CARDS.MINI_BOT);
+        cardDone();
+        break;
+    case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = ds_list_find_value(ls, target);
+        var newt = actions[| 4];
+        with (realTarget)
+        {
+            cardReplace(newt);
+            state = CARD_STATES.DESTROY;
+            instance_destroy();
+            cardClearMemory();
+        }
+        cardDone();
+        break;
+    // MINI-BOT
+    case ACTIONS.MINI_BOT_SECRET_CODE:
+        with (oCardBase)
+        {
+            if (type == CARDS.MINI_BOT)
+            {
+                cardChangeDmg(1);
+            }
+        }
         cardDone();
         break;
     // not implemented

@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Init
 image_speed = 0;
+canReplace = true;
 
 state = CARD_STATES.DONE_ACTION;
 

@@ -36,6 +36,10 @@ b3y = 272;
 b5x = global.guiW - b3x;
 b5y = b3y;
 
+bcosty = b5y + 150;
+b3cost = "1200";
+b5cost = "1800";
+
 aMax = 15;
 white = c_white;
 black = c_black;
@@ -125,10 +129,12 @@ draw_sprite_ext(sBooster, 0, b3x, b3y, 1, 1, ang, image_blend, 1);
 draw_set_font(fBigNumbs);
 draw_set_halign(fa_center);
 drawTextOutline(b3x, b3y, string(global.packs3), white, black, 1, 1, 0, 1);
+drawTextOutline(b3x, bcosty, b3cost, white, black, 1, 1, 0, 1);
 
 // 5 cards
 draw_sprite_ext(sBooster, 1, b5x, b5y, 1, 1, ang, image_blend, 1);
 drawTextOutline(b5x, b5y, string(global.packs5), white, black, 1, 1, 0, 1);
+drawTextOutline(b5x, bcosty, b5cost, white, black, 1, 1, 0, 1);
 
 // MANI
 drawTextOutline(maniX, maniY, string(global.money), white, black, 1, 1, 0, 1);

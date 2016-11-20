@@ -1,3 +1,5 @@
+if (state == CARD_STATES.DESTROY)
+    return false;
 if (ds_list_empty(actions))
     return false;
 var pos = cardGetArrIndexByEnum(actions[| 0]);

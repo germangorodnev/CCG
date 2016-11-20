@@ -137,6 +137,9 @@
         <script>scripts\cardGetCountOnBoard.gml</script>
         <script>scripts\cardCanBeChoosen.gml</script>
         <script>scripts\cardCanBeTargeted.gml</script>
+        <script>scripts\cardGetFreePlace.gml</script>
+        <script>scripts\cardListPosToX.gml</script>
+        <script>scripts\cardListPosToY.gml</script>
       </scripts>
       <scripts name="Buffs">
         <script>scripts\cardRecreateBuffs.gml</script>
@@ -178,7 +181,10 @@
       <script>scripts\cardWriteAction.gml</script>
       <script>scripts\cardEndStep.gml</script>
       <script>scripts\cardDestroy.gml</script>
+      <script>scripts\cardClearMemory.gml</script>
       <script>scripts\cardChangeTeam.gml</script>
+      <script>scripts\cardReplace.gml</script>
+      <script>scripts\cardSummon.gml</script>
     </scripts>
     <scripts name="Client">
       <scripts name="Chat">
@@ -222,6 +228,7 @@
       <script>scripts\cardGetTypeFromBooster.gml</script>
       <script>scripts\gameAddCardToCollection.gml</script>
       <script>scripts\findCardPosInDeckWithNumbByIndex.gml</script>
+      <script>scripts\gameGetCard.gml</script>
     </scripts>
     <scripts name="Deck making">
       <script>scripts\dmCreateCards.gml</script>
