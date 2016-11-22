@@ -193,20 +193,20 @@ shader_reset();
 for (var i = 0, c = ds_list_size(buffs); i &lt; c; i++)
 {
     var spr = cardGetBuffIndexByEnum(ds_list_find_value(ds_list_find_value(buffs, i), 0));
-    draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha / 2);
+    draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, image_blend, 1);
 }
 
 // drawing debuffs
 for (var j = 0, c = ds_list_size(debuffs); j &lt; c; j++)
 {
     var spr = cardGetDebuffIndexByEnum(ds_list_find_value(ds_list_find_value(debuffs, j), 0));
-    draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha / 2);
+    draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
 }
 
 // drawing deathrattles
 for (var i = 0; i &lt; deathrattlesCnt; i++)
 {
-    draw_sprite_ext(deathrattlesIcons[i], 0, x, y + lengthdir_y(50, 270 + image_angle), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+    draw_sprite_ext(deathrattlesIcons[i], 0, x, y + lengthdir_y(50, 270 + image_angle), image_xscale, image_yscale, image_angle, image_blend, 1);
 }
 
 

@@ -3,7 +3,7 @@
   <spriteName>sAttack</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-5</depth>
+  <depth>-50</depth>
   <persistent>0</persistent>
   <parentName>oAttack</parentName>
   <maskName>&lt;undefined&gt;</maskName>

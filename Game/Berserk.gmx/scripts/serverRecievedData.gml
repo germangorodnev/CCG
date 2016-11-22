@@ -61,6 +61,7 @@ case CL_RESPOND: // just a signal that client made something we told him to do
         break;
     case SR_GAME_INIT: // he initialised the game, now prep zero turns and play
         changeGameState(GAME_STATES.ZERO_TURN);
+        global.AP = 0;
         break;
     case SR_CHANGE_GAME_STATE:
         changeGameState(GAME_STATES.PERFORM_ACTIONS);

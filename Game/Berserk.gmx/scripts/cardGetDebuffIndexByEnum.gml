@@ -7,9 +7,6 @@ case DEBUFFS.POISON:
 case DEBUFFS.STUN:
     return sDebuffStun;
     break;
-case DEBUFFS.VISIBILITY:
-    return sVisible;
-    break;
 default:
     return sDebuffStun;
     break;

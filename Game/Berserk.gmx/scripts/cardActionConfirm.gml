@@ -16,7 +16,7 @@ case ACTIONS.JOJN_SWORD_STRIKE:
     
 case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
     // initila chance - 25 %
-    var chance = 25 + cardGetCountOnBoard(CARDS.MINI_BOT, cardGetGroup()) * 10;
+    var chance = 75 + cardGetCountOnBoard(CARDS.MINI_BOT, cardGetGroup()) * 10;
     var rng = random_range(0.0, 100.0);
     if (rng <= chance)
     {

@@ -30,6 +30,7 @@ image_speed = 0;
 beginText = "192.168.0.101";
 text = beginText;
 active = false;
+global.serverip = text;
 
 </string>
           </argument>

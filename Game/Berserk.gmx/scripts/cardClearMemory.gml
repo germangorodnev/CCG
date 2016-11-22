@@ -1,4 +1,4 @@
-ds_list_destroy(ls1);
+cardClearAdditionalLists();
 ds_list_destroy(actions);
 ds_list_destroy(resists);
 ds_list_destroy(debuffs);

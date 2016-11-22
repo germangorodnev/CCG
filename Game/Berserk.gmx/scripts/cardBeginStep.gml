@@ -3,7 +3,7 @@ actionPos = -1;
 canTurn = true;
 for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
 {
-    var db = ds_list_find_value(debuffs, 0);
+    var db = ds_list_find_value(debuffs, i);
     switch (db[| 0])
     {
     case DEBUFFS.POISON:
@@ -40,15 +40,6 @@ for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
             ds_list_delete(debuffs, ds_list_find_index(debuffs, db));        
             canTurn = true;
         }   
-        break;
-    case DEBUFFS.VISIBILITY:
-        --db[| 1];
-        if (db[| 1] == 0)
-        {
-            ds_list_delete(debuffs, ds_list_find_index(debuffs, db));
-            cardRecreateBuffs(DEBUFFS.VISIBILITY);
-            continue;
-        }
         break;
     }
 }

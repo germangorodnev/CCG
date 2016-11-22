@@ -304,7 +304,7 @@
 			"Russian": "Грибы. Травят спорами случайного противника, если нет иного действия",
 			"English": "Mushrooms. Poison random enemy every turn if no other action"
 		},
-		"rarity": 0,
+		"rarity": 3,
 		"AP": 1,
 		"resists": [
 			0
@@ -740,7 +740,7 @@
 			"Russian": "Гнойник",
 			"English": "Pusy"
 		},
-		"rarity": 0,
+		"rarity": 3,
 		"AP": 1,
 		"resists": [
 			0
@@ -865,7 +865,7 @@
 			"Russian": "Грибы-гнойники. Травят спорами случайного противника, если нет иного действия",
 			"English": "Mushroompus. Poison random enemy if no other action."
 		},
-		"rarity": 0,
+		"rarity": 3,
 		"AP": 1,
 		"resists": [
 			0
@@ -1113,7 +1113,7 @@
 			"Russian": "Голем-мать. После смерти создаст голема-сына.",
 			"English": "Mother golem. Creates son golem on death."
 		},
-		"rarity": 1,
+		"rarity": 3,
 		"AP": 1,
 		"resists": [
 			0
@@ -1175,7 +1175,7 @@
 			"Russian": "Голем-сынишка. Очень опасен",
 			"English": "Golem-son. Very dangerous"
 		},
-		"rarity": 2,
+		"rarity": 3,
 		"AP": 3,
 		"resists": [
 			0
@@ -1402,7 +1402,7 @@
 				"mana": 1,
 				"needT": false,
 				"targetType": 1,
-				"instant": true
+				"instant": false
 			},
 			{
 				"ENUM": -1,
@@ -1625,7 +1625,7 @@
 		"mana": 1,
 		"actionNames": {
 			"English": [
-				"Attcak", 
+				"Attaсk", 
 				"Secret code: all mini-bots gain +1 attack", 
 				"",
 				"Pass the turn" 
@@ -1633,7 +1633,7 @@
 			"Russian": [
 				"Атака", 
 				"Ко мне: призывает в вашу команду мини-бота", 
-				"Трансоформация: с определенным шансом превращает союзное существо в другое существо. Шанс зависит от количества мини-ботов изобретателя",
+				"",
 				"Пропуск хода" 
 			]
 		},
@@ -1653,7 +1653,7 @@
 				"instant": false
 			},
 			{
-				"ENUM": 32,
+				"ENUM": -1,
 				"mana": 1,
 				"needT": true,
 				"targetType": 2,
@@ -1670,6 +1670,192 @@
 		"description": {
 			"Russian": "Мини-бот. БИП-БИП. Increases Chemist-inventor's luck",
 			"English": "Mini-bot: BEEP-BEEP. Увеличивает удачу Химика-изобретателя"
+		},
+		"rarity": 3,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 27,
+		"hp": 3,
+		"dmg": 2,
+		"armor": 1,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Fire arrows: +2 attack on 2 turns", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Огненные стрелы: +2 атаки на 2 хода", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 34,
+				"mana": 1,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Лучник",
+			"English": "Archer"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 28,
+		"hp": 5,
+		"dmg": 3,
+		"armor": 4,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Rearing: -3 hp on 2 turns (not less than 1)", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"На дыбы: -3 жз. на 2 хода (не меньше 1)", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 35,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Кавалерия",
+			"English": "Cavalry"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		] 
+	},
+
+	{
+		"cardIndex": 29,
+		"hp": 4,
+		"dmg": 1,
+		"armor": 1,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Вейп-пиписька. Дает невидимость двум прилежащим картам при появлении.",
+			"English": "Vape-machine. Gives invisibility to the adjecent cards."
 		},
 		"rarity": 0,
 		"AP": 1,

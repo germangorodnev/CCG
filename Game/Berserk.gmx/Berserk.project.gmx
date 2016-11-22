@@ -60,6 +60,7 @@
     </sprites>
     <sprites name="Buff Icons">
       <sprite>sprites\sBuffBlock</sprite>
+      <sprite>sprites\sInvis</sprite>
     </sprites>
     <sprites name="Debuff Icons">
       <sprite>sprites\sDebuffPoison</sprite>
@@ -142,9 +143,9 @@
         <script>scripts\cardListPosToY.gml</script>
       </scripts>
       <scripts name="Buffs">
-        <script>scripts\cardRecreateBuffs.gml</script>
         <script>scripts\cardHasBuff.gml</script>
         <script>scripts\cardSetBuff.gml</script>
+        <script>scripts\cardDeleteBuff.gml</script>
       </scripts>
       <scripts name="Debuffs">
         <script>scripts\cardSetDebuffs.gml</script>
@@ -185,6 +186,7 @@
       <script>scripts\cardChangeTeam.gml</script>
       <script>scripts\cardReplace.gml</script>
       <script>scripts\cardSummon.gml</script>
+      <script>scripts\cardClearAdditionalLists.gml</script>
     </scripts>
     <scripts name="Client">
       <scripts name="Chat">

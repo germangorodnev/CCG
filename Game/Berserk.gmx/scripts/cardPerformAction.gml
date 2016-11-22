@@ -282,12 +282,12 @@ switch (act)
         break;
     // SCOUT
     case ACTIONS.SCOUT_TRUE_VISION:
-        var db = ds_list_create();
-        ds_list_add(db, DEBUFFS.VISIBILITY, 2);
         with (oCardBase)
         {
-            cardSetDebuff(db);
+            if (cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
+                cardDeleteBuff(BUFFS.INVISIBILITY);
         }
+        cardDone();
         break;
     // SECTANT MAGE
     case ACTIONS.SECTANT_MAGE_MANA:
@@ -302,6 +302,33 @@ switch (act)
     // UNDERGROUND DEVOURER
     case ACTIONS.UNDER_DEVOURER_DEVOUR:
         // eats adjacent
+        var l = instance_position(x - 110, y, oCardBase),
+            r = instance_position(x + 110, y, oCardBase);
+        if (l != noone)
+        {
+            cardIncreaseMaxStat(l.hp, "hp");
+            cardIncreaseMaxStat(l.dmg, "dmg");
+            cardIncreaseMaxStat(l.armor, "armor");
+            // NOM NOM
+            with (l)
+            {
+                cardDone();
+                cardSetState(CARD_STATES.DESTROY);
+            }
+        }
+        if (r != noone)
+        {
+            cardIncreaseMaxStat(r.hp, "hp");
+            cardIncreaseMaxStat(r.dmg, "dmg");
+            cardIncreaseMaxStat(r.armor, "armor");
+            // NOM NOM
+            with (r)
+            {
+                cardDone();
+                cardSetState(CARD_STATES.DESTROY);
+            }
+        }
+        cardDone();
         break;
     // CHEMIST INVENTOR
     case ACTIONS.CHEMIST_INVENTOR_MINI_BOT: // summon a card
@@ -314,9 +341,10 @@ switch (act)
         var newt = actions[| 4];
         with (realTarget)
         {
-            cardReplace(newt);
-            state = CARD_STATES.DESTROY;
             instance_destroy();
+            cardDone();
+            state = CARD_STATES.DESTROY;
+            cardReplace(newt);
             cardClearMemory();
         }
         cardDone();
@@ -332,11 +360,33 @@ switch (act)
         }
         cardDone();
         break;
+        
+    // VAPE
+    case ACTIONS.VAPE_BATTLECRY:        
+        for (var i = -1; i < 2; i++)
+        {
+            for (var j = -1; j < 2; j++)
+            {
+                var inst = instance_position(x + i * 134, y + j * 160, oCardBase);
+                if (inst == id || inst == noone)
+                    continue;
+                with (inst)
+                    cardSetBuff(BUFFS.INVISIBILITY, 8000);
+            }
+        }
+        cardDone();
+        break;
     // not implemented
     default:
         cardDone();
         break;        
 }
+
+if (act != ACTIONS.PASS_THE_TURN)
+    if (cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
+    {
+        cardDeleteBuff(BUFFS.INVISIBILITY);
+    }
 
 /*
     ATTACK = 0,

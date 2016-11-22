@@ -12,6 +12,9 @@ case CARDS.GOLEM_STONE:
 case CARDS.GOLEM_MENTOR:
 case CARDS.GOLEM_AIR:
 case CARDS.MINI_BOT:
+case CARDS.ARCHER:
+case CARDS.CAVALERY:
+case CARDS.VAPE:
     return 0;
     break;
 case CARDS.KONCHA:
