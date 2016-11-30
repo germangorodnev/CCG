@@ -10,7 +10,7 @@ if (argument1 != -1)
 }
 // decrease the AP
 changeAP(-AP);
-var pos = cardGetArrIndexByEnum(argument0);
+/*var pos = cardGetArrIndexByEnum(argument0);
 if (pos != -1)
 {
     // decrease the mana 

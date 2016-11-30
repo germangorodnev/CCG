@@ -24,6 +24,7 @@ case CARDS.PORCHANKA:
 case CARDS.GOLEM_MATYA:
 case CARDS.SCOUT:
 case CARDS.CHEMIS_INVENTOR:
+case CARDS.PET_BEAR:
     return 1;
     break;
 case CARDS.JOJN:

@@ -73,9 +73,10 @@ if (global.sellout) // we've got some new sellout card right there
     var a = instance_create(sx, sy, oCardDeck);
     sI = t;
     a.type = t;
-    a.mode = 0;
+    a.mode = 3;
     a.image_xscale = 2;
     a.image_yscale = 2;
+    a.font = fGame;
     with (a)
     {
         dmCardInit();

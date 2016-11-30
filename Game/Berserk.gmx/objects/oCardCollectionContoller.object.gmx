@@ -49,18 +49,7 @@ dsx = 100;
 dsy = 528;
 dsc = c_white;
 index = global.deckNumb + 1;
-switch (global.deckNumb)
-{
-case 0:
-    dsc = c_red;
-    break;
-case 1:
-    dsc = c_green;
-    break;
-case 2:
-    dsc = c_blue;
-    break;
-}
+dsc = getDeckCol(global.deckNumb);
 
 // drawing
 ccx = 256;
@@ -74,7 +63,7 @@ cdy = room_height - ccy - ccbetwy;
 
 // buttons
 btrx = 1216;
-btlx = 64;
+btlx = 128;
 bty = 330;
 
 deckLineX1 = 130;
@@ -138,6 +127,12 @@ var ang = sin(current_time / 300);
 draw_sprite_ext(sDeck, 0, dsx, dsy, 1, 1, ang, dsc, 1);
 draw_set_font(fBigNumbs);
 drawTextOutline(dsx + 30, dsy - 50, string(index), white, black, 1, 1, ang, 1);
+
+var strN = string(deckCardsCount) + "/" + "30",
+    c = c_green;
+if (deckCardsCount &lt; global.maxCards)
+    c = c_red;
+drawTextOutline(dsx, dsy + 45, strN, c, black, 1, 1, ang, 1);
 
 draw_line_width_colour(deckLineX1, deckLineY, deckLineX2, deckLineY, 4, black, black);
 </string>

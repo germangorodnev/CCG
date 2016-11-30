@@ -12,11 +12,18 @@ case CL_CONNECT_INF:
     global.opName = buffer_read(buff, buffer_string);
     ds_list_clear(opDeck);
     ds_list_read(opDeck, buffer_read(buff, buffer_string));
+    global.opWins = buffer_read(buff, buffer_u16);
+    global.opLoses = buffer_read(buff, buffer_u16);
     var n = global.opName;
     with (oClient)
     {
         addChatFrase("New player connected", n);
     }
+    // send our nickname
+    buffer_seek(playerBuffer, buffer_seek_start, 0);
+    buffer_write(playerBuffer, buffer_u16, SR_NICKNAME);
+    buffer_write(playerBuffer, buffer_string, global.name);
+    network_send_packet(opSocket, playerBuffer, buffer_tell(playerBuffer));    
     break;
     
 case CL_PING: // just make sure it's alive

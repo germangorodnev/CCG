@@ -10,21 +10,21 @@ with (oCardBase)
 if (ourC == 0)
 {
     // we lost
-    show_message("You are peedor");
     gameEnd();
+    winLoseInit(false);
+    global.money += 300;
     global.loses++;
     saveGame();
-    room_goto(rMainMenu);  
     exit; 
 }
 if (otherC == 0)
 {
     // we won
-    show_message("You are not peedor");
     gameEnd();
     global.wins++;
+    winLoseInit(true);
+    global.money += 350 + 350 * (ceil(global.opWins / (global.opLoses + 1)));
     saveGame();
-    room_goto(rMainMenu);   
     exit;
 }
 

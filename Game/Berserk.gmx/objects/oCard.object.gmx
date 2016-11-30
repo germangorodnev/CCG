@@ -237,6 +237,9 @@ if (hp &lt;= 0)
 break;
 
 }
+if (mouse_check_button_released(mb_right))
+    if (mouseOnUs())
+        windowInitialiseAboutCard(id);
 </string>
           </argument>
         </arguments>

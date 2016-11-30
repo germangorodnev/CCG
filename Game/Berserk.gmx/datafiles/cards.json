@@ -53,14 +53,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Доктор Конча. Доктор алхимических наук. Кушает гуано.",
-			"English": "Doctor Koncha"
+			"Russian": "Безумный	 доктор. Алхимик",
+			"English": "Insane doctor alchemist"
 		},
 		"rarity": 1,
 		"AP": 2,
 		"resists": [
 			0
-		]
+		],
+		"class": 0
 	},
 
 	{
@@ -115,14 +116,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Лисец. Он приходит ко всем. Рано или поздно.",
-			"English": "Lisetz. Come on!"
+			"Russian": "Убийца в маске лисы",
+			"English": "Killer in fox mask"
 		},
 		"rarity": 1,
 		"AP": 1,
 		"resists": [
 			0
-		]
+		],
+		"class": 1
 	},
 
 	{
@@ -184,7 +186,8 @@
 		"AP": 2,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -239,14 +242,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Городской мимик. Грозное оружие в руках унитазного воина",
+			"Russian": "Городской мимик",
 			"English": "City mimic"
 		},
 		"rarity": 0,
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -308,7 +312,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -369,7 +374,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		]  
+		],
+		"class": -1
 	},
 
 	{
@@ -424,14 +430,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Жожн. Совмещает в себе мага и воина. Бойтесь!!",
+			"Russian": "Жожн. Совмещает в себе мага и воина.",
 			"English": "Jojn. Mage and warrior. 2 in 1."
 		},
 		"rarity": 2,
 		"AP": 4,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -493,7 +500,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 0
 	},
 
 	{
@@ -556,7 +564,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -611,14 +620,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Рыцарь смемсов",
-			"English": "Smems knight"
+			"Russian": "Светлый рыцарь",
+			"English": "Knight of sanctuaries"
 		},
 		"rarity": 2,
 		"AP": 3,
 		"resists": [
 			0
-		] 
+		],
+		"class": 0
 	},
 
 	{
@@ -675,13 +685,14 @@
 		],
 		"description": {
 			"Russian": "Порчанка.#Заражает союзника гнойниками",
-			"English": "Corupty"
+			"English": "Corupty witch"
 		},
 		"rarity": 1,
 		"AP": 1,
 		"resists": [
 			0
-		]
+		],
+		"class": 0
 	},
 	
 	{
@@ -744,7 +755,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -807,7 +819,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -869,7 +882,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": -1
 	},
 
 	{
@@ -931,13 +945,14 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
 		"cardIndex": 15,
 		"hp": 5,
-		"dmg": 4,
+		"dmg": 0,
 		"armor": 0,
 		"usesMana": true,
 		"mana": 4,
@@ -993,7 +1008,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
@@ -1055,7 +1071,8 @@
 		"AP": 2,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
@@ -1117,7 +1134,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
@@ -1179,7 +1197,8 @@
 		"AP": 3,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
@@ -1241,7 +1260,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
@@ -1254,13 +1274,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Triple attack : also damages adjecent enemies", 
+				"Triple attack: also damages adjecent enemies", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"", 
+				"Тройная атака: также атакует прилежащие к цели карты", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1303,7 +1323,8 @@
 		"AP": 4,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
@@ -1358,14 +1379,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Голем воздуха. Невидимость",
+			"Russian": "Голем воздуха. Невидим, пока не атакует",
 			"English": "Air golem. Invisibility"
 		},
 		"rarity": 0,
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 1
 	},
 
 	{
@@ -1420,14 +1442,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Скаут. Обладает прекрасным зрением",
+			"Russian": "Разведчик. Обладает прекрасным зрением",
 			"English": "Scout. He has great vision"
 		},
 		"rarity": 1,
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 0
 	},
 
 	{
@@ -1489,7 +1512,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 0
 	},
 
 	{
@@ -1526,7 +1550,7 @@
 				"mana": 2,
 				"needT": false,
 				"targetType": 2,
-				"instant": false
+				"instant": true
 			},
 			{
 				"ENUM": -1,
@@ -1551,7 +1575,8 @@
 		"AP": 3,
 		"resists": [
 			0
-		] 
+		],
+		"class": 0
 	},
 
 	{
@@ -1564,14 +1589,14 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"To me: summons mini-bot in ally team", 
-				"Transformation: transforms ally minion in another minion with some chance. Chance depends on the amount of Inventor's mini-bots",
+				"To me: summons abominatio in ally team", 
+				"Transformation: transforms ally minion in another minion with some chance. Chance depends on the amount of Inventor's abominatio",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Ко мне: призывает в вашу команду мини-бота", 
-				"Трансоформация: с определенным шансом превращает союзное существо в другое существо. Шанс зависит от количества мини-ботов изобретателя",
+				"Ко мне: призывает в вашу команду абомината", 
+				"Трансоформация: с определенным шансом превращает союзное существо в другое существо. Шанс зависит от количества абоминатов изобретателя",
 				"Пропуск хода" 
 			]
 		},
@@ -1612,8 +1637,10 @@
 		"rarity": 1,
 		"AP": 2,
 		"resists": [
+			1,
 			0
-		] 
+		],
+		"class": 0
 	},
 
 	{
@@ -1626,13 +1653,13 @@
 		"actionNames": {
 			"English": [
 				"Attaсk", 
-				"Secret code: all mini-bots gain +1 attack", 
+				"Secret code: all abominatios gain +1 attack", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Ко мне: призывает в вашу команду мини-бота", 
+				"Секретный код: все абоминаты получают +1 атк.", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1668,14 +1695,15 @@
 			}
 		],
 		"description": {
-			"Russian": "Мини-бот. БИП-БИП. Increases Chemist-inventor's luck",
-			"English": "Mini-bot: BEEP-BEEP. Увеличивает удачу Химика-изобретателя"
+			"Russian": "Абоминация. Увеличивает удачу Химика-изобретателя",
+			"English": "Abominatio. Increases Chemist-inventor's luck"
 		},
 		"rarity": 3,
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 2
 	},
 
 	{
@@ -1737,7 +1765,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 3
 	},
 
 	{
@@ -1750,13 +1779,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Rearing: -3 hp on 2 turns (not less than 1)", 
+				"Rearing: -3 hp on 2 turns (hp cannot be less than 1)", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"На дыбы: -3 жз. на 2 хода (не меньше 1)", 
+				"На дыбы: -3 жз. на 2 хода (жз не может упасть меньше 1)", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1799,7 +1828,8 @@
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 0
 	},
 
 	{
@@ -1854,13 +1884,77 @@
 			}
 		],
 		"description": {
-			"Russian": "Вейп-пиписька. Дает невидимость двум прилежащим картам при появлении.",
-			"English": "Vape-machine. Gives invisibility to the adjecent cards."
+			"Russian": "Дымовые заводы. Дают невидимость ближайшим картам при появлении.",
+			"English": "Smoke fucktories. Gives invisibility to the nearest cards."
 		},
 		"rarity": 0,
 		"AP": 1,
 		"resists": [
 			0
-		] 
+		],
+		"class": 2
+	},
+
+	{
+		"cardIndex": 30,
+		"hp": 6,
+		"dmg": 3,
+		"armor": 3,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Pet: become a pet for a rider", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Питомец: стать питомцем для наездника", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 37,
+				"mana": 0,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Ездовой медведь. Может стать питомцем для Наездиков",
+			"English": "Sled bear. Can become a pet for Riders"
+		},
+		"rarity": 1,
+		"AP": 2,
+		"resists": [
+			0
+		],
+		"class": 4
 	},
 ]

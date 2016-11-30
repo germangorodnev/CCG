@@ -23,6 +23,9 @@ mana = ourParams[? "mana"];
 rarity = ourParams[? "rarity"];
 borderIndex = rarity;
 
+class = ourParams[? "class"];
+classStr = cardParamToStr(class);
+
 desc = ds_map_find_value(ourParams[? "description"], global.language);
 AP = ourParams[? "AP"];
 /* resists

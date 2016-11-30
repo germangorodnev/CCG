@@ -8,6 +8,6 @@ case DEBUFFS.STUN:
     return sDebuffStun;
     break;
 default:
-    return sDebuffStun;
+    return sNoone;
     break;
 }

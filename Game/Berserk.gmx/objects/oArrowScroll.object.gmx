@@ -28,6 +28,7 @@
             <string>///+- page
 image_speed = 0;
 dir = 0; // 0 right, 1 left
+gr = 'c';
 </string>
           </argument>
         </arguments>
@@ -53,9 +54,13 @@ dir = 0; // 0 right, 1 left
             <string>///Event
 if (mouse_check_button_released(mb_left))
 {
-    var d = dir;
-    with (oCardCollectionContoller)
-        dmPageChange(d);
+    if (mouseOnUs())
+    {
+        var d = dir,    
+            g = gr;  
+        with (oCardCollectionContoller)
+            dmPageChange(d, g);
+    }
 }
 </string>
           </argument>

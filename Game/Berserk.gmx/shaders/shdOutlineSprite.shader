@@ -21,6 +21,7 @@ void main()
 //######################_==_YOYO_SHADER_MARKER_==_######################@~//
 // Simple passthrough fragment shader
 //
+
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
@@ -30,32 +31,6 @@ uniform vec2 size;
 
 void main()
 {    
-    vec4 total = vec4(0.0);
-    vec4 grabPixel;
-
-    total +=        texture2D(gm_BaseTexture, v_vTexcoord + vec2(-1.0 / size.x, -1.0 / size.y));
-    total +=        texture2D(gm_BaseTexture, v_vTexcoord + vec2(1.0 / size.x, -1.0 / size.y));
-    total +=        texture2D(gm_BaseTexture, v_vTexcoord + vec2(1.0 / size.x, 1.0 / size.y));
-    total +=        texture2D(gm_BaseTexture, v_vTexcoord + vec2(-1.0 / size.x, 1.0 / size.y));
-
-    grabPixel =     texture2D(gm_BaseTexture, v_vTexcoord + vec2(0.0, -1.0 / size.y));
-    total += grabPixel * 2.0;
-
-    grabPixel =     texture2D(gm_BaseTexture, v_vTexcoord + vec2(0.0, 1.0 / size.y));
-    total += grabPixel * 2.0;
-
-    grabPixel =     texture2D(gm_BaseTexture, v_vTexcoord + vec2(-1.0 / size.x, 0.0));
-    total += grabPixel * 2.0;
-
-    grabPixel =     texture2D(gm_BaseTexture, v_vTexcoord + vec2(1.0 / size.x, 0.0));
-    total += grabPixel * 2.0;
-
-    grabPixel = texture2D(gm_BaseTexture, v_vTexcoord);
-    total += grabPixel * 4.0;
-
-    total *= 1.0 / 16.0;
 
     gl_FragColor = vec4(v_needOutlineCol.r, v_needOutlineCol.g, v_needOutlineCol.b, 1.0) * texture2D( gm_BaseTexture, v_vTexcoord );
 }
-
-

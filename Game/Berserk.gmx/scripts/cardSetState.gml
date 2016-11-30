@@ -1,7 +1,9 @@
 ///cardSetState(CARD_STATES new)
+if (state == CARD_STATES.DESTROY) // WARNING
+    exit;
 state = argument0;
 cursor_sprite = sCursor;
-
+    
 switch (state)
 {
 case CARD_STATES.WAIT_FOR_ACTION: // begin

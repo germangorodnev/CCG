@@ -2,7 +2,7 @@
 cardType = argument0.type;
 cardId = argument0;
 
-description = argument0.desc;
+description = "(" + argument0.classStr + ")#" + argument0.desc;
 
 actionsCount = 4;
 for (var i = 0; i < actionsCount; i++)

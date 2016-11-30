@@ -11,4 +11,5 @@ with (oCardBase)
 }
 global.AP = global.beginAP;
 clientSetState(CLIENT_STATES.CHOOSING_CARD);
-
+// DEBUG
+//surface_save(application_surface, string(current_hour) + "." + string(current_minute) + "." + string(current_second) + ".png");

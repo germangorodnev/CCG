@@ -21,4 +21,7 @@ switch (b)
 case BUFFS.INVISIBILITY:
     image_alpha = 0.5;
     break;
+case BUFFS.FIRE_ARROWS:
+    cardChangeDmg(2);
+    break;
 }

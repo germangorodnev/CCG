@@ -41,6 +41,9 @@ borderH = sprite_get_height(sCardBorder);
 
 cardPath = path_add();
 
+class = 0; // CLASSES
+classStr = "";
+
 // choosings
 choosen = false; // choosen to give an event
 
@@ -167,6 +170,8 @@ if (choosen)
     shader_set_uniform_f(size, borderW, borderH);
     var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
     shader_set_uniform_f(col, 0.0, 0.0, 1.0, 1.0);
+
+    draw_sprite_ext(sCardBorderOut, borderIndex, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
 }
 else if ((global.choosenToPerform == id) || (ds_list_size(actions) &gt; 0 &amp;&amp; (player == 0) &amp;&amp; global.gameState == GAME_STATES.CHOOSE_ACTIONS)) // as green
 {
@@ -175,6 +180,8 @@ else if ((global.choosenToPerform == id) || (ds_list_size(actions) &gt; 0 &amp;&
     shader_set_uniform_f(size, borderW, borderH);
     var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
     shader_set_uniform_f(col, 0.0, 1.0, 0.0, 1.0);
+
+    draw_sprite_ext(sCardBorderOut, borderIndex, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
 }
 else if (global.choosenAsTarget == id) // as red
 {
@@ -182,12 +189,14 @@ else if (global.choosenAsTarget == id) // as red
     var size = shader_get_uniform(shdOutlineSprite, "size");
     shader_set_uniform_f(size, borderW, borderH);
     var col = shader_get_uniform(shdOutlineSprite, "v_needOutlineCol");
-    shader_set_uniform_f(col, 1.0, 0.0, 0.0, 1.0);    
+    shader_set_uniform_f(col, 1.0, 0.0, 0.0, 1.0);   
+     
+    draw_sprite_ext(sCardBorderOut, borderIndex, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
 }
 
-draw_sprite_ext(sCardBorder, borderIndex, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
-
 shader_reset();
+
+draw_sprite_ext(sCardBorder, borderIndex, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha); // border
 
 // drawing buffs
 for (var i = 0, c = ds_list_size(buffs); i &lt; c; i++)

@@ -26,18 +26,14 @@ case GAME_STATES.PERFORM_ACTIONS:
     // begin to perform
     // first of all - the insta actions
     var c = 0;
-    for (var i = 0, cardsCnt = instance_number(oCardBase); i < c; i++)
+    with (oCardBase)
     {
-        with (instance_find(oCardBase, i))
+        if (cardGetActionInstant())
         {
-            if (cardGetActionInstant())
-            {
-                c++;
-                cardPerformAction();
-                cardDone();
-            }        
+            c++;
+            cardPerformAction();
+            cardDone();
         }
-        c = instance_number(oCardBase);
     }
     if (c > 0)
         alarm[11] = 0.5 * room_speed;

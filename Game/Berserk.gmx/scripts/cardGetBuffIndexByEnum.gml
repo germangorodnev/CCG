@@ -8,6 +8,6 @@ case BUFFS.INVISIBILITY:
     return sInvis;
     break;
 default:
-    return sCursor;
+    return sNoone;
     break;
 }

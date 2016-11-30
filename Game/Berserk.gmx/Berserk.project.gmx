@@ -38,6 +38,7 @@
     <sprites name="Cards">
       <sprite>sprites\sCard</sprite>
       <sprite>sprites\sCardBorder</sprite>
+      <sprite>sprites\sCardBorderOut</sprite>
     </sprites>
     <sprites name="Attacks">
       <sprite>sprites\sAttack</sprite>
@@ -46,6 +47,14 @@
       <sprite>sprites\sLightning</sprite>
     </sprites>
     <sprites name="GUI">
+      <sprites name="Window">
+        <sprite>sprites\sWindLT</sprite>
+        <sprite>sprites\sWindT</sprite>
+        <sprite>sprites\sWindB</sprite>
+        <sprite>sprites\sWindL</sprite>
+        <sprite>sprites\sWindR</sprite>
+        <sprite>sprites\sWindInn</sprite>
+      </sprites>
       <sprite>sprites\sMenuButtons</sprite>
       <sprite>sprites\sTextbox</sprite>
       <sprite>sprites\sCardActionsBack</sprite>
@@ -87,9 +96,15 @@
       <sprite>sprites\sSellout</sprite>
       <sprite>sprites\sBorder</sprite>
     </sprites>
+    <sprites name="Win Loose">
+      <sprite>sprites\sCoin</sprite>
+      <sprite>sprites\sWin</sprite>
+      <sprite>sprites\sLose</sprite>
+    </sprites>
     <sprite>sprites\sNewTurn</sprite>
     <sprite>sprites\sAttackIcons</sprite>
     <sprite>sprites\sInstant</sprite>
+    <sprite>sprites\sNoone</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -141,6 +156,7 @@
         <script>scripts\cardGetFreePlace.gml</script>
         <script>scripts\cardListPosToX.gml</script>
         <script>scripts\cardListPosToY.gml</script>
+        <script>scripts\cardParamToStr.gml</script>
       </scripts>
       <scripts name="Buffs">
         <script>scripts\cardHasBuff.gml</script>
@@ -205,8 +221,8 @@
       <script>scripts\clientSetState.gml</script>
       <script>scripts\sendOnStart.gml</script>
       <script>scripts\sendKeepAlive.gml</script>
-      <script>scripts\clientGameStart.gml</script>
       <script>scripts\clientCardResponse.gml</script>
+      <script>scripts\clientGameStart.gml</script>
       <script>scripts\clientRespond.gml</script>
       <script>scripts\clientCheckCardsDone.gml</script>
       <script>scripts\clientEndPerforming.gml</script>
@@ -226,6 +242,7 @@
       <script>scripts\gameCheckWin.gml</script>
       <script>scripts\gameGetCardsDatabase.gml</script>
       <script>scripts\gameEnd.gml</script>
+      <script>scripts\winLoseInit.gml</script>
       <script>scripts\gameClearListOfLists.gml</script>
       <script>scripts\cardGetTypeFromBooster.gml</script>
       <script>scripts\gameAddCardToCollection.gml</script>
@@ -236,13 +253,14 @@
       <script>scripts\dmCreateCards.gml</script>
       <script>scripts\dmCreateDeck.gml</script>
       <script>scripts\dmCardInit.gml</script>
+      <script>scripts\dmCreateArrows.gml</script>
+      <script>scripts\dmPageChange.gml</script>
       <script>scripts\makeDeckWithCopyCountFromRepeat.gml</script>
       <script>scripts\makeDeckWithRepeatFromCopyCount.gml</script>
       <script>scripts\cardAmountInDeck.gml</script>
       <script>scripts\dmSaveDeck.gml</script>
       <script>scripts\collectionDecreaseOnDeck.gml</script>
-      <script>scripts\dmPageChange.gml</script>
-      <script>scripts\dmCreateArrows.gml</script>
+      <script>scripts\getDeckCol.gml</script>
     </scripts>
     <scripts name="Pack opening">
       <script>scripts\packOpen.gml</script>
@@ -251,11 +269,17 @@
     <scripts name="Shopping">
       <script>scripts\shopBuyThing.gml</script>
     </scripts>
+    <scripts name="Lobby">
+      <script>scripts\lobbyDeckChooseCreateArrows.gml</script>
+    </scripts>
     <script>scripts\mouseOnUs.gml</script>
     <script>scripts\drawTextOutline.gml</script>
+    <script>scripts\drawTextOutlineExt.gml</script>
     <script>scripts\databasesInit.gml</script>
     <script>scripts\databasesClear.gml</script>
     <script>scripts\getFraseLang.gml</script>
+    <script>scripts\windowInitialise.gml</script>
+    <script>scripts\windowInitialiseAboutCard.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdDarkenSprite.shader</shader>
@@ -306,6 +330,10 @@
       <object>objects\oShop</object>
     </objects>
     <objects name="Lobby">
+      <objects name="Deck picker">
+        <object>objects\oLobbyDeckChoose</object>
+        <object>objects\oArrowDeck</object>
+      </objects>
       <object>objects\oChatbox</object>
       <object>objects\oSendFrase</object>
       <object>objects\oToGame</object>
@@ -314,6 +342,7 @@
       <object>objects\oEndTurn</object>
       <object>objects\oNewTurn</object>
       <object>objects\oFrasePopup</object>
+      <object>objects\oWinLose</object>
     </objects>
     <objects name="Deck making">
       <object>objects\oCardCollectionContoller</object>
@@ -331,6 +360,7 @@
       <object>objects\oShopController</object>
       <object>objects\oPurchase</object>
     </objects>
+    <object>objects\oWindow</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rInit</room>
@@ -344,7 +374,7 @@
     <room>rooms\rLobby</room>
     <room>rooms\rGame</room>
   </rooms>
-  <constants number="19">
+  <constants number="20">
     <constant name="for_client">__________</constant>
     <constant name="CL_CONNECT_INF">0</constant>
     <constant name="CL_PING">1</constant>
@@ -361,6 +391,7 @@
     <constant name="SR_ENDED_TURN">5</constant>
     <constant name="SR_OTHER_PLAYER_ACTIONS">6</constant>
     <constant name="SR_NEXT_TURN">7</constant>
+    <constant name="SR_NICKNAME">8</constant>
     <constant name="GAME_CONFIGURATONS">______________</constant>
     <constant name="CARD_X">384</constant>
     <constant name="CARD_Y">512</constant>

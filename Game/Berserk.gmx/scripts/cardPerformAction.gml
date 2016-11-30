@@ -1,4 +1,7 @@
-// decrease the mana 
+// decrease the mana
+if (state == CARD_STATES.DESTROY)
+    exit;
+     
 if (ds_list_empty(actions))
 {
     cardDone();
@@ -6,12 +9,10 @@ if (ds_list_empty(actions))
 }
 var act = actions[| 0];
 
-if (player == 1)
-{
-    var pos = cardGetArrIndexByEnum(act);
-    if (pos != -1)
-        cardChangeMana(-actionsMana[pos]);
-}
+var pos = cardGetArrIndexByEnum(act);
+if (pos != -1)
+    cardChangeMana(-actionsMana[pos]);
+
 
 if (!canTurn || !actions[| 1])
 {
@@ -24,7 +25,7 @@ var target = actions[| 2];
 switch (act)
 {
     case ACTIONS.ATTACK: // just an attack
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1);
         break;
     case ACTIONS.PASS_THE_TURN:
@@ -53,12 +54,12 @@ switch (act)
                             /* UNIQUE ABILITIES */    
     // KONCHA
     case ACTIONS.KONCHA_HEAL: // healing the card
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 2);
         cardDone();
         break;
     case ACTIONS.KONCHA_POISON: // poison the enemy
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var dbf = ds_list_create();
         var p = ds_list_create();
         ds_list_add(p, DEBUFFS.POISON, 2, 1);
@@ -69,7 +70,7 @@ switch (act)
         break;
     // LISA
     case ACTIONS.LISA_BACKSTAB:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1); 
         a.absolute = true;    
         a.image_index = 4;
@@ -88,7 +89,7 @@ switch (act)
         break;
     // ARMOR HAMMER
     case ACTIONS.ARMOR_HAMMER_USE:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         // delete an armor and dead
         var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), 0, atkSpd, -1);
         a.breakArmor = true;
@@ -97,14 +98,14 @@ switch (act)
         break;
     // MUSHROOMS
     case ACTIONS.MUSHROOMS_ATTACK_DEATH:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1);
         // and suddenly dead
         cardSetState(CARD_STATES.DESTROY);    
         break; 
     //JOJN
     case ACTIONS.JOJN_SWORD_STRIKE: // 50% to break armor, 25% to deal true dmg, 25% to miss
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var luck = actions[| 4];
         if (luck == 0) // break arm
         {
@@ -140,7 +141,7 @@ switch (act)
         break;
     // ARTONIX
     case ACTIONS.ARTONIX_AUTOMAT_FIRE:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var group = gameGetListByTargetGroup(actions[| 3], target);
         var bull = cardAttack(target, group, dmg, atkSpd * 2, -1);
         bull.parent = noone;
@@ -171,7 +172,7 @@ switch (act)
         cardDone();
         break;
     case ACTIONS.SMEMS_FIREBALL:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1);
         with (a) {
             sprite_index = sSmemsFireball;
@@ -190,7 +191,7 @@ switch (act)
         break;
     // PECHENKA
         case ACTIONS.COOKIE_DEVOUR:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var s = instance_create(x, y, oDevour);
         s.pl = player;
         s.startPl = player;
@@ -202,7 +203,7 @@ switch (act)
         break;  
     // SLIME GOLEM
     case ACTIONS.GOLEM_SLIME_DEVOUR:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var s = instance_create(x, y, oDevour);
         s.pl = player;
         s.startPl = player;
@@ -214,7 +215,7 @@ switch (act)
         break;
     // STONE GOLEM
     case ACTIONS.GOLEM_STONE_PRESSURE:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var s = instance_create(x, y, oPressure);
         s.pl = player;
         s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
@@ -253,7 +254,7 @@ switch (act)
     // GOLEM SON
     case ACTIONS.GOLEM_SON_RAGE:
         // double dmg - 1 hp
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg * 2, atkSpd, -1);
         cardChangeHp(-1);
         break;
@@ -270,7 +271,7 @@ switch (act)
         break;
     // GOLEM CRUSHER
     case ACTIONS.GOLEM_CRUSHER_TRIPLE:
-        state = CARD_STATES.PERFORM_ACTION;
+        state = CARD_STATES.PERFORM_ACTION
         var s = instance_create(x, y, oTriple);
         s.pl = player;
         s.startPl = player;
@@ -302,20 +303,8 @@ switch (act)
     // UNDERGROUND DEVOURER
     case ACTIONS.UNDER_DEVOURER_DEVOUR:
         // eats adjacent
-        var l = instance_position(x - 110, y, oCardBase),
-            r = instance_position(x + 110, y, oCardBase);
-        if (l != noone)
-        {
-            cardIncreaseMaxStat(l.hp, "hp");
-            cardIncreaseMaxStat(l.dmg, "dmg");
-            cardIncreaseMaxStat(l.armor, "armor");
-            // NOM NOM
-            with (l)
-            {
-                cardDone();
-                cardSetState(CARD_STATES.DESTROY);
-            }
-        }
+        var l = instance_position(x - 150, y, oCardBase),
+            r = instance_position(x + 150, y, oCardBase);
         if (r != noone)
         {
             cardIncreaseMaxStat(r.hp, "hp");
@@ -323,6 +312,18 @@ switch (act)
             cardIncreaseMaxStat(r.armor, "armor");
             // NOM NOM
             with (r)
+            {
+                cardDone();
+                cardSetState(CARD_STATES.DESTROY);
+            }
+        }
+        if (l != noone)
+        {
+            cardIncreaseMaxStat(l.hp, "hp");
+            cardIncreaseMaxStat(l.dmg, "dmg");
+            cardIncreaseMaxStat(l.armor, "armor");
+            // NOM NOM
+            with (l)
             {
                 cardDone();
                 cardSetState(CARD_STATES.DESTROY);
@@ -360,7 +361,21 @@ switch (act)
         }
         cardDone();
         break;
-        
+    // ARCHER
+    case ACTIONS.ARCHER_FIRE_ARROWS:
+        cardSetBuff(BUFFS.FIRE_ARROWS, 2);
+        cardDone();
+        break;
+    // CAVALRY    
+    case ACTIONS.CAVALRY_REAR:
+        var dbf = ds_list_create();
+        var p = ds_list_create();
+        ds_list_add(p, DEBUFFS.CAVALRY, 2);
+        ds_list_add(dbf, p); 
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var s = cardAttack(target, ls, 0, atkSpd, dbf);    
+        cardDone();
+        break;   
     // VAPE
     case ACTIONS.VAPE_BATTLECRY:        
         for (var i = -1; i < 2; i++)
@@ -376,6 +391,7 @@ switch (act)
         }
         cardDone();
         break;
+        
     // not implemented
     default:
         cardDone();

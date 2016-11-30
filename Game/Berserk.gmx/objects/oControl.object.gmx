@@ -50,6 +50,8 @@ global.serverType = network_socket_tcp;
 // Nickname
 global.name = "Player";
 global.opName = "None"; // Name
+global.opWins = 0;
+global.opLoses = 0;
 
 // Deck
 global.deckNumb = 0;
@@ -62,7 +64,7 @@ global.packs3 = 10;
 global.packs5 = 10;
 
 // MONEY
-global.money = 0;
+global.money = 10000000;
 
 // ALL CARDS IN OUR COLLECTION
 global.collection = ds_list_create();
@@ -81,8 +83,6 @@ global.newSelloutStr = "";
 loadGame();
 loadSellout();
 
-global.money = 100000;
-
 req = http_get("http://stickmangames.net16.net/index.php?sellout=1");
 
 // Particles
@@ -98,6 +98,17 @@ part_type_life(global.randomMLG, room_speed / 4, room_speed / 2);
 part_type_size(global.randomMLG, 1, 2, 0, 0);
 part_type_direction(global.randomMLG, 0, 360, 0, 20);
 part_type_orientation(global.randomMLG, 0, 360, 15, 20, false);
+
+global.coin = part_type_create();
+part_type_shape(global.coin, pt_shape_circle);
+part_type_sprite(global.coin, sCoin, true, false, false);
+part_type_speed(global.coin, 3, 7, 0.3, 0);
+//part_type_gravity(global.coin, 0.5, 270);
+part_type_alpha2(global.coin, 1, 0.1);
+part_type_life(global.coin, room_speed, room_speed * 2);
+part_type_size(global.coin, 1, 2, 0, 0);
+part_type_direction(global.coin, 260, 280, 0, 3);
+part_type_orientation(global.coin, 0, 360, 15, 20, false);
 
 if (ds_list_empty(global.decks))
 {

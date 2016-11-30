@@ -3,7 +3,7 @@
   <spriteName>sAttack</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
   <parentName>oCardStuff</parentName>
   <maskName>&lt;undefined&gt;</maskName>

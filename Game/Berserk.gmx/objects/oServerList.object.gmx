@@ -94,7 +94,7 @@ for(var i = 0; i &lt; count; i++)
 {
     var yP = srY + srbetwy * i;
     if (mouse_check_button_released(mb_left))
-        if (point_in_rectangle(mouse_x, mouse_y, srX - 80, yP - 15, srX + 80, yP + 15))
+        if (point_in_rectangle(mouse_x, mouse_y, srX - 200, yP - 30, srX + 200, yP + 30))
         {
             global.serverip = global.serverlist[| i];
             global.opName = global.servernames[| i];
@@ -173,7 +173,7 @@ if(eventid == broadcast)
             <string>///Draw servers and click
 draw_set_font(fGame);
 draw_set_halign(fa_center);
-
+draw_set_valign(fa_middle);
 var count = ds_list_size(global.serverlist);
 for(var i = 0; i &lt; count; i++)
 {

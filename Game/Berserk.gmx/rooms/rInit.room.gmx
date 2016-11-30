@@ -42,7 +42,19 @@
     ARCHER = 27,
     CAVALERY = 28,
     VAPE = 29,
-    CARDS_COUNT
+    CARDS_COUNT = 30,
+    PET_BEAR = 30,
+};
+
+enum CLASSES
+{   
+    CREATURE = -1,
+    HUMAN = 0,
+    GOLEM = 1,
+    MECH = 2,
+    RIDER = 3,
+    PET = 4,
+    COUNT
 };
 
 enum GAME_STATES
@@ -76,13 +88,15 @@ enum CARD_STATES
 enum DEBUFFS
 {
     POISON = 0,
-    STUN
+    STUN,
+    CAVALRY
 }
 
 enum BUFFS
 {
     BLOCK,
-    INVISIBILITY
+    INVISIBILITY,
+    FIRE_ARROWS
 }
 
 enum DEATHRATTLES
@@ -166,6 +180,8 @@ enum ACTIONS
     CAVALRY_REAR = 35,
     // VAPE_BATTLECRY
     VAPE_BATTLECRY = 36,
+    // BEAR
+    PET_BEAR_RIDE = 37
 }
 
 enum EV

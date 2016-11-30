@@ -417,7 +417,7 @@
     <option_sci_serverLocation></option_sci_serverLocation>
     <option_screenkey>True</option_screenkey>
     <option_screenshotkey>true</option_screenshotkey>
-    <option_shortcircuit>True</option_shortcircuit>
+    <option_shortcircuit>False</option_shortcircuit>
     <option_showcursor>False</option_showcursor>
     <option_showprogress>1</option_showprogress>
     <option_sizeable>False</option_sizeable>

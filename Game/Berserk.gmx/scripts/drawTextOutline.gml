@@ -21,4 +21,3 @@ draw_text_transformed_colour(argument0, argument1 + 1, argument2, xsc, ysc, angl
 
 // the text
 draw_text_transformed_colour(argument0, argument1, argument2, xsc, ysc, angle, strCol, strCol, strCol, strCol, alpha);
-

@@ -306,6 +306,10 @@ if (client == eventid)
     var type = buffer_read(bf, buffer_u16);
     switch (type)
     {
+    case SR_NICKNAME:
+        global.opName = buffer_read(bf, buffer_string);
+        break;
+    
     case SR_GAME_INIT:
         if (instance_exists(oServer))
             exit;

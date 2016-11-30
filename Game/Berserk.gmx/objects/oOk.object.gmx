@@ -3,7 +3,7 @@
   <spriteName>sMenuButtons</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -54,7 +54,6 @@ image_index = 10;
 if (mouseOnUs())
 {
     image_index = 15;
-    // Creating our own server and going to lobby
     if (mouse_check_button_released(mb_left))
     {
         switch (room)
@@ -66,6 +65,10 @@ if (mouseOnUs())
                 xscN = 0.01;
                 yscN = 0.01;
             }
+            instance_destroy();
+            break;
+        case rGame:
+            room_goto(rMainMenu);
             instance_destroy();
             break;
         }

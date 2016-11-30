@@ -11,6 +11,9 @@ for (var i = 0, c = ds_list_size(buffs); i < c; i++)
             // visible now
             image_alpha = 1;
             break;
+        case BUFFS.FIRE_ARROWS:
+            cardChangeDmg(-2);
+            break;
         }
         ds_list_destroy(ls);
         ds_list_delete(buffs, i);

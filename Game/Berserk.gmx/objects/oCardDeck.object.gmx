@@ -35,6 +35,8 @@ drag = false;
 copyCount = 0;
 drawCount = false;
 
+font = fParams;
+
 ang = 0;
 
 xscN = 1;
@@ -47,6 +49,9 @@ actionsIndex[3] = 0; // index in ACTIONS enum
 actionsMana[3] = 0; // mana needed
 
 borderIndex = 0;
+
+class = 0;
+classStr = "";
 
 hp = 1;
 armor = 0;
@@ -141,15 +146,20 @@ case 0: // in deck making
                                 else
                                 {
                                     ds_list_add(localDeck, t, 1);
-                                    dMax = min(dMax + 1, crow * 2, ds_list_size(localDeck) / 2);
+                                    dMax = min(dMin + crow * 2, ds_list_size(localDeck) / 2);
                                 }  
                                 if (localCol[| myp + 1] == 0)
-                                    iMax = min(iMax, ds_list_size(localCol) / 2);
+                                {
+                                    ds_list_delete(localCol, myp);
+                                    ds_list_delete(localCol, myp);
+                                    iMax = median(crow * 2, iMin + crow * 2, ds_list_size(localCol) / 2); //iMax = min(iMax, ds_list_size(localCol) / 2);
+                                }
                                 with (oCardCollectionContoller)
                                 {
                                     dmSaveDeck();
                                     dmCreateDeck();
                                     dmCreateCards(); 
+                                    dmCreateArrows();
                                 }
                             }
                         }
@@ -191,11 +201,16 @@ case 0: // in deck making
                         else
                         {
                             ds_list_add(localCol, t, 1);
+                            iMax++;
                         }  
                         if (localDeck[| myp + 1] == 0)
-                            dMax = min(dMax, crow * 2, ds_list_size(localDeck) / 2);
+                        {
+                            ds_list_delete(localDeck, myp);
+                            ds_list_delete(localDeck, myp);
+                            dMax = min(dMax, ds_list_size(localDeck) / 2);
+                        }
                         if (p == -1)
-                            iMax = min(iMax, crow * 2, ds_list_size(localCol) / 2);
+                            iMax = min(iMax, ds_list_size(localCol) / 2);
                         with (oCardCollectionContoller)
                         {
                             dmSaveDeck(); 
@@ -269,6 +284,13 @@ case 2:
     }
     break;
 }
+if (mouse_check_button_released(mb_right))
+{
+if (mouseOnUs())
+{
+    windowInitialiseAboutCard(id);
+}
+}
 </string>
           </argument>
         </arguments>
@@ -309,7 +331,7 @@ draw_sprite_ext(sCardBorder, borderIndex, x, y, image_xscale, image_yscale, imag
 // PARAMS
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_set_font(fParams);
+draw_set_font(font);
 
 // count
 if (drawCount)

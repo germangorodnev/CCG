@@ -25,7 +25,7 @@ repeat (type)
     var rarity = c.rarity;
     // MLG
     part_emitter_region(global.packOpenPs, em, c.x, c.x, c.y, c.y, ps_shape_ellipse, ps_distr_invgaussian);
-    part_emitter_burst(global.packOpenPs, em, global.randomMLG, 20 * rarity);
+    part_emitter_burst(global.packOpenPs, em, global.randomMLG, 20 * (rarity + 1));
     if (rarity == 1)
     {
         if (!audio_is_playing(sndHorn))
