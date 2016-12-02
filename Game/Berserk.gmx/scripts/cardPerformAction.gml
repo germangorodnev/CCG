@@ -333,7 +333,7 @@ switch (act)
         break;
     // CHEMIST INVENTOR
     case ACTIONS.CHEMIST_INVENTOR_MINI_BOT: // summon a card
-        var c = cardSummon(player, CARDS.MINI_BOT);
+        var c = cardSummon(player, CARDS.MINI_BOT, -1);
         cardDone();
         break;
     case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
@@ -391,7 +391,22 @@ switch (act)
         }
         cardDone();
         break;
-        
+    // HELICOPTER
+    case ACTIONS.HELI_HELP:
+        var mult = 1;
+        if (player) // enemy
+            mult = -1;
+        var pos = instance_position(x, y + 160 * mult, oCardBase);
+        if (pos != noone || y + 160 * mult > room_height || y + 160 * mult < 0) // it's free
+            cardDone();
+        else
+        {
+            // summon a random 0 rarity card
+            var p = ds_list_find_index(cardGetGroup(), id);
+            var c = cardSummon(player, gameGetCard(true, 0), p + global.cardsOnBoard / 2);
+            cardDone();
+        }
+        break;
     // not implemented
     default:
         cardDone();

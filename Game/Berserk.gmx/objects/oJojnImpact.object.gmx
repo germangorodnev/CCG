@@ -90,39 +90,30 @@ if (instance_exists(target))
 var c = instance_place(x, y, oCardBase);
 if (c != noone)
 {
+    if (c.player == pl)
+        exit;
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {
-        if (blockable)
-        {
-            cardJojnImpactPerformer(c, parent);
-            cardAttackDestroy();
-        }
-        else
-        {
-            if (c == target)
-            {
-                if (c.player == pl)
-                {
-                    cardJojnImpactPerformer(c, parent);
-                    exit;
-                }
-
-                if (c.player != startPlayer)
-                {
-                    cardJojnImpactPerformer(c, parent);
-                    cardAttackDestroy();
-                }
-            }
-        }
+        cardJojnImpactPerformer(c, parent);
+        cardAttackDestroy();
     }
     else
     {
         if (c == target)
         {
-            cardJojnImpactPerformer(c, parent);
-            cardAttackDestroy();
-        }        
+            if (c.player == pl)
+            {
+                cardJojnImpactPerformer(c, parent);
+                exit;
+            }
+
+            if (c.player != startPlayer)
+            {
+                cardJojnImpactPerformer(c, parent);
+                cardAttackDestroy();
+            }
+        }
     }
 }
 </string>

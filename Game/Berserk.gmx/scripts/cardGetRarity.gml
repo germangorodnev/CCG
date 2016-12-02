@@ -15,6 +15,7 @@ case CARDS.MINI_BOT:
 case CARDS.ARCHER:
 case CARDS.CAVALERY:
 case CARDS.VAPE:
+case CARDS.WALL:
     return 0;
     break;
 case CARDS.KONCHA:
@@ -25,6 +26,7 @@ case CARDS.GOLEM_MATYA:
 case CARDS.SCOUT:
 case CARDS.CHEMIS_INVENTOR:
 case CARDS.PET_BEAR:
+case CARDS.HELI:
     return 1;
     break;
 case CARDS.JOJN:

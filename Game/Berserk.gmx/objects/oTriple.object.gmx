@@ -71,6 +71,8 @@ if (!active)
 var c = instance_place(x, y, oCardBase);
 if (c != noone)
 {
+    if (c.player == pl)
+        exit;
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {

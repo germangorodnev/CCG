@@ -42,8 +42,10 @@
     ARCHER = 27,
     CAVALERY = 28,
     VAPE = 29,
-    CARDS_COUNT = 30,
     PET_BEAR = 30,
+    WALL = 31,
+    HELI = 32,
+    CARDS_COUNT = 33,
 };
 
 enum CLASSES
@@ -181,7 +183,9 @@ enum ACTIONS
     // VAPE_BATTLECRY
     VAPE_BATTLECRY = 36,
     // BEAR
-    PET_BEAR_RIDE = 37
+    PET_BEAR_RIDE = 37,
+    // COPTER
+    HELI_HELP = 38,
 }
 
 enum EV

@@ -70,5 +70,8 @@ case CARDS.GOLEM_MENTOR:
 case CARDS.GOLEM_AIR:
     cardSetBuff(BUFFS.INVISIBILITY, 8000);
     break;
+case CARDS.WALL:
+    cardSetBuff(BUFFS.BLOCK, 8000);
+    break;
 }
 

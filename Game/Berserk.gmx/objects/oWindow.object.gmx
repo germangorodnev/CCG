@@ -42,7 +42,7 @@ leftYoff = 35;
 leftSprH = sprite_get_height(sWindL);
 
 textX = topXoff / 2;
-textY = leftYoff / 2 - 10;
+textY = leftYoff / 2;
 
 sep = 24;
 maxw = tW;

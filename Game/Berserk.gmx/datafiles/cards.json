@@ -1957,4 +1957,130 @@
 		],
 		"class": 4
 	},
+
+	{
+		"cardIndex": 31,
+		"hp": 6,
+		"dmg": 0,
+		"armor": 6,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Великая Полуживая стена. Блокирование",
+			"English": "The Greatest Halfalive Wall. Block"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": -1
+	},
+
+	{
+		"cardIndex": 32,
+		"hp": 5,
+		"dmg": 2,
+		"armor": 2,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Ground group: summons a random common card if bottom place is free", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Наземная группа: призывает случайную обычную карту если снизу свободно", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 38,
+				"mana": 1,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Вертолет",
+			"English": "Helicopter"
+		},
+		"rarity": 1,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 2
+	},
 ]

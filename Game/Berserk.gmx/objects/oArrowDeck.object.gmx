@@ -52,8 +52,10 @@ dir = 0;
           <argument>
             <kind>1</kind>
             <string>///Step
-if (mouse_check_button_released(mb_left))
-    if (mouseOnUs())
+if (mouseOnUs())
+{
+    image_index = 1;
+    if (mouse_check_button_released(mb_left))
     {
         var d = dir;
         with (oLobbyDeckChoose)
@@ -67,6 +69,9 @@ if (mouse_check_button_released(mb_left))
             lobbyDeckChooseCreateArrows();
         }
     }
+}
+else
+    image_index = 0;
 </string>
           </argument>
         </arguments>

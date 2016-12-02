@@ -5,7 +5,7 @@ var c = -1;
 if (argument1 < 3)
 {
     c = irandom(CARDS.CARDS_COUNT - 1);
-    while (!cardIsPlayable(c) || cardGetRarity(c) != rar)
+    while (!cardIsPlayable(c) || cardGetRarity(c) != rarity)
     {
         c = irandom(CARDS.CARDS_COUNT - 1);
     }
