@@ -45,7 +45,11 @@
     PET_BEAR = 30,
     WALL = 31,
     HELI = 32,
-    CARDS_COUNT = 33,
+    LOST_MAN = 33,
+    AMP_MIRROR = 34,
+    AMP_UNKNOWN = 35,
+    OFFICER = 36,
+    CARDS_COUNT
 };
 
 enum CLASSES
@@ -186,6 +190,8 @@ enum ACTIONS
     PET_BEAR_RIDE = 37,
     // COPTER
     HELI_HELP = 38,
+    // OFFICER
+    OFFICER_CASTLING = 39
 }
 
 enum EV

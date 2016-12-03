@@ -42,6 +42,8 @@ blockable = true;
 absolute = false;
 breakArmor = false;
 
+empowers = ds_list_create();
+
 active = true;
 </string>
           </argument>
@@ -67,6 +69,7 @@ active = true;
             <kind>1</kind>
             <string>///Clear
 ds_list_destroy(debuffs);
+ds_list_destroy(empowers);
 //gameClearListOfLists(debuffs);
 </string>
           </argument>
@@ -127,7 +130,11 @@ var c = instance_place(x, y, oCardBase);
 if (c != noone)
 {
     if (c.player == pl)
+    {
+        // empowering
+        empowerAttack(id, c);
         exit;
+    }
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {

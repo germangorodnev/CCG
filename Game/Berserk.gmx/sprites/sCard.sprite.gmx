@@ -53,5 +53,9 @@
     <frame index="30">images\sCard_30.png</frame>
     <frame index="31">images\sCard_31.png</frame>
     <frame index="32">images\sCard_32.png</frame>
+    <frame index="33">images\sCard_33.png</frame>
+    <frame index="34">images\sCard_34.png</frame>
+    <frame index="35">images\sCard_35.png</frame>
+    <frame index="36">images\sCard_36.png</frame>
   </frames>
 </sprite>

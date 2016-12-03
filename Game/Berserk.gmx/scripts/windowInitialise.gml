@@ -20,7 +20,7 @@ w.text = t;
 w.sep = sep;
 w.maxw = maxw;
 w.tW = textw;
-w.tH = texth;
+w.tH = texth + 22;
 w.a = argument5;
 
 with (w)

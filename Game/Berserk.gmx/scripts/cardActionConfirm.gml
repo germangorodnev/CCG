@@ -26,6 +26,10 @@ case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
     else
         actions[| 1] = false;
     break;
+    
+case ACTIONS.HELI_HELP:
+    ds_list_add(actions, gameGetCard(true, 0));
+    break;
 }
 
 // WARNING

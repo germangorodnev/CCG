@@ -393,6 +393,7 @@ switch (act)
         break;
     // HELICOPTER
     case ACTIONS.HELI_HELP:
+        var cardType = actions[| 2];
         var mult = 1;
         if (player) // enemy
             mult = -1;
@@ -403,9 +404,54 @@ switch (act)
         {
             // summon a random 0 rarity card
             var p = ds_list_find_index(cardGetGroup(), id);
-            var c = cardSummon(player, gameGetCard(true, 0), p + global.cardsOnBoard / 2);
+            var c = cardSummon(player, cardType, p + global.cardsOnBoard / 2);
             cardDone();
         }
+        break;
+        
+    // OFFICER
+    case ACTIONS.OFFICER_CASTLING:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = ds_list_find_value(ls, target);
+        var can = true;
+        if (!ds_list_empty(realTarget.actions))
+        {
+            if (realTarget.actions[| 0] != ACTIONS.PASS_THE_TURN)
+                can = false;
+        }
+        if (can)
+        {
+            var xto = realTarget.x,
+                yto = realTarget.y,
+                xtar = x,
+                ytar = y;
+            // change places
+            // mine
+            state = CARD_STATES.PERFORM_ACTION;
+            path_clear_points(cardPath);
+            path_set_closed(cardPath, false);                
+            path_add_point(cardPath, x, y, 100);
+            path_add_point(cardPath, xto, yto, 100);
+            path_start(cardPath, 8, path_action_stop, true);
+            // placer
+            instance_create(xto, yto, oPlaceNotFree);
+
+            // choosen card
+            with (realTarget)
+            {
+                cardClearImpacts();
+                state = CARD_STATES.PERFORM_ACTION;
+                path_clear_points(cardPath);
+                path_set_closed(cardPath, false);                
+                path_add_point(cardPath, x, y, 100);
+                path_add_point(cardPath, xtar, ytar, 100);
+                path_start(cardPath, 8, path_action_stop, true);
+                // placer
+                instance_create(xtar, ytar, oPlaceNotFree);            
+            }
+        }
+        else
+            cardDone();
         break;
     // not implemented
     default:

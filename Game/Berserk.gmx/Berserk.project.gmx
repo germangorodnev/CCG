@@ -39,6 +39,7 @@
       <sprite>sprites\sCard</sprite>
       <sprite>sprites\sCardBorder</sprite>
       <sprite>sprites\sCardBorderOut</sprite>
+      <sprite>sprites\sCardsBots</sprite>
     </sprites>
     <sprites name="Attacks">
       <sprite>sprites\sAttack</sprite>
@@ -190,6 +191,7 @@
         <script>scripts\cardAttackDestroy.gml</script>
         <script>scripts\cardPressurePerformer.gml</script>
         <script>scripts\cardTripleAttackPerformer.gml</script>
+        <script>scripts\empowerAttack.gml</script>
       </scripts>
       <script>scripts\cardSetState.gml</script>
       <script>scripts\cardInit.gml</script>

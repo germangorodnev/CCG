@@ -9,7 +9,8 @@ if (argument1 != -1)
 /*3*/ ds_list_add(actions, argument2); // target group
 }
 // decrease the AP
-changeAP(-AP);
+if (argument0 != ACTIONS.PASS_THE_TURN)
+    changeAP(-AP);
 /*var pos = cardGetArrIndexByEnum(argument0);
 if (pos != -1)
 {

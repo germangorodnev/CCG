@@ -16,6 +16,9 @@ case CARDS.ARCHER:
 case CARDS.CAVALERY:
 case CARDS.VAPE:
 case CARDS.WALL:
+case CARDS.LOST_MAN:
+case CARDS.AMP_MIRROR:
+case CARDS.AMP_UNKNOWN:
     return 0;
     break;
 case CARDS.KONCHA:
@@ -36,6 +39,7 @@ case CARDS.GOLEM_BATYA:
 case CARDS.GOLEM_SON:
 case CARDS.GOLEM_SMASHER:
 case CARDS.UNDER_DEVOURER:
+case CARDS.OFFICER:
     return 2;
     break;
 }

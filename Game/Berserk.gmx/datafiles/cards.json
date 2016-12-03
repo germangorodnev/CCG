@@ -2083,4 +2083,257 @@
 		],
 		"class": 2
 	},
+
+	{
+		"cardIndex": 33,
+		"hp": 3,
+		"dmg": 3,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Заблудившийся грибник",
+			"English": "Lost mushroomer"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 34,
+		"hp": 4,
+		"dmg": 0,
+		"armor": 1,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Усиливающее зеркало. +1 урон снарядам, пролетающим через эту карту",
+			"English": "Empowering mirror. +1 dmg to attacks flying through this card"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 2
+	},
+
+	{
+		"cardIndex": 35,
+		"hp": 6,
+		"dmg": 0,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Иноземный усилитель сигнала. +2 урона снарядам, пролетающим через эту карту",
+			"English": "Unknown signal amplifier. +2 dmg to attacks flying through this card"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 2
+	},
+
+	{
+		"cardIndex": 36,
+		"hp": 5,
+		"dmg": 5,
+		"armor": 0,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Castling: change place with the ally card, which should've got no action", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Рокировка: меняется местами с союзной картой, которая не должна иметь действия", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 39,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Офицер конча - полка",
+			"English": "Officer of the koncha - regiment"
+		},
+		"rarity": 2,
+		"AP": 14,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
 ]
