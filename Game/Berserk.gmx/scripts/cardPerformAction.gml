@@ -439,6 +439,7 @@ switch (act)
             // choosen card
             with (realTarget)
             {
+                cardClearOurImpacts();
                 cardClearImpacts();
                 state = CARD_STATES.PERFORM_ACTION;
                 path_clear_points(cardPath);
@@ -449,6 +450,9 @@ switch (act)
                 // placer
                 instance_create(xtar, ytar, oPlaceNotFree);            
             }
+            var p = ds_list_find_index(cardGetGroup(), id);
+            ds_list_replace(cardGetGroup(), p, realTarget);
+            ds_list_replace(cardGetGroup(), target, id);
         }
         else
             cardDone();

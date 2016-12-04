@@ -355,6 +355,8 @@ if (client == eventid)
         break;
         
     case SR_TO_NEXT_ROOM:
+        var cob = buffer_read(bf, buffer_u8);
+        global.cardsOnBoard = cob;
         room_goto(rGame);
         clientRespond(SR_TO_NEXT_ROOM);
         break;

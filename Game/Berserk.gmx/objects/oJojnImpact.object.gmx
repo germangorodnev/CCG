@@ -108,7 +108,7 @@ if (c != noone)
                 exit;
             }
 
-            if (c.player != startPlayer)
+            if (c.player != pl)
             {
                 cardJojnImpactPerformer(c, parent);
                 cardAttackDestroy();

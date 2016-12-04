@@ -1,5 +1,6 @@
 ///cardPerformDeathrattles(bool clear)
-
+if (path_index != -1)
+    exit;
 for (var i = 0, c = ds_list_size(deathrattles); i < c; i++)
 {
     var dt = deathrattles[| i];

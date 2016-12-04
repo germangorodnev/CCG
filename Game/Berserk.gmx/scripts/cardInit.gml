@@ -47,8 +47,8 @@ if (c > 0)
     }
 }
 
-if (global.gameState == GAME_STATES.PERFORM_ACTIONS)
-    cardPerformBattlecry(true);
+//if (global.gameState == GAME_STATES.PERFORM_ACTIONS)
+    //cardPerformBattlecry(true);
     
 ds_list_clear(deathrattles);
 

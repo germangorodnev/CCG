@@ -106,6 +106,7 @@
     <sprite>sprites\sAttackIcons</sprite>
     <sprite>sprites\sInstant</sprite>
     <sprite>sprites\sNoone</sprite>
+    <sprite>sprites\sBeta</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -183,6 +184,7 @@
         <script>scripts\cardAddImpact.gml</script>
         <script>scripts\cardClearImpacts.gml</script>
         <script>scripts\cardDeleteImpact.gml</script>
+        <script>scripts\cardClearOurImpacts.gml</script>
       </scripts>
       <scripts name="Attacks">
         <script>scripts\cardAttackPerformer.gml</script>
@@ -274,6 +276,7 @@
     </scripts>
     <scripts name="Lobby">
       <script>scripts\lobbyDeckChooseCreateArrows.gml</script>
+      <script>scripts\lobbyCardAmountCreateArrows.gml</script>
     </scripts>
     <script>scripts\mouseOnUs.gml</script>
     <script>scripts\drawTextOutline.gml</script>
@@ -340,6 +343,7 @@
       <object>objects\oChatbox</object>
       <object>objects\oSendFrase</object>
       <object>objects\oToGame</object>
+      <object>objects\oCardAmountChange</object>
     </objects>
     <objects name="Game">
       <object>objects\oEndTurn</object>
@@ -364,6 +368,7 @@
       <object>objects\oPurchase</object>
     </objects>
     <object>objects\oWindow</object>
+    <object>objects\ode</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rInit</room>

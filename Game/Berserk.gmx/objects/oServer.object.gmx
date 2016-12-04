@@ -228,6 +228,7 @@ switch (room)
 {
 case rLobby:
     instance_create(656, 656, oToGame);
+    lobbyCardAmountCreateArrows();
     break;
 case rGame:
     gameStart();
