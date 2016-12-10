@@ -81,6 +81,19 @@ for (var i = 0, c = ds_list_size(buffs); i < c; i++)
     var l = buffs[| i];
     --l[| 1]
 }
+var c = 0, p = player;
+with (oCardBase)
+{
+    if (player == p && cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
+        c++;
+}
+if (c / gameGetCardsCount(player) > 0.5)
+{
+    if (cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
+    {
+        cardDeleteBuff(BUFFS.INVISIBILITY);
+    }
+}
 
 if (canTurn)
     state = CARD_STATES.WAIT_FOR_ACTION;

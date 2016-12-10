@@ -60,7 +60,9 @@ global.haveserver = false;</code>
     <instance objName="oServerList" x="16" y="0" name="inst_42AF2012" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oOpenPacks" x="1200" y="128" name="inst_715F2891" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oShop" x="640" y="96" name="inst_6E804863" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ode" x="0" y="0" name="inst_DAAB8182" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBeta" x="0" y="0" name="inst_DAAB8182" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oCurrLang" x="1024" y="0" name="inst_C541EA9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oModes" x="1200" y="672" name="inst_A65F12D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

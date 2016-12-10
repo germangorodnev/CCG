@@ -1,14 +1,12 @@
-var ourC = 0;
-var otherC = 0;
-with (oCardBase)
-{
-    if (player == 0)
-        ourC++;
-    else
-        otherC++;
-}
+var ourC = gameGetCardsCount(0);
+var otherC = gameGetCardsCount(1);
 if (ourC == 0)
 {
+    with (oCardStuff)
+    {
+        instance_destroy();
+        // WARNING
+    }
     // we lost
     gameEnd();
     winLoseInit(false);
@@ -19,6 +17,11 @@ if (ourC == 0)
 }
 if (otherC == 0)
 {
+    with (oCardStuff)
+    {
+        instance_destroy();
+        // WARNING
+    }
     // we won
     gameEnd();
     global.wins++;

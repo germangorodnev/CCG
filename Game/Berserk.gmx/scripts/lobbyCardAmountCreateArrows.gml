@@ -10,5 +10,5 @@ if (global.cardsOnBoard > 4)
 if (global.cardsOnBoard < 20)
 {
     //top
-    instance_create(976, 310, oCardAmountChange);
+    instance_create(976, 290, oCardAmountChange);
 }

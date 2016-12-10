@@ -202,6 +202,12 @@ enum EV
 enum THINGS_IN
 {
     IMPACT = 2
+}
+
+enum MODES
+{
+    NOONE = -1,
+    KEYNICK = 0
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

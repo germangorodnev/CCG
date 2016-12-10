@@ -32,6 +32,10 @@
       <sound>sound\sndHorn</sound>
       <sound>sound\sndDAMN</sound>
     </sounds>
+    <sounds name="Music">
+      <sound>sound\mskMenu</sound>
+      <sound>sound\mskGame</sound>
+    </sounds>
     <sound>sound\sndChat</sound>
   </sounds>
   <sprites name="sprites">
@@ -102,11 +106,15 @@
       <sprite>sprites\sWin</sprite>
       <sprite>sprites\sLose</sprite>
     </sprites>
+    <sprites name="Modes">
+      <sprite>sprites\sModes</sprite>
+    </sprites>
     <sprite>sprites\sNewTurn</sprite>
     <sprite>sprites\sAttackIcons</sprite>
     <sprite>sprites\sInstant</sprite>
     <sprite>sprites\sNoone</sprite>
     <sprite>sprites\sBeta</sprite>
+    <sprite>sprites\sLanguages</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -253,6 +261,7 @@
       <script>scripts\gameAddCardToCollection.gml</script>
       <script>scripts\findCardPosInDeckWithNumbByIndex.gml</script>
       <script>scripts\gameGetCard.gml</script>
+      <script>scripts\gameGetCardsCount.gml</script>
     </scripts>
     <scripts name="Deck making">
       <script>scripts\dmCreateCards.gml</script>
@@ -283,6 +292,8 @@
     <script>scripts\drawTextOutlineExt.gml</script>
     <script>scripts\databasesInit.gml</script>
     <script>scripts\databasesClear.gml</script>
+    <script>scripts\langChange.gml</script>
+    <script>scripts\langIcoGetIndex.gml</script>
     <script>scripts\getFraseLang.gml</script>
     <script>scripts\windowInitialise.gml</script>
     <script>scripts\windowInitialiseAboutCard.gml</script>
@@ -334,6 +345,8 @@
       <object>objects\oServerList</object>
       <object>objects\oBack</object>
       <object>objects\oShop</object>
+      <object>objects\oCurrLang</object>
+      <object>objects\oModes</object>
     </objects>
     <objects name="Lobby">
       <objects name="Deck picker">
@@ -367,8 +380,12 @@
       <object>objects\oShopController</object>
       <object>objects\oPurchase</object>
     </objects>
+    <objects name="Modes">
+      <object>objects\oMode</object>
+      <object>objects\oModeController</object>
+    </objects>
     <object>objects\oWindow</object>
-    <object>objects\ode</object>
+    <object>objects\oBeta</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rInit</room>
@@ -378,9 +395,11 @@
       <room>rooms\rDeckMake</room>
       <room>rooms\rOpenPack</room>
       <room>rooms\rShop</room>
+      <room>rooms\rModeChoose</room>
     </rooms>
     <room>rooms\rLobby</room>
     <room>rooms\rGame</room>
+    <room>rooms\rCustomMode</room>
   </rooms>
   <constants number="20">
     <constant name="for_client">__________</constant>

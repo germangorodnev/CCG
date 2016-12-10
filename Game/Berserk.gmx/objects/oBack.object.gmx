@@ -70,6 +70,7 @@ if (mouseOnUs())
         case rDeckNumbChoose:
         case rOpenPack:
         case rShop:
+        case rModeChoose:
             room_goto(rMainMenu);
             break;
         }
