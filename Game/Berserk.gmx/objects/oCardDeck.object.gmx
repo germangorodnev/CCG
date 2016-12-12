@@ -202,6 +202,8 @@ case 0: // in deck making
                         {
                             ds_list_add(localCol, t, 1);
                             iMax++;
+                            if (iMax - iMin &gt; ds_list_size(localDeck) / 2)
+                                iMax --;// iMin++;
                         }  
                         if (localDeck[| myp + 1] == 0)
                         {

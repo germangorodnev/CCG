@@ -1,0 +1,127 @@
+[
+	{
+		"cardIndex": 0,
+		"hp": 5,
+		"dmg": 3,
+		"armor": 5,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English":
+			[
+				"Attack",  
+				"Summoning: summons random Phantom", 
+				"", 
+				"Pass the turn" 
+			],
+			"Russian":
+			[
+				"Атака",  
+				"Призыв: призывает случайного Фантома", 
+				"", 
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 2,
+				"mana": 0,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Ключник",
+			"English": "Housekeeper"
+		},
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 1,
+		"hp": 3,
+		"dmg": 3,
+		"armor": 2,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English":
+			[
+				"Attack",  
+				"", 
+				"", 
+				"Pass the turn" 
+			],
+			"Russian":
+			[
+				"Атака",  
+				"", 
+				"", 
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 2,
+				"mana": 0,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Ключник",
+			"English": "Housekeeper"
+		},
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+]

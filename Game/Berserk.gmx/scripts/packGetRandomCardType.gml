@@ -1,5 +1,5 @@
 var chR = 10.0;
-var chL = 5;
+var chL = 0.01;
 switch (argument0)
 {
 case 3: // just three jandom cards
@@ -16,8 +16,8 @@ case 3: // just three jandom cards
         return cardGetTypeFromBooster(0);
     break;
 case 5:
-    chR = 35;
-    chL = 25;
+    chR = 25;
+    chL = 3;
     var r = random_range(0, 100);
     if (chL >= r) // LEGA
     {
