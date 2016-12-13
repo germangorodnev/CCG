@@ -338,14 +338,60 @@ if (client == eventid)
         // server send the card actions information
         if (instance_exists(oServer))
             exit;
-        for (var i = 0, c = ds_list_size(global.opCards); i &lt; c; i++)
+        var c = buffer_read(bf, buffer_u8);      
+        for (var i = 0; i &lt; c; i++)
         {
-            var card = global.opCards[| i];
-                ds_list_clear(card.actions);
-                var inf = buffer_read(bf, buffer_string);
-                ds_list_read(card.actions, inf);
+            var _x, _y, _type, _actions;
+            _x = buffer_read(bf, buffer_s16);
+            _y = room_height - buffer_read(bf, buffer_s16);
+            _type = buffer_read(bf, buffer_u16);
+            var card = instance_position(_x, _y, oCardBase);
+            if (card != noone)
+            {
+                if (card.type == _type)
+                {
+                    ds_list_clear(card.actions);
+                    ds_list_read(card.actions, buffer_read(bf, buffer_string));
+                }
+                else
+                {
+                    clientWrongCard();
+                    exit;
+                }
+            }
+            else
+            {
+                clientWrongCard();
+                exit;
+            }
         }
-        break;    
+        break;  
+        
+    case SR_TRUE_INF:
+        var c = buffer_read(bf, buffer_u8);      
+        for (var i = 0; i &lt; c; i++)
+        {
+            var _x, _y, _type, _actions;
+            _x = buffer_read(bf, buffer_s16);
+            _y = room_height - buffer_read(bf, buffer_s16);
+            _type = buffer_read(bf, buffer_u16);
+            var card = instance_position(_x, _y, oCardBase);
+            with (card)
+            {
+                ds_list_clear(card.actions);
+                actions = ds_list_read(buffer_read(bf, buffer_string));
+                type = _type;
+                hp = buffer_read(bf, buffer_u8);
+                armor = buffer_read(bf, buffer_u8);
+                dmg = buffer_read(bf, buffer_u8);
+                actions = ds_list_read(buffer_read(bf, buffer_string));
+                resists = ds_list_read(buffer_read(bf, buffer_string));
+                debuffs = ds_list_read(buffer_read(bf, buffer_string));
+                buffs = ds_list_read(buffer_read(bf, buffer_string));
+                impacts = ds_list_read(buffer_read(bf, buffer_string));
+            }            
+        }        
+        break;  
         
     // RARE
     case SR_CHAT_FRASE:   // recieve a chat message

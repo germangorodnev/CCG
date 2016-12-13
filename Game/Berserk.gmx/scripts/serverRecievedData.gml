@@ -5,6 +5,11 @@ var cmd = buffer_read(buff, buffer_u16);
 
 switch (cmd)
 {
+case CL_MISSINF:
+    // need to send EVERY FUCKING CARD
+    serverSendAll();
+    break;
+
 case CL_CONNECT_INF:
     if (opIP == 0)
         exit;
@@ -87,22 +92,46 @@ case CL_ENDED_TURN: // client ended turn, so we have to read player card's decis
         global.turnDone = true;
         buffer_seek(playerBuffer, buffer_seek_start, 0);
         buffer_write(playerBuffer, buffer_u16, SR_OTHER_PLAYER_ACTIONS);
+        buffer_write(playerBuffer, buffer_u8, ds_list_size(global.cards));
+        var b = playerBuffer;
         for (var i = 0, c = ds_list_size(global.cards); i < c; i++)
         {
             var card = global.cards[| i];
-            buffer_write(playerBuffer, buffer_string, ds_list_write(card.actions));
+            // pack and send
+            with (card)
+            {
+                cardWriteAction(b);
+            }
         }
         network_send_packet(opSocket, playerBuffer, buffer_tell(playerBuffer));        
     }
     else
     {
         // that is from other player
-        global.opTurnDone = true;        
-        for (var i = 0, c = ds_list_size(global.opCards); i < c; i++)
+        global.opTurnDone = true;  
+        var c = buffer_read(buff, buffer_u8);      
+        for (var i = 0; i < c; i++)
         {
-            var card = global.opCards[| i];
+            /*var card = global.opCards[| i];
             ds_list_clear(card.actions);
-            ds_list_read(card.actions, buffer_read(buff, buffer_string));
+            ds_list_read(card.actions, buffer_read(buff, buffer_string));*/
+            var _x, _y, _type, _actions;
+            _x = buffer_read(buff, buffer_s16);
+            _y = room_height - buffer_read(buff, buffer_s16);
+            _type = buffer_read(buff, buffer_u16);
+            var card = instance_position(_x, _y, oCardBase);
+            if (card != noone)
+            {
+                if (card.type == _type)
+                {
+                    ds_list_clear(card.actions);
+                    ds_list_read(card.actions, buffer_read(buff, buffer_string));
+                }
+                //else
+                //    serverWrongCard();
+            }
+            //else
+            //    serverWrongCard();
         }
     }
     // check if both players have send the actions

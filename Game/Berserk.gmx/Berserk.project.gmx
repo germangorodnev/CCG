@@ -257,6 +257,7 @@
       <script>scripts\clientCheckCardsDone.gml</script>
       <script>scripts\clientEndPerforming.gml</script>
       <script>scripts\changeAP.gml</script>
+      <script>scripts\clientWrongCard.gml</script>
     </scripts>
     <scripts name="Server">
       <script>scripts\beginTurn.gml</script>
@@ -266,6 +267,8 @@
       <script>scripts\sendToNextRoom.gml</script>
       <script>scripts\changeGameState.gml</script>
       <script>scripts\gameStart.gml</script>
+      <script>scripts\serverWrongCard.gml</script>
+      <script>scripts\serverSendAll.gml</script>
     </scripts>
     <scripts name="Game">
       <script>scripts\gameGetListByTargetGroup.gml</script>
@@ -421,7 +424,7 @@
     <room>rooms\rGame</room>
     <room>rooms\rCustomMode</room>
   </rooms>
-  <constants number="20">
+  <constants number="22">
     <constant name="for_client">__________</constant>
     <constant name="CL_CONNECT_INF">0</constant>
     <constant name="CL_PING">1</constant>
@@ -429,6 +432,7 @@
     <constant name="CL_ENDED_TURN">3</constant>
     <constant name="CL_RESPOND">4</constant>
     <constant name="CL_ENDED_ACTION_PERFORM">5</constant>
+    <constant name="CL_MISSINF">6</constant>
     <constant name="for_server">__________</constant>
     <constant name="SR_BROADCAST">0</constant>
     <constant name="SR_CHAT_FRASE">1</constant>
@@ -439,6 +443,7 @@
     <constant name="SR_OTHER_PLAYER_ACTIONS">6</constant>
     <constant name="SR_NEXT_TURN">7</constant>
     <constant name="SR_NICKNAME">8</constant>
+    <constant name="SR_TRUE_INF">9</constant>
     <constant name="GAME_CONFIGURATONS">______________</constant>
     <constant name="CARD_X">384</constant>
     <constant name="CARD_Y">512</constant>
