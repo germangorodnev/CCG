@@ -40,5 +40,11 @@ case GAME_STATES.PERFORM_ACTIONS:
     else   
         alarm[11] = 1;
     break;
+case GAME_STATES.COMPARING_CARDS:
+    if (instance_exists(oServer))
+        exit;
+    // send all cards
+    clientSendAllCards();
+    break;
 }
 

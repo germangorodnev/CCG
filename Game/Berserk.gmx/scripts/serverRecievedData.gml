@@ -5,9 +5,18 @@ var cmd = buffer_read(buff, buffer_u16);
 
 switch (cmd)
 {
-case CL_MISSINF:
-    // need to send EVERY FUCKING CARD
-    serverSendAll();
+case CL_CMPINF:
+    if (serverCardCompare(buff)) // SO GOOD
+    {
+        endTurn();
+        beginTurn();
+    }
+    else
+    {
+        // SEND INF TO THE ENEMY CLIENT
+        show_message("wrong");
+        beginTurn();
+    }
     break;
 
 case CL_CONNECT_INF:
@@ -76,7 +85,9 @@ case CL_RESPOND: // just a signal that client made something we told him to do
         global.AP = 0;
         break;
     case SR_CHANGE_GAME_STATE:
-        changeGameState(GAME_STATES.PERFORM_ACTIONS);
+        var st = buffer_read(buff, buffer_u16); // GAME_STATES
+        if (st == GAME_STATES.ZERO_TURN)
+            changeGameState(GAME_STATES.PERFORM_ACTIONS);
         break;
     case SR_NEXT_TURN:
     
@@ -127,11 +138,7 @@ case CL_ENDED_TURN: // client ended turn, so we have to read player card's decis
                     ds_list_clear(card.actions);
                     ds_list_read(card.actions, buffer_read(buff, buffer_string));
                 }
-                //else
-                //    serverWrongCard();
             }
-            //else
-            //    serverWrongCard();
         }
     }
     // check if both players have send the actions
@@ -157,9 +164,10 @@ case CL_ENDED_ACTION_PERFORM: // he is done
     {
         if (global.gameState != GAME_STATES.CHOOSE_ACTIONS)
         {
+            changeGameState(GAME_STATES.COMPARING_CARDS);
             // move to the next turn
-            endTurn();
-            beginTurn();
+            //endTurn();
+            //beginTurn();
         }
     }
     break;

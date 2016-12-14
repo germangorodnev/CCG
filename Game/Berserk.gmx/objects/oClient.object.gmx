@@ -178,7 +178,7 @@ alarm[1] = 3 * room_speed;
           <argument>
             <kind>1</kind>
             <string>///Respond about card creation
-clientRespond(SR_GAME_INIT);
+clientRespond(SR_GAME_INIT, global.gameState);
 
 </string>
           </argument>
@@ -209,14 +209,17 @@ clientRespond(SR_GAME_INIT);
     time = 0;
     exit;
 }*/
-if (clientCheckCardsDone())
+if (global.gameState == GAME_STATES.PERFORM_ACTIONS)
 {
-    clientEndPerforming();
-}
-else
-{
-    time++;
-    alarm[1] = 1.5 * room_speed;
+    if (clientCheckCardsDone())
+    {
+        clientEndPerforming();
+    }
+    else
+    {
+        time++;
+        alarm[1] = 1.5 * room_speed;
+    }
 }
 </string>
           </argument>
@@ -320,9 +323,11 @@ if (client == eventid)
     case SR_NEXT_TURN:
         if (instance_exists(oServer))
             exit;
+        if (global.gameState == GAME_STATES.CHOOSE_ACTIONS)
+            exit;
         global.gameState = GAME_STATES.CHOOSE_ACTIONS;
         clientBeginTurn();
-        clientRespond(SR_NEXT_TURN);
+        clientRespond(SR_NEXT_TURN, global.gameState);
         break;
     
     case SR_CHANGE_GAME_STATE:
@@ -331,7 +336,7 @@ if (client == eventid)
         var state = buffer_read(bf, buffer_u8);
         global.gameState = state;
         setGameState(state);
-        clientRespond(SR_CHANGE_GAME_STATE);
+        clientRespond(SR_CHANGE_GAME_STATE, state);
         break;
         
     case SR_OTHER_PLAYER_ACTIONS:      
@@ -353,16 +358,6 @@ if (client == eventid)
                     ds_list_clear(card.actions);
                     ds_list_read(card.actions, buffer_read(bf, buffer_string));
                 }
-                else
-                {
-                    clientWrongCard();
-                    exit;
-                }
-            }
-            else
-            {
-                clientWrongCard();
-                exit;
             }
         }
         break;  
@@ -404,7 +399,7 @@ if (client == eventid)
         var cob = buffer_read(bf, buffer_u8);
         global.cardsOnBoard = cob;
         room_goto(rGame);
-        clientRespond(SR_TO_NEXT_ROOM);
+        clientRespond(SR_TO_NEXT_ROOM, GAME_STATES.CARD_PREPARE);
         break;
     }
 }
