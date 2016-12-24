@@ -31,7 +31,7 @@ for (var i = 0; i < ourCnt; i++)
                 continue;
             else
             {
-            
+                show_message("НУ НЕ СОВПАДАЕТ. НУ ЧЕ ТЫ МУДАК ТО ТАКОЙ");
             }
         }
     }
@@ -66,7 +66,7 @@ for (var i = 0; i < otherCnt; i++)
                 continue;
             else
             {
-            
+                show_message("НУ НЕ СОВПАДАЕТ. НУ ЧЕ ТЫ МУДАК ТО ТАКОЙ");
             }
         }
     }

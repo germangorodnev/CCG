@@ -1,12 +1,14 @@
 ///gameGetListByTargetGroup(TARGET_GROUPS n, OPTIONAL targetIndex = -1)
+var targetInd = argument1;
+
 switch (argument0)
 {
 case TARGET_GROUPS.ANY_CARD:
     // WARNING
-    if (!is_undefined(global.cards[| argument1]))
+    /*if (!is_undefined(global.cards[| argument1]))
         return global.cards;
     else if (!is_undefined(global.opCards[| argument1]))
-        return global.opCards;
+        return global.opCards;*/
     break;
 case TARGET_GROUPS.ENEMY_CARDS:
     if (player == 0)

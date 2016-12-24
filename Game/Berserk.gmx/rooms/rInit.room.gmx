@@ -49,6 +49,7 @@
     AMP_MIRROR = 34,
     AMP_UNKNOWN = 35,
     OFFICER = 36,
+    GRAVER = 37,
     CARDS_COUNT
 };
 
@@ -192,7 +193,9 @@ enum ACTIONS
     // COPTER
     HELI_HELP = 38,
     // OFFICER
-    OFFICER_CASTLING = 39
+    OFFICER_CASTLING = 39,
+    // GRAVER
+    GRAVER_GRAVE = 40,
 }
 
 enum EV
@@ -267,6 +270,7 @@ enum MONST_ATT
   <instances>
     <instance objName="oControl" x="0" y="0" name="inst_BC25E39E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGameDatabase" x="32" y="0" name="inst_E8E0BD35" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oMusicController" x="64" y="0" name="inst_24CEDB88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

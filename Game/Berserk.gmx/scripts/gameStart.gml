@@ -1,4 +1,5 @@
 /// Choose random cards
+
 global.gameState = GAME_STATES.CARD_PREPARE;
 // temporary list
 var d = ds_list_create();

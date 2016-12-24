@@ -47,4 +47,7 @@ global.packs5 = file_text_read_real(f); file_text_readln(f);
 // money
 global.money = file_text_read_real(f); file_text_readln(f);
 
+// music
+global.sound = file_text_read_real(f); file_text_readln(f);
+
 file_text_close(f);

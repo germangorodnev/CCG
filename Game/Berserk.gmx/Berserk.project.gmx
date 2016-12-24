@@ -51,7 +51,7 @@
     </sounds>
     <sounds name="Music">
       <sound>sound\mskMenu</sound>
-      <sound>sound\mskGame</sound>
+      <sound>sound\mskGame1</sound>
     </sounds>
     <sound>sound\sndChat</sound>
   </sounds>
@@ -186,6 +186,8 @@
         <script>scripts\cardListPosToY.gml</script>
         <script>scripts\cardParamToStr.gml</script>
         <script>scripts\cardCompareParams.gml</script>
+        <script>scripts\cardPosToIndex.gml</script>
+        <script>scripts\cardIndexToPos.gml</script>
       </scripts>
       <scripts name="Buffs">
         <script>scripts\cardHasBuff.gml</script>
@@ -325,10 +327,12 @@
     <script>scripts\getFraseLang.gml</script>
     <script>scripts\windowInitialise.gml</script>
     <script>scripts\windowInitialiseAboutCard.gml</script>
+    <script>scripts\soundChange.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdDarkenSprite.shader</shader>
     <shader type="GLSLES">shaders\shdOutlineSprite.shader</shader>
+    <shader type="GLSLES">shaders\shader2.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\f0</font>
@@ -375,6 +379,7 @@
       <object>objects\oShop</object>
       <object>objects\oCurrLang</object>
       <object>objects\oModes</object>
+      <object>objects\oSound</object>
     </objects>
     <objects name="Lobby">
       <objects name="Deck picker">
@@ -414,6 +419,8 @@
     </objects>
     <object>objects\oWindow</object>
     <object>objects\oBeta</object>
+    <object>objects\oMusicController</object>
+    <object>objects\oGameLists</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rInit</room>

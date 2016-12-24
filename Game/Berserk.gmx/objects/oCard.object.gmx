@@ -53,7 +53,10 @@ image_yscale = image_xscale;
           <argument>
             <kind>1</kind>
             <string>///Clear
-//cardDestroy();
+// WARNING
+// Add to grave
+ds_list_add(oGameLists.died, type);
+
 </string>
           </argument>
         </arguments>
@@ -161,7 +164,8 @@ else if (global.clientState == CLIENT_STATES.CHOOSING_TARGET)
                 {
                     if (cardCanBeTargeted())
                     {
-                        var p = ds_list_find_index(global.opCards, id);
+                        //var p = ds_list_find_index(global.opCards, id);
+                        var p = cardPosToIndex(x, y);
                         with (global.choosenCard)
                         {
                             cardSetAction(global.choosenCard.actionsIndex[global.choosenCardIndex], p, TARGET_GROUPS.ENEMY_CARDS);   
@@ -176,7 +180,8 @@ else if (global.clientState == CLIENT_STATES.CHOOSING_TARGET)
             case TARGET_GROUPS.ALLY_CARDS: // ally only
                 if (player == 0)
                 {
-                    var p = ds_list_find_index(global.cards, id);
+                    //var p = ds_list_find_index(global.cards, id);
+                    var p = cardPosToIndex(x, y);
                     with (global.choosenCard)
                     {
                         cardSetAction(global.choosenCard.actionsIndex[global.choosenCardIndex], p, TARGET_GROUPS.ALLY_CARDS);   
@@ -211,7 +216,7 @@ if (global.gameState &gt; GAME_STATES.ZERO_TURN)
                 if (!is_undefined(t))
                 {
                     var gr = gameGetListByTargetGroup(actions[| 3], t);
-                    global.choosenAsTarget = gr[| t];
+                    global.choosenAsTarget = cardIndexToPos(t, gr);
                 } 
                 else
                 {

@@ -83,9 +83,12 @@ switch (act)
         ds_list_add(dbf, p); 
         //ds_list_mark_as_list(dbf, 0);
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
-        instance_create(realTarget.x, realTarget.y, oInstant);
-        var s = cardAttack(target, ls, 0, -1, dbf);    
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
+            instance_create(realTarget.x, realTarget.y, oInstant);
+            var s = cardAttack(target, ls, 0, -1, dbf);
+        }    
         break;
     // ARMOR HAMMER
     case ACTIONS.ARMOR_HAMMER_USE:
@@ -126,7 +129,7 @@ switch (act)
         var s = instance_create(x, y, oJojnImpact);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.parent = id;
         s.speed = atkSpd;
         break;
@@ -163,7 +166,7 @@ switch (act)
         break;
     // SMEMS
     case ACTIONS.SMEMS_BLESSING:
-        var targetId = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);  
+        var targetId = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         with (targetId)
         {
             cardChangeDmg(2);
@@ -181,11 +184,14 @@ switch (act)
         break;
     // PORCHANKA
     case ACTIONS.PORCHANKA_CORRUPTION:
-        var targetId = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        var targetId = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
+        if (targetId != noone)
+        {
         with (targetId)
         {
             cardAddDeathrattle(DEATHRATTLES.CORRUPTION);
             cardChangeHp(-1);
+        }
         }
         cardDone();
         break;
@@ -195,7 +201,7 @@ switch (act)
         var s = instance_create(x, y, oDevour);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.parent = id;
         s.speed = atkSpd;
         s.dmg = 1;
@@ -207,7 +213,7 @@ switch (act)
         var s = instance_create(x, y, oDevour);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.parent = id;
         s.speed = atkSpd;
         s.dmg = 2;
@@ -218,7 +224,7 @@ switch (act)
         state = CARD_STATES.PERFORM_ACTION
         var s = instance_create(x, y, oPressure);
         s.pl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.startPl = player;
         s.parent = id;
         s.speed = atkSpd;
@@ -226,13 +232,16 @@ switch (act)
         break;
     case ACTIONS.GOLEM_STONE_LIGHTNING:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             cardChangeHp(-3);
             cardChangeArmor(-1);
         }  
-        instance_create(realTarget.x, realTarget.y, oLightning);   
+        instance_create(realTarget.x, realTarget.y, oLightning);  
+        } 
         break;
     //////////////// FAMILY ////////////////////////
     // GOLEM BATYA
@@ -243,12 +252,15 @@ switch (act)
     // GOLEM MATYA
     case ACTIONS.GOLEM_MATYA_KISS:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             cardIncreaseMaxStat(1, "hp");
             cardIncreaseMaxStat(1, "dmg");
         }  
+        }
         cardDone();        
         break;
     // GOLEM SON
@@ -275,7 +287,7 @@ switch (act)
         var s = instance_create(x, y, oTriple);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.startPl = player;
         s.parent = id;
         s.speed = atkSpd;
@@ -293,11 +305,14 @@ switch (act)
     // SECTANT MAGE
     case ACTIONS.SECTANT_MAGE_MANA:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             cardChangeMana(1);
         }  
+        }
         cardDone();
         break;
     // UNDERGROUND DEVOURER
@@ -338,8 +353,10 @@ switch (act)
         break;
     case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
         var newt = actions[| 4];
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             instance_destroy();
@@ -347,6 +364,7 @@ switch (act)
             state = CARD_STATES.DESTROY;
             cardReplace(newt);
             cardClearMemory();
+        }
         }
         cardDone();
         break;
@@ -412,7 +430,9 @@ switch (act)
     // OFFICER
     case ACTIONS.OFFICER_CASTLING:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         var can = true;
         if (!ds_list_empty(realTarget.actions))
         {
@@ -456,6 +476,16 @@ switch (act)
         }
         else
             cardDone();
+        }
+        else
+            cardDone();
+        break;
+    // GRAVER SUMMON
+    case ACTIONS.GRAVER_GRAVE:
+        var cardType = actions[| 2];
+        if (cardType != -1)
+            cardSummon(player, cardType, -1);
+        cardDone();
         break;
     // not implemented
     default:

@@ -34,6 +34,7 @@ global.guiW = 1280;
 global.guiH = 720;
 
 global.language = "English";
+global.sound = 0;
 
 global.wins = 0;
 global.loses = 0;

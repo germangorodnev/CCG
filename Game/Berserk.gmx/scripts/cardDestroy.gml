@@ -11,13 +11,18 @@ else
     var pos = ds_list_find_index(global.opCards, id);
     ds_list_delete(global.opCards, pos);
 }
-
-ds_list_destroy(actions);
-ds_list_destroy(resists);
-ds_list_destroy(debuffs);
-ds_list_destroy(buffs);
-ds_list_destroy(deathrattles);
-ds_list_destroy(impacts);
+if (ds_exists(actions, ds_type_list))
+    ds_list_destroy(actions);
+if (ds_exists(resists, ds_type_list))
+    ds_list_destroy(resists);
+if (ds_exists(debuffs, ds_type_list))
+    ds_list_destroy(debuffs);
+if (ds_exists(buffs, ds_type_list))
+    ds_list_destroy(buffs);
+if (ds_exists(deathrattles, ds_type_list))
+    ds_list_destroy(deathrattles);
+if (ds_exists(impacts, ds_type_list))
+    ds_list_destroy(impacts);
 if (path_exists(cardPath))
     path_delete(cardPath);
 actionsNames = 0; // actual name of action

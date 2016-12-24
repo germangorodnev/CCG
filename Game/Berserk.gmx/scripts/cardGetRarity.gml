@@ -30,6 +30,7 @@ case CARDS.SCOUT:
 case CARDS.CHEMIS_INVENTOR:
 case CARDS.PET_BEAR:
 case CARDS.HELI:
+case CARDS.GRAVER:
     return 1;
     break;
 case CARDS.JOJN:

@@ -2329,11 +2329,75 @@
 			"English": "Officer of the koncha - regiment"
 		},
 		"rarity": 2,
-		"AP": 14,
+		"AP": 6,
 		"resists": [
 			0
 		],
 		"class": 0
 	},
+
+	{
+		"cardIndex": 37,
+		"hp": 6,
+		"dmg": 3,
+		"armor": 0,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Fresh grave: summons random card that died this game", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Свежая могила: призывает случайную карту, умершую в течение игры", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 40,
+				"mana": 1,
+				"needT": false,
+				"targetType": 2,
+				"instant": true
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Могильщик",
+			"English": "Gravedigger"
+		},
+		"rarity": 1,
+		"AP": 2,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
 
 ]
