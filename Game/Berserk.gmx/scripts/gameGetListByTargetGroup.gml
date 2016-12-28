@@ -17,6 +17,7 @@ case TARGET_GROUPS.ENEMY_CARDS:
         return global.cards;
     break;
 case TARGET_GROUPS.ALLY_CARDS:
+case TARGET_GROUPS.ALLY_MECHS:
     if (player == 0)
         return global.cards;
     else

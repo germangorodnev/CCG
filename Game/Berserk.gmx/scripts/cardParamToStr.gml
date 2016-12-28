@@ -11,7 +11,7 @@ case CLASSES.HUMAN:
     if (global.language == "English")
         return "Human";
     else if (global.language == "Russian")
-        return "Существо";
+        return "Человек";
     break;
 case CLASSES.GOLEM:
     if (global.language == "English")

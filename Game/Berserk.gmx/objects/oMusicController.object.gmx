@@ -72,11 +72,12 @@ case rLobby:
     break;
     
 case rGame:
-    if (currM != mskGame1)
+    var snd = choose(mskGame1, mskGame2);
+    if (currM != snd)
     {
         audio_stop_sound(currM);
-        audio_play_sound(mskGame1, 100, true);
-        currM = mskGame1;
+        audio_play_sound(snd, 100, true);
+        currM = snd;
     }
     break;
 }

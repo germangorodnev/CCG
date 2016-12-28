@@ -73,5 +73,8 @@ case CARDS.GOLEM_AIR:
 case CARDS.WALL:
     cardSetBuff(BUFFS.BLOCK, 8000);
     break;
+case CARDS.STEALTH_KILLER:
+    cardSetBuff(BUFFS.INVISIBILITY, 8000);
+    break;
 }
 

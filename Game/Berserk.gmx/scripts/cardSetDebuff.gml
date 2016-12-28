@@ -27,6 +27,12 @@ case DEBUFFS.CAVALRY:
     cardChangeHp(-2);
     hp = max(hp, 1);
     break;   
+case DEBUFFS.MECHANIC_ATTACK:
+    var emptyLs = ds_list_create();
+    ds_list_copy(emptyLs, argument0);
+    ds_list_add(debuffs, emptyLs);
+    ds_list_mark_as_list(debuffs, ds_list_size(debuffs) - 1);
+    break;
 }
 
 

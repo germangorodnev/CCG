@@ -190,6 +190,15 @@ else if (global.clientState == CLIENT_STATES.CHOOSING_TARGET)
                 else
                     exit;
                 break;
+            case TARGET_GROUPS.ALLY_MECHS:
+                if (player != 0 || class != CLASSES.MECH)
+                    exit;
+                var p = cardPosToIndex(x, y);
+                with (global.choosenCard)
+                {
+                    cardSetAction(global.choosenCard.actionsIndex[global.choosenCardIndex], p, TARGET_GROUPS.ALLY_CARDS);   
+                }  
+                break;
             }
             with (global.choosenCard)
             {

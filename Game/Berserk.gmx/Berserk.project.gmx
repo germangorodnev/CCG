@@ -52,6 +52,7 @@
     <sounds name="Music">
       <sound>sound\mskMenu</sound>
       <sound>sound\mskGame1</sound>
+      <sound>sound\mskGame2</sound>
     </sounds>
     <sound>sound\sndChat</sound>
   </sounds>
@@ -92,11 +93,13 @@
     <sprites name="Buff Icons">
       <sprite>sprites\sBuffBlock</sprite>
       <sprite>sprites\sInvis</sprite>
+      <sprite>sprites\sGrH</sprite>
     </sprites>
     <sprites name="Debuff Icons">
       <sprite>sprites\sDebuffPoison</sprite>
       <sprite>sprites\sDebuffStun</sprite>
       <sprite>sprites\sVisible</sprite>
+      <sprite>sprites\sDebuffMech</sprite>
     </sprites>
     <sprites name="Helpers">
       <sprite>sprites\sPlaceNotFree</sprite>
@@ -289,6 +292,7 @@
       <script>scripts\findCardPosInDeckWithNumbByIndex.gml</script>
       <script>scripts\gameGetCard.gml</script>
       <script>scripts\gameGetCardsCount.gml</script>
+      <script>scripts\gamePlaySound.gml</script>
     </scripts>
     <scripts name="Deck making">
       <script>scripts\dmCreateCards.gml</script>

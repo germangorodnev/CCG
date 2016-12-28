@@ -21,7 +21,7 @@ if (!canTurn || !actions[| 1])
 }
 
 var target = actions[| 2];
-
+var removeStealth = true;
 switch (act)
 {
     case ACTIONS.ATTACK: // just an attack
@@ -54,12 +54,12 @@ switch (act)
                             /* UNIQUE ABILITIES */    
     // KONCHA
     case ACTIONS.KONCHA_HEAL: // healing the card
-        state = CARD_STATES.PERFORM_ACTION
+        state = CARD_STATES.PERFORM_ACTION;
         cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 2);
         cardDone();
         break;
     case ACTIONS.KONCHA_POISON: // poison the enemy
-        state = CARD_STATES.PERFORM_ACTION
+        state = CARD_STATES.PERFORM_ACTION;
         var dbf = ds_list_create();
         var p = ds_list_create();
         ds_list_add(p, DEBUFFS.POISON, 2, 1);
@@ -70,9 +70,10 @@ switch (act)
         break;
     // LISA
     case ACTIONS.LISA_BACKSTAB:
-        state = CARD_STATES.PERFORM_ACTION
+        state = CARD_STATES.PERFORM_ACTION;
         var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1); 
-        a.absolute = true;    
+        a.absolute = true;  
+        a.empower = false;  
         a.image_index = 4;
         break;
     // MIMIC WILD
@@ -487,17 +488,97 @@ switch (act)
             cardSummon(player, cardType, -1);
         cardDone();
         break;
+    // STEALTH_KILLER
+    case ACTIONS.STEALTH_KILLER_ST_ATT:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
+            var dd = dmg;
+            with (realTarget)
+            {
+                cardDealDamage(dd, false);
+            }  
+            if (realTarget.hp <= 0) // dead
+            {
+                cardSetBuff(BUFFS.INVISIBILITY, 8000);
+                removeStealth = false;
+            }
+        } 
+        break;
+    // NINJA
+    case ACTIONS.NINJA_BACKSTAB:
+        state = CARD_STATES.PERFORM_ACTION;
+        var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1); 
+        a.absolute = true;  
+        a.empower = false;  
+        a.image_index = 4;
+        break;
+    // FIELD MEDIC
+    case ACTIONS.FIELD_MED_H_2:
+        cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 2);
+        cardDone();
+        break;
+    // BATTLE MEDIC
+    case ACTIONS.BAT_MED_ATT_POISON_NOT:
+        if (mana <= 2)
+        {
+            // Just attack
+            state = CARD_STATES.PERFORM_ACTION;
+            cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1);
+        }
+        else
+        {
+            state = CARD_STATES.PERFORM_ACTION;
+            var dbf = ds_list_create();
+            var p = ds_list_create();
+            ds_list_add(p, DEBUFFS.POISON, 2, 1);
+            ds_list_add(dbf, p); 
+            //ds_list_mark_as_list(dbf, 0);
+            var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, dbf);
+            s.image_index = 3;
+        }
+        break;
+    case ACTIONS.BAT_MED_H_3:
+        cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 3);
+        cardDone();
+        break;
+    case ACTIONS.BAT_MED_TGH:
+        // if we do not have a buff - add one
+        if (!cardHasBuff(BUFFS.GREAT_HEAL, id))
+        {
+            cardSetBuff(BUFFS.GREAT_HEAL, 3);
+        }
+        cardDone();
+        break;
+    // MECHANIC
+    case ACTIONS.MECHANIC_MECH_HEAL_3:
+        cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 2);
+        cardDone();        
+        break;
+    case ACTIONS.MECHANIC_ATTACK_TRUE_AFTER:
+        state = CARD_STATES.PERFORM_ACTION;
+        var dbf = ds_list_create();
+        var p = ds_list_create();
+        ds_list_add(p, DEBUFFS.MECHANIC_ATTACK, 2, 1);
+        ds_list_add(dbf, p); 
+        //ds_list_mark_as_list(dbf, 0);
+        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, dbf);        
+        break;
     // not implemented
     default:
         cardDone();
         break;        
 }
 
-if (act != ACTIONS.PASS_THE_TURN)
-    if (cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
-    {
-        cardDeleteBuff(BUFFS.INVISIBILITY);
-    }
+if (removeStealth)
+{
+    if (act != ACTIONS.PASS_THE_TURN)
+        if (cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
+        {
+            cardDeleteBuff(BUFFS.INVISIBILITY);
+        }
+}
 
 /*
     ATTACK = 0,

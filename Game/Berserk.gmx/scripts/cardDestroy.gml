@@ -11,6 +11,14 @@ else
     var pos = ds_list_find_index(global.opCards, id);
     ds_list_delete(global.opCards, pos);
 }
+
+// CLEARING BUFFS
+for (var i = 0, c = ds_list_size(buffs); i < c; i++)
+{
+    var l = buffs[| i];
+    cardDeleteBuff(l[| 0]);
+}
+
 if (ds_exists(actions, ds_type_list))
     ds_list_destroy(actions);
 if (ds_exists(resists, ds_type_list))

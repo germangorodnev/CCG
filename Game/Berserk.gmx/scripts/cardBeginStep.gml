@@ -19,7 +19,7 @@ for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
                 ds_list_delete(debuffs, ds_list_find_index(debuffs, db));
                 continue;
             }
-            cardChangeHp(-db[| 2]);
+            cardDealDamage(db[| 2], false);
             --db[| 1];
         }
         else
@@ -62,6 +62,22 @@ for (var i = 0, c = ds_list_size(debuffs); i < c; i++)
             ds_list_delete(debuffs, ds_list_find_index(debuffs, db));        
         }       
         break;
+    case DEBUFFS.MECHANIC_ATTACK:
+        if (ds_list_find_index(resists, DEBUFFS.MECHANIC_ATTACK) == -1)
+        {
+            if (db[| 1] == 0)
+            {
+                ds_list_delete(debuffs, ds_list_find_index(debuffs, db));
+                continue;
+            }
+            cardDealDamage(1, true);
+            --db[| 1];
+        }
+        else
+        {
+            ds_list_delete(debuffs, ds_list_find_index(debuffs, db));        
+        }       
+        break;
     }
     c = ds_list_size(debuffs);
 }
@@ -81,6 +97,15 @@ for (var i = 0, c = ds_list_size(buffs); i < c; i++)
     var l = buffs[| i];
     --l[| 1]
 }
+
+// EVRY TURN IMPACTS
+switch (type)
+{
+case CARDS.BATTLE_MEDIC:
+    cardChangeMana(1);
+    break;
+}
+
 var c = 0, p = player;
 with (oCardBase)
 {
@@ -100,4 +125,5 @@ if (canTurn)
     
 ds_list_clear(actions);
 choosen = false;
-
+if (cardHasBuff(BUFFS.GREAT_HEAL, id))
+    cardSetAction(ACTIONS.PASS_THE_TURN, -1, -1);

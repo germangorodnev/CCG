@@ -7,6 +7,9 @@ case BUFFS.BLOCK:
 case BUFFS.INVISIBILITY:
     return sInvis;
     break;
+case BUFFS.GREAT_HEAL:
+    return sGrH;
+    break;
 default:
     return sNoone;
     break;
