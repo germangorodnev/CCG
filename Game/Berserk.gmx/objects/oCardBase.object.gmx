@@ -92,6 +92,8 @@ debuffs = ds_list_create();
 buffs = ds_list_create();
 // impacts
 impacts = ds_list_create();
+// constant buffs
+cbuffs = ds_list_create();
 
 // deathrattles
 deathrattles = ds_list_create();
@@ -201,7 +203,8 @@ draw_sprite_ext(sCardBorder, borderIndex, x, y, image_xscale, image_yscale, imag
 // drawing buffs
 for (var i = 0, c = ds_list_size(buffs); i &lt; c; i++)
 {
-    var spr = cardGetBuffIndexByEnum(ds_list_find_value(ds_list_find_value(buffs, i), 0));
+    var ls = ds_list_find_value(buffs, i);
+    var spr = cardGetBuffIndexByEnum(ds_list_find_value(ls, 0), ls[| 1]);
     draw_sprite_ext(spr, 0, x, y, image_xscale, image_yscale, image_angle, image_blend, 1);
 }
 

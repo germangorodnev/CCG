@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Main data
+window_set_caption("HALFALIVE: DIVINE CHALLENGE " + string(GM_version));
 randomize();
 
 cursor_sprite = sCursor;

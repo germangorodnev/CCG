@@ -46,6 +46,8 @@ empower = true;
 empowers = ds_list_create();
 
 active = true;
+
+parentName = "";
 </string>
           </argument>
         </arguments>

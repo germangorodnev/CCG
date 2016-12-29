@@ -31,7 +31,7 @@ case CL_CONNECT_INF:
     var n = global.opName;
     with (oClient)
     {
-        addChatFrase(getFraseLang("conn"), n);
+        addChatFrase(getFraseLang("conn", -1), n);
     }
     // send our nickname
     buffer_seek(playerBuffer, buffer_seek_start, 0);

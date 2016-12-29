@@ -31,6 +31,8 @@ if (ds_exists(deathrattles, ds_type_list))
     ds_list_destroy(deathrattles);
 if (ds_exists(impacts, ds_type_list))
     ds_list_destroy(impacts);
+if (ds_exists(cbuffs, ds_type_list))
+    ds_list_destroy(cbuffs);
 if (path_exists(cardPath))
     path_delete(cardPath);
 actionsNames = 0; // actual name of action

@@ -253,7 +253,7 @@ break;
 }
 if (mouse_check_button_released(mb_right))
     if (mouseOnUs())
-        windowInitialiseAboutCard(id);
+        windowInitialiseAboutCard(id, true);
 </string>
           </argument>
         </arguments>

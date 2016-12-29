@@ -171,7 +171,8 @@ switch (act)
         with (targetId)
         {
             cardChangeDmg(2);
-            cardChangeArmor(1);            
+            cardChangeArmor(1); 
+            cardAddConstantBuff(getFraseLang("bless", -1));           
         }
         cardDone();
         break;
@@ -260,6 +261,7 @@ switch (act)
         {
             cardIncreaseMaxStat(1, "hp");
             cardIncreaseMaxStat(1, "dmg");
+            cardAddConstantBuff(getFraseLang("matya", -1));           
         }  
         }
         cardDone();        
@@ -275,7 +277,10 @@ switch (act)
         var amountDad = cardGetCountOnBoard(CARDS.GOLEM_BATYA, cardGetGroup()),
             amountMom = cardGetCountOnBoard(CARDS.GOLEM_MATYA, cardGetGroup());
         if (amountDad > 0 || amountMom > 0)
+        {
             cardIncreaseMaxStat(2, "dmg");
+            cardAddConstantBuff(getFraseLang("gengap", -1));           
+        }
         else
         {
             // fail
@@ -345,6 +350,10 @@ switch (act)
                 cardSetState(CARD_STATES.DESTROY);
             }
         }
+        if (r != noone || l != noone)
+        {
+            cardAddConstantBuff(getFraseLang("devour", -1));           
+        }
         cardDone();
         break;
     // CHEMIST INVENTOR
@@ -405,7 +414,7 @@ switch (act)
                 if (inst == id || inst == noone)
                     continue;
                 with (inst)
-                    cardSetBuff(BUFFS.INVISIBILITY, 8000);
+                    cardSetBuff(BUFFS.INVISIBILITY, -4);
             }
         }
         cardDone();
@@ -501,7 +510,7 @@ switch (act)
             }  
             if (realTarget.hp <= 0) // dead
             {
-                cardSetBuff(BUFFS.INVISIBILITY, 8000);
+                cardSetBuff(BUFFS.INVISIBILITY, -4);
                 removeStealth = false;
             }
         } 

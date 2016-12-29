@@ -93,7 +93,9 @@
     <sprites name="Buff Icons">
       <sprite>sprites\sBuffBlock</sprite>
       <sprite>sprites\sInvis</sprite>
-      <sprite>sprites\sGrH</sprite>
+      <sprite>sprites\sGrH3</sprite>
+      <sprite>sprites\sGrH2</sprite>
+      <sprite>sprites\sGrH1</sprite>
     </sprites>
     <sprites name="Debuff Icons">
       <sprite>sprites\sDebuffPoison</sprite>
@@ -196,6 +198,7 @@
         <script>scripts\cardHasBuff.gml</script>
         <script>scripts\cardSetBuff.gml</script>
         <script>scripts\cardDeleteBuff.gml</script>
+        <script>scripts\cardAddConstantBuff.gml</script>
       </scripts>
       <scripts name="Debuffs">
         <script>scripts\cardSetDebuffs.gml</script>
@@ -336,7 +339,6 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdDarkenSprite.shader</shader>
     <shader type="GLSLES">shaders\shdOutlineSprite.shader</shader>
-    <shader type="GLSLES">shaders\shader2.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\f0</font>

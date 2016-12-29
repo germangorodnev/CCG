@@ -68,13 +68,13 @@ case CARDS.GOLEM_MENTOR:
     ls1 = ds_list_create();
     break;
 case CARDS.GOLEM_AIR:
-    cardSetBuff(BUFFS.INVISIBILITY, 8000);
+    cardSetBuff(BUFFS.INVISIBILITY, -4);
     break;
 case CARDS.WALL:
-    cardSetBuff(BUFFS.BLOCK, 8000);
+    cardSetBuff(BUFFS.BLOCK, -4);
     break;
 case CARDS.STEALTH_KILLER:
-    cardSetBuff(BUFFS.INVISIBILITY, 8000);
+    cardSetBuff(BUFFS.INVISIBILITY, -4);
     break;
 }
 

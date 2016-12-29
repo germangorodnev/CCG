@@ -11,6 +11,9 @@ with (c)
         exit;
     cardSetDebuffs(dbf);
     if (brA)
+    {
         cardChangeArmor(-armor);
+        //cardAddConstantBuff(parentName + ": " + getFraseLang("armbr"));
+    }
 }
 

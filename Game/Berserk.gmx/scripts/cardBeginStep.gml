@@ -95,7 +95,8 @@ for (var i = 0, c = ds_list_size(buffs); i < c; i++)
         continue;
     }
     var l = buffs[| i];
-    --l[| 1]
+    if (l[| 1] != -4)
+        --l[| 1]
 }
 
 // EVRY TURN IMPACTS
@@ -126,4 +127,7 @@ if (canTurn)
 ds_list_clear(actions);
 choosen = false;
 if (cardHasBuff(BUFFS.GREAT_HEAL, id))
+{
+    cardSetState(CARD_STATES.ACTION_CHOOSEN);
     cardSetAction(ACTIONS.PASS_THE_TURN, -1, -1);
+}
