@@ -5,10 +5,10 @@ case "bless":
     switch (global.language)
     {
     case "Russian":
-        return "Благословление от рыцаря: атака и броня увеличены";
+        return "Благословление от рыцаря: { и } увеличены";
         break;
     case "English":
-        return "Knight's blessing: attack and armor increased";
+        return "Knight's blessing: { and } increased";
         break;
     }    
     break;
@@ -16,10 +16,10 @@ case "matya":
     switch (global.language)
     {
     case "Russian":
-        return "Поцелуй матери: здоровье и атака увеличены";
+        return "Поцелуй матери: | и { увеличены";
         break;
     case "English":
-        return "Mom's kiss: hp and attack increased";
+        return "Mom's kiss: | and { increased";
         break;
     }    
     break;
@@ -27,10 +27,10 @@ case "gengap":
     switch (global.language)
     {
     case "Russian":
-        return "Конфликт поколений: атака увеличена";
+        return "Конфликт поколений: { увеличена";
         break;
     case "English":
-        return "Generation gap: attack increased";
+        return "Generation gap: { increased";
         break;
     }    
     break;
@@ -50,10 +50,10 @@ case "armbr":
     switch (global.language)
     {
     case "Russian":
-        return "разрушение брони";
+        return "разрушение }";
         break;
     case "English":
-        return "armor break";
+        return "} break";
         break;
     }
     break;
@@ -72,10 +72,10 @@ case "turns":
     switch (global.language)
     {
     case "Russian":
-        return "ходов";
+        return "`";
         break;
     case "English":
-        return "turns";
+        return "`";
         break;
     }
     break;
@@ -83,10 +83,10 @@ case "dmg":
     switch (global.language)
     {
     case "Russian":
-        return "ед. урона";
+        return "{";
         break;
     case "English":
-        return "dmg.";
+        return "{";
         break;
     }
     break;
@@ -142,10 +142,10 @@ case "dbf":
         switch (global.language)
         {
         case "Russian":
-            return "-3 зд.";
+            return "На дыбы: -3|";
             break;
         case "English":
-            return "-3 hp";
+            return "Rearing: -3|";
             break;
         }
         break;

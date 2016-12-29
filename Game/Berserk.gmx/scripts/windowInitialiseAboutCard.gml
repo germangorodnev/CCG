@@ -25,16 +25,16 @@ with (argument0)
             switch (db[| 0])
             {
             case DEBUFFS.POISON:
-                str += getFraseLang("dbf", DEBUFFS.POISON) + ": " + string(db[| 1]) + " " + getFraseLang("turns", -1) + " " + string(db[| 2]) + " " + getFraseLang("dmg", -1) + "#";
+                str += getFraseLang("dbf", DEBUFFS.POISON) + ": " + string(db[| 1]) + getFraseLang("turns", -1) + " " + string(db[| 2]) + getFraseLang("dmg", -1) + "#";
                 break;
             case DEBUFFS.STUN: // oops, you just pass the turn, dude!
-                str += getFraseLang("dbf", DEBUFFS.STUN) + ": " + string(db[| 1]) + " " + getFraseLang("turns", -1) + "#";
+                str += getFraseLang("dbf", DEBUFFS.STUN) + ": " + string(db[| 1]) + getFraseLang("turns", -1) + "#";
                 break;
             case DEBUFFS.CAVALRY:
-                str += getFraseLang("dbf", DEBUFFS.CAVALRY) + ": " + string(db[| 1]) + " " + getFraseLang("turns", -1) + "#";
+                str += getFraseLang("dbf", DEBUFFS.CAVALRY) + ": " + string(db[| 1]) + getFraseLang("turns", -1) + "#";
                 break;
             case DEBUFFS.MECHANIC_ATTACK:
-                str += getFraseLang("dbf", DEBUFFS.MECHANIC_ATTACK) + ": " + string(db[| 1]) + " " + getFraseLang("turns", -1) + " 1 " + getFraseLang("dmg", -1) + "#";
+                str += getFraseLang("dbf", DEBUFFS.MECHANIC_ATTACK) + ": " + string(db[| 1]) + getFraseLang("turns", -1) + " 1 " + getFraseLang("dmg", -1) + "#";
                 break;
             }
         }
@@ -48,7 +48,7 @@ with (argument0)
             var bf = buffs[| i];            
             var turnsRem = getFraseLang("integer", bf[| 1]);
             if (turnsRem != "")
-                turnsRem = ": " + turnsRem + " " + getFraseLang("turns", -1);
+                turnsRem = ": " + turnsRem + getFraseLang("turns", -1);
             str += getFraseLang("bf", bf[| 0]) + turnsRem + "#";
         }
         }

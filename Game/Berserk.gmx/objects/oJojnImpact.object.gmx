@@ -95,8 +95,11 @@ if (c != noone)
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {
-        cardJojnImpactPerformer(c, parent);
-        cardAttackDestroy();
+        if (c.player != pl)
+        {
+            cardJojnImpactPerformer(c, parent);
+            cardAttackDestroy();
+        }
     }
     else
     {

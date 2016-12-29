@@ -146,8 +146,11 @@ if (c != noone)
     {
         if (blockable)
         {
+        if (c.player != pl)
+        {
             cardAttackPerformer(c);
             cardAttackDestroy();
+        }
         }
         else
         {

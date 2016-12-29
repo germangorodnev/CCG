@@ -177,7 +177,7 @@ draw_set_valign(fa_middle);
 var count = ds_list_size(global.serverlist);
 for(var i = 0; i &lt; count; i++)
 {
-    draw_text_colour(srX, srY + srbetwy * i, ds_list_find_value(global.serverlist, i)+"|"+ds_list_find_value(global.servernames, i), srC, srC, srC, srC, 1);
+    draw_text_colour(srX, srY + srbetwy * i, ds_list_find_value(global.serverlist, i)+" -- "+ds_list_find_value(global.servernames, i), srC, srC, srC, srC, 1);
 }
 
 </string>
