@@ -126,6 +126,8 @@ ds_list_destroy(localDeck);
 var ang = sin(current_time / 300);
 draw_sprite_ext(sDeck, 0, dsx, dsy, 1, 1, ang, dsc, 1);
 draw_set_font(fBigNumbs);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 drawTextOutline(dsx + 30, dsy - 50, string(index), white, black, 1, 1, ang, 1);
 
 var strN = string(deckCardsCount) + "/" + "30",

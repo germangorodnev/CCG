@@ -574,6 +574,36 @@ switch (act)
         //ds_list_mark_as_list(dbf, 0);
         var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, dbf);        
         break;
+    // CAVE SPIDER
+    case ACTIONS.CAVE_SPIDER_BITE:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
+            with (realTarget)
+            {
+                cardChangeDmg(-(dmg - 2));
+                cardAddConstantBuff(getFraseLang("spider bite", -1));
+            }  
+        } 
+        cardDone();    
+        break;
+    // LANCEKNIGHT
+    case ACTIONS.LANDSKN_ATTACK_VERT:
+        state = CARD_STATES.PERFORM_ACTION;
+        var myind = cardPosToIndex(x, y);
+        if (myind >= global.cardsOnBoard / 2)
+            myind -= global.cardsOnBoard / 2;
+        var lss = gameGetListByTargetGroup(TARGET_GROUPS.ENEMY_CARDS, myind);
+        cardAttack(myind, lss, dmg, atkSpd, -1);
+        myind += global.cardsOnBoard / 2;
+        cardAttack(myind, lss, dmg, atkSpd, -1);
+        break;
+    // WOODEN GOLEM
+    case ACTIONS.WOOD_GOLEM_CARLO:
+        cardChangeHp(1);
+        cardDone();
+        break;
     // not implemented
     default:
         cardDone();

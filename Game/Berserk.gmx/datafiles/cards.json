@@ -53,13 +53,14 @@
 			}
 		],
 		"description": {
-			"Russian": "Безумный доктор. Алхимик",
-			"English": "Insane doctor alchemist"
+			"Russian": "Безумный доктор. Алхимик. Иммунитет к ядам",
+			"English": "Insane doctor alchemist. Immunity to poisons"
 		},
 		"rarity": 1,
 		"AP": 2,
 		"resists": [
-			0
+			1,
+			3
 		],
 		"class": 0
 	},
@@ -124,7 +125,7 @@
 		"resists": [
 			0
 		],
-		"class": 1
+		"class": 0
 	},
 
 	{
@@ -684,12 +685,13 @@
 
 		],
 		"description": {
-			"Russian": "Порчанка.",
-			"English": "Corupty witch"
+			"Russian": "Порчанка. Иммунитет к ядам",
+			"English": "Corupty witch. Immunity to poisons"
 		},
 		"rarity": 1,
 		"AP": 1,
 		"resists": [
+			1,
 			0
 		],
 		"class": 0
@@ -769,13 +771,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Finishing: If enemy has 1| - Killing and receives + 2| ", 
+				"Finishing: If enemy has 1| - Killing and receives +2| ", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Добивание: Если у врага 1| - убивает, и получает + 2|", 
+				"Добивание: Если у врага 1| - убивает, и получает +2|", 
 				"",
 				"Пропуск хода" 
 			]
@@ -896,13 +898,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Finishing: if enemy has 1  - Killing and receives + 2|", 
+				"Finishing: if enemy has 1  - Killing and receives +2|", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Добивание: если у врага 1| - убивает и получает + 2|", 
+				"Добивание: если у врага 1| - убивает и получает +2|", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1316,13 +1318,14 @@
 			}
 		],
 		"description": {
-			"Russian": "Голем-сокрушитель",
-			"English": "Golem-crusher"
+			"Russian": "Голем-сокрушитель. Иммунитет к рассечению кожи",
+			"English": "Golem-crusher. Immunity to skin incision"
 		},
 		"rarity": 2,
 		"AP": 4,
 		"resists": [
-			0
+			1,
+			3
 		],
 		"class": 1
 	},
@@ -1905,13 +1908,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Pet: become a pet for a rider on the storm", 
+				"", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Питомец: стать питомцем для наездника", 
+				"", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1925,8 +1928,8 @@
 				"instant": false
 			},
 			{
-				"ENUM": 37,
-				"mana": 0,
+				"ENUM": -1,
+				"mana": 1,
 				"needT": true,
 				"targetType": 2,
 				"instant": false
@@ -1947,8 +1950,8 @@
 			}
 		],
 		"description": {
-			"Russian": "Ездовой медведь. Может стать питомцем для Наездиков",
-			"English": "Sled bear. Can become a pet for Riders"
+			"Russian": "Ездовой медведь.",
+			"English": "Sled bear."
 		},
 		"rarity": 1,
 		"AP": 2,
@@ -2199,12 +2202,13 @@
 			}
 		],
 		"description": {
-			"Russian": "Усиливающее зеркало. +1{ снарядам, пролетающим через эту карту",
-			"English": "Empowering mirror. +1{ to projectiles that flying through this card"
+			"Russian": "Усиливающее зеркало. +1{ снарядам, пролетающим через эту карту. Иммунитет к ядам",
+			"English": "Empowering mirror. +1{ to projectiles that flying through this card. Poison immunity"
 		},
 		"rarity": 0,
 		"AP": 1,
 		"resists": [
+			1,
 			0
 		],
 		"class": 2
@@ -2262,12 +2266,13 @@
 			}
 		],
 		"description": {
-			"Russian": "Иноземный усилитель сигнала. +2{ снарядам, пролетающим через эту карту",
-			"English": "Unknown signal amplifier. +2{ to attacks flying through this card"
+			"Russian": "Иноземный усилитель сигнала. +2{ снарядам, пролетающим через эту карту. Иммунитет к ядам",
+			"English": "Unknown signal amplifier. +2{ to attacks flying through this card. Poison immunity"
 		},
 		"rarity": 0,
 		"AP": 1,
 		"resists": [
+			1,
 			0
 		],
 		"class": 2
@@ -2787,14 +2792,14 @@
 		"actionNames": {
 			"English": [
 				"Attack: also poisons (2`; 1{) enemy if [ > 2", 
-				"Lesser heal: +3|", 
-				"The great healing: | + 3 for all cards in 3`",
+				"Lesser heal: +3|",
+				"The great healing: +3| for all cards in 3`",
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Атака: также отравляет (2`; 1 {) врага если [ > 2", 
+				"Атака: также отравляет (2`; 1{) врага если [ > 2", 
 				"Малое исцеление: +3|", 
-				"Великое исцеление: лечит все карты | + 3 через 3`",
+				"Великое исцеление: лечит все карты +3| через 3`",
 				"Пропуск хода" 
 			]
 		},
@@ -2903,4 +2908,255 @@
 		"class": 0
 	},
 
+	{	
+		"cardIndex": 46,
+		"hp": 4,
+		"dmg": 2,
+		"armor": 2,
+		"usesMana": true,
+		"mana": 1,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Bite: sets { to 2", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Укус: { = 2", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 49,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": true
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Пещерный паук",
+			"English": "Cave spider"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": -1
+	},
+
+	{	
+		"cardIndex": 47,
+		"hp": 3,
+		"dmg": 2,
+		"armor": 1,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Penetrative attack: vertical non-target attack, damages 2 enemies", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Пробивающая атака: вертикальная атака без выбора цели, наносит урон 2 врагам", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 50,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Ландскнехт. Примяком из 1.4к70",
+			"English": "Landsknecht. Straight from 1.4k70"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{	
+		"cardIndex": 48,
+		"hp": 4,
+		"dmg": 3,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Papa Carlo visit: restores 1|", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Поход к папе Карло: восстанавливает 1|", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 51,
+				"mana": 0,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Деревянный голем",
+			"English": "Wooden golem"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 1
+	},
+
+	{	
+		"cardIndex": 49,
+		"hp": 2,
+		"dmg": 3,
+		"armor": 4,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Солдат",
+			"English": "Solider"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
 ]

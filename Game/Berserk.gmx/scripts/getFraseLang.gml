@@ -1,6 +1,18 @@
 ///getFraseLang("disc"/"conn"/"dbf"/"bf", optional int index)
 switch (argument0)
 {
+case "spider bite":
+    switch (global.language)
+    {
+    case "Russian":
+        return "Укушен пауком: { = 2";
+        break;
+    case "English":
+        return "Bitten by spider: { = 2";
+        break;
+    }    
+    break;
+    
 case "bless":
     switch (global.language)
     {

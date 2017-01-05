@@ -120,10 +120,6 @@ if (ds_list_empty(global.decks))
     global.deck = d;
 }
 
-gameAddCardToCollection(CARDS.BATTLE_MEDIC, 5);
-gameAddCardToCollection(CARDS.FIELD_MEDIC, 5);
-gameAddCardToCollection(CARDS.MECHANIC, 5);
-
 room_goto_next();
 </string>
           </argument>
