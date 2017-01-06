@@ -319,6 +319,12 @@ if (client == eventid)
         clientGameStart(bf);
         alarm[10] = 1* room_speed;
         break;
+        
+    case SR_ENEMY_ONLY_HAND:
+        if (instance_exists(oServer))
+            exit;
+        clientSaveEnemyCards(bf);
+        break;
     
     case SR_NEXT_TURN:
         if (instance_exists(oServer))
@@ -396,10 +402,21 @@ if (client == eventid)
         break;
         
     case SR_TO_NEXT_ROOM:
-        var cob = buffer_read(bf, buffer_u8);
-        global.cardsOnBoard = cob;
+        global.cardsOnBoard = buffer_read(bf, buffer_u8);
+        global.cardPlaceType = buffer_read(bf, buffer_string); 
+        global.gameState = GAME_STATES.CARD_PLACE;
         room_goto(rGame);
         clientRespond(SR_TO_NEXT_ROOM, GAME_STATES.CARD_PREPARE);
+        break;
+        
+    case SR_PLACE_ENEMY_CARDS_NOW:
+        if (instance_exists(oServer))
+            exit;
+        instance_activate_object(oEndTurn);
+        with (oCardPlaceUI)
+            instance_destroy();
+        clientPlaceEnemyCards();
+        clientRespond(SR_PLACE_ENEMY_CARDS_NOW, GAME_STATES.CARD_PLACE);
         break;
     }
 }
@@ -513,6 +530,8 @@ case rGame:
     };
     
     // Action points
+    if (global.gameState != GAME_STATES.CARD_PLACE)
+    {
     var av = 0;
     for (var i = 0; i &lt; global.beginAP; i++)
     {
@@ -527,6 +546,7 @@ case rGame:
                     ind = 2;
         draw_sprite_ext(sCrystal, ind, xp, yp, 1, 1, 0, image_blend, 1);
         av++;
+    }
     }
     break;
 }

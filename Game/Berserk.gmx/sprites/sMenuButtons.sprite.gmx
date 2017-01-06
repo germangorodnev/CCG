@@ -48,5 +48,9 @@
     <frame index="25">images\sMenuButtons_25.png</frame>
     <frame index="26">images\sMenuButtons_26.png</frame>
     <frame index="27">images\sMenuButtons_27.png</frame>
+    <frame index="28">images\sMenuButtons_28.png</frame>
+    <frame index="29">images\sMenuButtons_29.png</frame>
+    <frame index="30">images\sMenuButtons_30.png</frame>
+    <frame index="31">images\sMenuButtons_31.png</frame>
   </frames>
 </sprite>

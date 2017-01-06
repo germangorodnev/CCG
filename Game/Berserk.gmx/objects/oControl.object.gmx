@@ -74,6 +74,7 @@ global.collection = ds_list_create();
 // GAME CONTROL VARIABLES
 global.gameState = GAME_STATES.CARD_PREPARE;
 global.cardsOnBoard = 20; // for each player
+global.cardPlaceType = "rand"; // "hand"
 global.turnDuration = 60;
 
 // SELLOUT

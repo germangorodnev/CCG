@@ -15,6 +15,7 @@ for (var i = 0; i < global.cardsOnBoard; i++)
         cardInit();
     ds_list_add(global.opCards, a); // from the bottom left to the top right
 }
+
 // now getting our cards TO THE BOTTOM
 for (var i = 0; i < global.cardsOnBoard; i++)
 {

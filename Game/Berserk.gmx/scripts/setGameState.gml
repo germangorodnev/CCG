@@ -1,6 +1,10 @@
 ///setGameState(GAME_STATES new)
 switch (argument0)
 {
+case GAME_STATES.CARD_PLACE:
+    clientCreateCardPlaceUI();
+    break;
+
 case GAME_STATES.ZERO_TURN: // need to perform battlecries on all the cards
     with (oCardBase)
     {
@@ -45,6 +49,6 @@ case GAME_STATES.COMPARING_CARDS:
         exit;
     // send all cards
     clientSendAllCards();
-    break;
+    break;    
 }
 
