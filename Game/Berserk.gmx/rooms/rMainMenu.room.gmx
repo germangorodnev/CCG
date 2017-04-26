@@ -63,7 +63,6 @@ global.haveserver = false;</code>
     <instance objName="oBeta" x="0" y="0" name="inst_DAAB8182" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oCurrLang" x="1024" y="0" name="inst_C541EA9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oModes" x="1200" y="672" name="inst_A65F12D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oSound" x="912" y="32" name="inst_07CEBC8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

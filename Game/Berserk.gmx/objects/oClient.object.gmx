@@ -72,12 +72,12 @@ arrW = sprite_get_width(sArrow);
 global.cards = ds_list_create();
 global.opCards = ds_list_create();
 
-global.AP = 14;
+global.AP = 0;
 global.beginAP = global.AP;
 apbeginx = 1080;
 apbeginy = 306;
 apbetw = sprite_get_width(sCrystal) + 4;
-apinline = global.AP / 2;
+apinline = 8;
 
 // draw
 chatStr = "";
@@ -532,6 +532,8 @@ case rGame:
     // Action points
     if (global.gameState != GAME_STATES.CARD_PLACE)
     {
+    if (global.beginAP &gt; 0)
+    {
     var av = 0;
     for (var i = 0; i &lt; global.beginAP; i++)
     {
@@ -546,6 +548,7 @@ case rGame:
                     ind = 2;
         draw_sprite_ext(sCrystal, ind, xp, yp, 1, 1, 0, image_blend, 1);
         av++;
+    }
     }
     }
     break;

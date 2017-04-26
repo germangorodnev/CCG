@@ -78,7 +78,10 @@
         <sprite>sprites\sWindR</sprite>
         <sprite>sprites\sWindInn</sprite>
       </sprites>
-      <sprite>sprites\sMenuButtons</sprite>
+      <sprites name="Buttons">
+        <sprite>sprites\sMenuButtons</sprite>
+        <sprite>sprites\sRussianButtons</sprite>
+      </sprites>
       <sprite>sprites\sTextbox</sprite>
       <sprite>sprites\sCardActionsBack</sprite>
       <sprite>sprites\sEndTurn</sprite>

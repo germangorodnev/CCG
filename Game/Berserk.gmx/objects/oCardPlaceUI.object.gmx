@@ -46,7 +46,7 @@ deckLineY = room_height / 2 + 30;
 
 btrx = 1216;
 btlx = 128;
-bty = 330;
+bty = 310;
 
 rx1 = 0;
 ry1 = 0;
