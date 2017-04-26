@@ -29,6 +29,7 @@
 image_speed = 0;
 dir = 0; // 0 right, 1 left
 gr = 'c';
+type = "dm";
 </string>
           </argument>
         </arguments>
@@ -57,10 +58,20 @@ if (mouseOnUs())
     image_index = 1;
     if (mouse_check_button_released(mb_left))
     {
-        var d = dir,    
-            g = gr;  
-        with (oCardCollectionContoller)
-            dmPageChange(d, g);
+        switch (type)
+        {
+        case "dm":
+            var d = dir,    
+                g = gr;  
+            with (oCardCollectionContoller)
+                dmPageChange(d, g);
+            break;
+        case "cp":
+            var d = dir;     
+            with (oCardPlaceUI)
+                cplPageChange(d);            
+            break;
+        }
     }
 }
 else

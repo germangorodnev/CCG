@@ -42,9 +42,12 @@ blockable = true;
 absolute = false;
 breakArmor = false;
 
+empower = true;
 empowers = ds_list_create();
 
 active = true;
+
+parentName = "";
 </string>
           </argument>
         </arguments>
@@ -129,19 +132,25 @@ if (!active)
 var c = instance_place(x, y, oCardBase);
 if (c != noone)
 {
+    if (empower)
+    {
     if (c.player == pl)
     {
         // empowering
         empowerAttack(id, c);
         exit;
     }
+    }
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {
         if (blockable)
         {
+        if (c.player != pl)
+        {
             cardAttackPerformer(c);
             cardAttackDestroy();
+        }
         }
         else
         {

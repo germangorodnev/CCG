@@ -13,6 +13,8 @@ for (var i = iMin; i < iMax; i++)
 {
     var cardId = localCol[| i * 2],
         count = localCol[| i * 2 + 1];
+    if (is_undefined(cardId) || is_undefined(count))
+        continue;
     if (!cardIsPlayable(cardId) || count == 0)
     {
         continue;

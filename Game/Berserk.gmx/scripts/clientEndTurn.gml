@@ -4,10 +4,11 @@ with (oClient)
 {
     buffer_seek(buff, buffer_seek_start, 0);
     buffer_write(buff, buffer_u16, CL_ENDED_TURN);
+    var b = buff;
+    buffer_write(buff, buffer_u8, ds_list_size(global.cards));
     for (var i = 0, c = ds_list_size(global.cards); i < c; i++)
     {
         var card = global.cards[| i];
-        var b = buff;
         // pack and send
         with (card)
         {

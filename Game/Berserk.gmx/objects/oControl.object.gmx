@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Main data
+window_set_caption("HALFALIVE: DIVINE CHALLENGE " + string(GM_version));
 randomize();
 
 cursor_sprite = sCursor;
@@ -34,6 +35,7 @@ global.guiW = 1280;
 global.guiH = 720;
 
 global.language = "English";
+global.sound = 0;
 
 global.wins = 0;
 global.loses = 0;
@@ -72,6 +74,7 @@ global.collection = ds_list_create();
 // GAME CONTROL VARIABLES
 global.gameState = GAME_STATES.CARD_PREPARE;
 global.cardsOnBoard = 20; // for each player
+global.cardPlaceType = "rand"; // "hand"
 global.turnDuration = 60;
 
 // SELLOUT

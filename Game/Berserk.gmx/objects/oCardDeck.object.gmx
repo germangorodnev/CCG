@@ -3,7 +3,7 @@
   <spriteName>sCard</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -86,7 +86,8 @@ black = c_black;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>actionsNames = 0;
+            <string>///Clear
+actionsNames = 0;
 actionsIndex = 0;
 actionsMana= 0;
 //part_particles_clear(global.packOpenPs);
@@ -153,6 +154,7 @@ case 0: // in deck making
                                     ds_list_delete(localCol, myp);
                                     ds_list_delete(localCol, myp);
                                     iMax = median(crow * 2, iMin + crow * 2, ds_list_size(localCol) / 2); //iMax = min(iMax, ds_list_size(localCol) / 2);
+                                    
                                 }
                                 with (oCardCollectionContoller)
                                 {
@@ -211,8 +213,8 @@ case 0: // in deck making
                             ds_list_delete(localDeck, myp);
                             dMax = min(dMax, ds_list_size(localDeck) / 2);
                         }
-                        if (p == -1)
-                            iMax = min(iMax, ds_list_size(localCol) / 2);
+                        /*if (p == -1)
+                            iMax = min(iMax, ds_list_size(localCol) / 2);*/
                         with (oCardCollectionContoller)
                         {
                             dmSaveDeck(); 
@@ -285,13 +287,113 @@ case 2:
         instance_destroy();
     }
     break;
+    
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+case 4: // in the deck while board making
+    // track the moving
+    if (drag)
+    {
+        if (!mouse_check_button(mb_left) || mouse_check_button_released(mb_left))
+        {
+            // move from deck or into it
+            if (mouse_y &gt; oCardPlaceUI.deckLineY)
+            {
+                if (oCardPlaceUI.deckCardsCount &lt; global.cardsOnBoard)
+                {
+                    var ph = instance_position(mouse_x, mouse_y, oPlaceHolder);
+                    if (ph != noone)
+                    {
+                        // add to deck
+                        copyCount--;
+                        var myp = findCardPosInDeckWithNumbByIndex(type, oCardPlaceUI.localDeck);
+                        oCardPlaceUI.localDeck[| myp + 1]--;
+                        oCardPlaceUI.deckCardsCount++;
+                        var t = type;
+                        cplAddCard(type, ph);
+                        with (oCardPlaceUI)
+                        {
+                            /*if (p != -1)
+                            {
+                                localDeck[| (p + 1)] += 1;                            
+                            }   
+                            else
+                            {
+                                ds_list_add(localDeck, t, 1);
+                                dMax = min(dMin + crow * 2, ds_list_size(localDeck) / 2);
+                            }*/
+                            if (localDeck[| myp + 1] == 0)
+                            {
+                                ds_list_delete(localDeck, myp);
+                                ds_list_delete(localDeck, myp);
+                                dMax = median(crow * 2, dMin + crow * 2, ds_list_size(localDeck) / 2); //iMax = min(iMax, ds_list_size(localCol) / 2);
+                                
+                            }
+                            if (oCardPlaceUI.deckCardsCount &lt; global.cardsOnBoard)
+                            {
+                                cplCreateDeck(); 
+                                cplCreateArrows();
+                            }
+                            else
+                            {
+                                // DONE
+                                cplDone();
+                            }   
+                        }
+                    }
+                    else
+                    {
+                        drag = false;
+                        depth = 0;
+                    }
+                }
+                else
+                {
+                    drag = false;
+                    depth = 0;
+                }
+            }
+            else
+            {
+                drag = false;
+                depth = 0;
+            }
+        }
+    }
+    else
+    {
+        if (mouseOnUs())
+        {
+            if (mouse_check_button_released(mb_left)) // just the info
+            {
+                // blocking window information
+            }
+            else if (mouse_check_button(mb_left))
+            {
+                var d = 0;
+                with (oCardDeck)
+                {
+                    if (drag)
+                        d++;
+                }
+                if (d == 0)
+                {
+                    drag = true;     
+                    depth = -100;           
+                }
+            }
+        }
+    }
+    break;  
+case 5: // on the board
+    break;    
 }
+
 if (mouse_check_button_released(mb_right))
 {
-if (mouseOnUs())
-{
-    windowInitialiseAboutCard(id);
-}
+    if (mouseOnUs())
+    {
+        windowInitialiseAboutCard(id, false);
+    }
 }
 </string>
           </argument>

@@ -28,18 +28,15 @@ repeat (type)
     part_emitter_burst(global.packOpenPs, em, global.randomMLG, 20 * (rarity + 1));
     if (rarity == 1)
     {
-        if (!audio_is_playing(sndHorn))
-            audio_play_sound(sndHorn, 100, false);
+        gamePlaySound(sndHorn, 100, false, true);
     }
     else if (rarity == 2)
     {
-        if (!audio_is_playing(sndDAMN))
-            audio_play_sound(sndDAMN, 100, false);        
+        gamePlaySound(sndDAMN, 100, false, true);       
     }
     else
     {        
-        if (!audio_is_playing(sndBOOM))
-            audio_play_sound(sndBOOM, 100, 0);
+        gamePlaySound(sndBOOM, 100, false, true);
     }
     gameAddCardToCollection(t, 1);
     angle += anglePlus;   

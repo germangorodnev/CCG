@@ -27,6 +27,14 @@ case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
         actions[| 1] = false;
     break;
     
+case ACTIONS.GRAVER_GRAVE:
+    var size = ds_list_size(oGameLists.died);
+    if (size > 0)
+        ds_list_add(actions, oGameLists.died[| irandom(size - 1)]);
+    else
+        ds_list_add(actions, -1);
+    break;    
+    
 case ACTIONS.HELI_HELP:
     ds_list_add(actions, gameGetCard(true, 0));
     break;
@@ -40,7 +48,9 @@ case CARDS.CORRUPTED_MUSHROOMS:
     if (ds_list_empty(actions))
     {
          // set the random poison
-         cardSetAction(ACTIONS.MUSHROOMS_POISON_PASSIVE, irandom(ds_list_size(global.opCards) - 1), TARGET_GROUPS.ENEMY_CARDS);
+         var obj = global.opCards[| irandom(ds_list_size(global.opCards) - 1)];
+         var pos = cardPosToIndex(obj.x, obj.y);
+         cardSetAction(ACTIONS.MUSHROOMS_POISON_PASSIVE, pos, TARGET_GROUPS.ENEMY_CARDS);
          global.AP += AP;
     }
     break;

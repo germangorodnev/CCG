@@ -72,12 +72,12 @@ arrW = sprite_get_width(sArrow);
 global.cards = ds_list_create();
 global.opCards = ds_list_create();
 
-global.AP = 14;
+global.AP = 0;
 global.beginAP = global.AP;
 apbeginx = 1080;
 apbeginy = 306;
 apbetw = sprite_get_width(sCrystal) + 4;
-apinline = global.AP / 2;
+apinline = 8;
 
 // draw
 chatStr = "";
@@ -178,7 +178,7 @@ alarm[1] = 3 * room_speed;
           <argument>
             <kind>1</kind>
             <string>///Respond about card creation
-clientRespond(SR_GAME_INIT);
+clientRespond(SR_GAME_INIT, global.gameState);
 
 </string>
           </argument>
@@ -209,14 +209,17 @@ clientRespond(SR_GAME_INIT);
     time = 0;
     exit;
 }*/
-if (clientCheckCardsDone())
+if (global.gameState == GAME_STATES.PERFORM_ACTIONS)
 {
-    clientEndPerforming();
-}
-else
-{
-    time++;
-    alarm[1] = 1.5 * room_speed;
+    if (clientCheckCardsDone())
+    {
+        clientEndPerforming();
+    }
+    else
+    {
+        time++;
+        alarm[1] = 1.5 * room_speed;
+    }
 }
 </string>
           </argument>
@@ -316,13 +319,21 @@ if (client == eventid)
         clientGameStart(bf);
         alarm[10] = 1* room_speed;
         break;
+        
+    case SR_ENEMY_ONLY_HAND:
+        if (instance_exists(oServer))
+            exit;
+        clientSaveEnemyCards(bf);
+        break;
     
     case SR_NEXT_TURN:
         if (instance_exists(oServer))
             exit;
+        if (global.gameState == GAME_STATES.CHOOSE_ACTIONS)
+            exit;
         global.gameState = GAME_STATES.CHOOSE_ACTIONS;
         clientBeginTurn();
-        clientRespond(SR_NEXT_TURN);
+        clientRespond(SR_NEXT_TURN, global.gameState);
         break;
     
     case SR_CHANGE_GAME_STATE:
@@ -331,21 +342,57 @@ if (client == eventid)
         var state = buffer_read(bf, buffer_u8);
         global.gameState = state;
         setGameState(state);
-        clientRespond(SR_CHANGE_GAME_STATE);
+        clientRespond(SR_CHANGE_GAME_STATE, state);
         break;
         
     case SR_OTHER_PLAYER_ACTIONS:      
         // server send the card actions information
         if (instance_exists(oServer))
             exit;
-        for (var i = 0, c = ds_list_size(global.opCards); i &lt; c; i++)
+        var c = buffer_read(bf, buffer_u8);      
+        for (var i = 0; i &lt; c; i++)
         {
-            var card = global.opCards[| i];
-                ds_list_clear(card.actions);
-                var inf = buffer_read(bf, buffer_string);
-                ds_list_read(card.actions, inf);
+            var _x, _y, _type, _actions;
+            _x = buffer_read(bf, buffer_s16);
+            _y = room_height - buffer_read(bf, buffer_s16);
+            _type = buffer_read(bf, buffer_u16);
+            var card = instance_position(_x, _y, oCardBase);
+            if (card != noone)
+            {
+                if (card.type == _type)
+                {
+                    ds_list_clear(card.actions);
+                    ds_list_read(card.actions, buffer_read(bf, buffer_string));
+                }
+            }
         }
-        break;    
+        break;  
+        
+    case SR_TRUE_INF:
+        var c = buffer_read(bf, buffer_u8);      
+        for (var i = 0; i &lt; c; i++)
+        {
+            var _x, _y, _type, _actions;
+            _x = buffer_read(bf, buffer_s16);
+            _y = room_height - buffer_read(bf, buffer_s16);
+            _type = buffer_read(bf, buffer_u16);
+            var card = instance_position(_x, _y, oCardBase);
+            with (card)
+            {
+                ds_list_clear(card.actions);
+                actions = ds_list_read(buffer_read(bf, buffer_string));
+                type = _type;
+                hp = buffer_read(bf, buffer_u8);
+                armor = buffer_read(bf, buffer_u8);
+                dmg = buffer_read(bf, buffer_u8);
+                actions = ds_list_read(buffer_read(bf, buffer_string));
+                resists = ds_list_read(buffer_read(bf, buffer_string));
+                debuffs = ds_list_read(buffer_read(bf, buffer_string));
+                buffs = ds_list_read(buffer_read(bf, buffer_string));
+                impacts = ds_list_read(buffer_read(bf, buffer_string));
+            }            
+        }        
+        break;  
         
     // RARE
     case SR_CHAT_FRASE:   // recieve a chat message
@@ -355,10 +402,21 @@ if (client == eventid)
         break;
         
     case SR_TO_NEXT_ROOM:
-        var cob = buffer_read(bf, buffer_u8);
-        global.cardsOnBoard = cob;
+        global.cardsOnBoard = buffer_read(bf, buffer_u8);
+        global.cardPlaceType = buffer_read(bf, buffer_string); 
+        global.gameState = GAME_STATES.CARD_PLACE;
         room_goto(rGame);
-        clientRespond(SR_TO_NEXT_ROOM);
+        clientRespond(SR_TO_NEXT_ROOM, GAME_STATES.CARD_PREPARE);
+        break;
+        
+    case SR_PLACE_ENEMY_CARDS_NOW:
+        if (instance_exists(oServer))
+            exit;
+        instance_activate_object(oEndTurn);
+        with (oCardPlaceUI)
+            instance_destroy();
+        clientPlaceEnemyCards();
+        clientRespond(SR_PLACE_ENEMY_CARDS_NOW, GAME_STATES.CARD_PLACE);
         break;
     }
 }
@@ -472,6 +530,10 @@ case rGame:
     };
     
     // Action points
+    if (global.gameState != GAME_STATES.CARD_PLACE)
+    {
+    if (global.beginAP &gt; 0)
+    {
     var av = 0;
     for (var i = 0; i &lt; global.beginAP; i++)
     {
@@ -486,6 +548,8 @@ case rGame:
                     ind = 2;
         draw_sprite_ext(sCrystal, ind, xp, yp, 1, 1, 0, image_blend, 1);
         av++;
+    }
+    }
     }
     break;
 }

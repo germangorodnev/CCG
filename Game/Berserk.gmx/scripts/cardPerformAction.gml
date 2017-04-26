@@ -21,7 +21,7 @@ if (!canTurn || !actions[| 1])
 }
 
 var target = actions[| 2];
-
+var removeStealth = true;
 switch (act)
 {
     case ACTIONS.ATTACK: // just an attack
@@ -54,12 +54,12 @@ switch (act)
                             /* UNIQUE ABILITIES */    
     // KONCHA
     case ACTIONS.KONCHA_HEAL: // healing the card
-        state = CARD_STATES.PERFORM_ACTION
+        state = CARD_STATES.PERFORM_ACTION;
         cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 2);
         cardDone();
         break;
     case ACTIONS.KONCHA_POISON: // poison the enemy
-        state = CARD_STATES.PERFORM_ACTION
+        state = CARD_STATES.PERFORM_ACTION;
         var dbf = ds_list_create();
         var p = ds_list_create();
         ds_list_add(p, DEBUFFS.POISON, 2, 1);
@@ -70,9 +70,10 @@ switch (act)
         break;
     // LISA
     case ACTIONS.LISA_BACKSTAB:
-        state = CARD_STATES.PERFORM_ACTION
+        state = CARD_STATES.PERFORM_ACTION;
         var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1); 
-        a.absolute = true;    
+        a.absolute = true;  
+        a.empower = false;  
         a.image_index = 4;
         break;
     // MIMIC WILD
@@ -83,9 +84,12 @@ switch (act)
         ds_list_add(dbf, p); 
         //ds_list_mark_as_list(dbf, 0);
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
-        instance_create(realTarget.x, realTarget.y, oInstant);
-        var s = cardAttack(target, ls, 0, -1, dbf);    
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
+            instance_create(realTarget.x, realTarget.y, oInstant);
+            var s = cardAttack(target, ls, 0, -1, dbf);
+        }    
         break;
     // ARMOR HAMMER
     case ACTIONS.ARMOR_HAMMER_USE:
@@ -126,7 +130,7 @@ switch (act)
         var s = instance_create(x, y, oJojnImpact);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.parent = id;
         s.speed = atkSpd;
         break;
@@ -163,11 +167,12 @@ switch (act)
         break;
     // SMEMS
     case ACTIONS.SMEMS_BLESSING:
-        var targetId = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);  
+        var targetId = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         with (targetId)
         {
             cardChangeDmg(2);
-            cardChangeArmor(1);            
+            cardChangeArmor(1); 
+            cardAddConstantBuff(getFraseLang("bless", -1));           
         }
         cardDone();
         break;
@@ -181,11 +186,14 @@ switch (act)
         break;
     // PORCHANKA
     case ACTIONS.PORCHANKA_CORRUPTION:
-        var targetId = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        var targetId = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
+        if (targetId != noone)
+        {
         with (targetId)
         {
             cardAddDeathrattle(DEATHRATTLES.CORRUPTION);
             cardChangeHp(-1);
+        }
         }
         cardDone();
         break;
@@ -195,7 +203,7 @@ switch (act)
         var s = instance_create(x, y, oDevour);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.parent = id;
         s.speed = atkSpd;
         s.dmg = 1;
@@ -207,7 +215,7 @@ switch (act)
         var s = instance_create(x, y, oDevour);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.parent = id;
         s.speed = atkSpd;
         s.dmg = 2;
@@ -218,7 +226,7 @@ switch (act)
         state = CARD_STATES.PERFORM_ACTION
         var s = instance_create(x, y, oPressure);
         s.pl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.startPl = player;
         s.parent = id;
         s.speed = atkSpd;
@@ -226,13 +234,16 @@ switch (act)
         break;
     case ACTIONS.GOLEM_STONE_LIGHTNING:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             cardChangeHp(-3);
             cardChangeArmor(-1);
         }  
-        instance_create(realTarget.x, realTarget.y, oLightning);   
+        instance_create(realTarget.x, realTarget.y, oLightning);  
+        } 
         break;
     //////////////// FAMILY ////////////////////////
     // GOLEM BATYA
@@ -243,12 +254,16 @@ switch (act)
     // GOLEM MATYA
     case ACTIONS.GOLEM_MATYA_KISS:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             cardIncreaseMaxStat(1, "hp");
             cardIncreaseMaxStat(1, "dmg");
+            cardAddConstantBuff(getFraseLang("matya", -1));           
         }  
+        }
         cardDone();        
         break;
     // GOLEM SON
@@ -262,7 +277,10 @@ switch (act)
         var amountDad = cardGetCountOnBoard(CARDS.GOLEM_BATYA, cardGetGroup()),
             amountMom = cardGetCountOnBoard(CARDS.GOLEM_MATYA, cardGetGroup());
         if (amountDad > 0 || amountMom > 0)
+        {
             cardIncreaseMaxStat(2, "dmg");
+            cardAddConstantBuff(getFraseLang("gengap", -1));           
+        }
         else
         {
             // fail
@@ -275,7 +293,7 @@ switch (act)
         var s = instance_create(x, y, oTriple);
         s.pl = player;
         s.startPl = player;
-        s.target = ds_list_find_value(gameGetListByTargetGroup(actions[| 3], target), target);
+        s.target = cardIndexToPos(target, gameGetListByTargetGroup(actions[| 3], target));
         s.startPl = player;
         s.parent = id;
         s.speed = atkSpd;
@@ -293,11 +311,14 @@ switch (act)
     // SECTANT MAGE
     case ACTIONS.SECTANT_MAGE_MANA:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             cardChangeMana(1);
         }  
+        }
         cardDone();
         break;
     // UNDERGROUND DEVOURER
@@ -329,6 +350,10 @@ switch (act)
                 cardSetState(CARD_STATES.DESTROY);
             }
         }
+        if (r != noone || l != noone)
+        {
+            cardAddConstantBuff(getFraseLang("devour", -1));           
+        }
         cardDone();
         break;
     // CHEMIST INVENTOR
@@ -338,8 +363,10 @@ switch (act)
         break;
     case ACTIONS.CHEMIST_INVENTOR_TRANSFORM:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
         var newt = actions[| 4];
+        if (realTarget != noone)
+        {
         with (realTarget)
         {
             instance_destroy();
@@ -347,6 +374,7 @@ switch (act)
             state = CARD_STATES.DESTROY;
             cardReplace(newt);
             cardClearMemory();
+        }
         }
         cardDone();
         break;
@@ -386,7 +414,7 @@ switch (act)
                 if (inst == id || inst == noone)
                     continue;
                 with (inst)
-                    cardSetBuff(BUFFS.INVISIBILITY, 8000);
+                    cardSetBuff(BUFFS.INVISIBILITY, -4);
             }
         }
         cardDone();
@@ -412,7 +440,9 @@ switch (act)
     // OFFICER
     case ACTIONS.OFFICER_CASTLING:
         var ls = gameGetListByTargetGroup(actions[| 3], target);
-        var realTarget = ds_list_find_value(ls, target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
         var can = true;
         if (!ds_list_empty(realTarget.actions))
         {
@@ -456,6 +486,123 @@ switch (act)
         }
         else
             cardDone();
+        }
+        else
+            cardDone();
+        break;
+    // GRAVER SUMMON
+    case ACTIONS.GRAVER_GRAVE:
+        var cardType = actions[| 2];
+        if (cardType != -1)
+            cardSummon(player, cardType, -1);
+        cardDone();
+        break;
+    // STEALTH_KILLER
+    case ACTIONS.STEALTH_KILLER_ST_ATT:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
+            var dd = dmg;
+            with (realTarget)
+            {
+                cardDealDamage(dd, false);
+            }  
+            if (realTarget.hp <= 0) // dead
+            {
+                cardSetBuff(BUFFS.INVISIBILITY, -4);
+                removeStealth = false;
+            }
+        } 
+        break;
+    // NINJA
+    case ACTIONS.NINJA_BACKSTAB:
+        state = CARD_STATES.PERFORM_ACTION;
+        var a = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1); 
+        a.absolute = true;  
+        a.empower = false;  
+        a.image_index = 4;
+        break;
+    // FIELD MEDIC
+    case ACTIONS.FIELD_MED_H_2:
+        cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 2);
+        cardDone();
+        break;
+    // BATTLE MEDIC
+    case ACTIONS.BAT_MED_ATT_POISON_NOT:
+        if (mana <= 2)
+        {
+            // Just attack
+            state = CARD_STATES.PERFORM_ACTION;
+            cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, -1);
+        }
+        else
+        {
+            state = CARD_STATES.PERFORM_ACTION;
+            var dbf = ds_list_create();
+            var p = ds_list_create();
+            ds_list_add(p, DEBUFFS.POISON, 2, 1);
+            ds_list_add(dbf, p); 
+            //ds_list_mark_as_list(dbf, 0);
+            var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, dbf);
+            s.image_index = 3;
+        }
+        break;
+    case ACTIONS.BAT_MED_H_3:
+        cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 3);
+        cardDone();
+        break;
+    case ACTIONS.BAT_MED_TGH:
+        // if we do not have a buff - add one
+        if (!cardHasBuff(BUFFS.GREAT_HEAL, id))
+        {
+            cardSetBuff(BUFFS.GREAT_HEAL, 3);
+        }
+        cardDone();
+        break;
+    // MECHANIC
+    case ACTIONS.MECHANIC_MECH_HEAL_3:
+        cardHeal(target, gameGetListByTargetGroup(actions[| 3], target), 2);
+        cardDone();        
+        break;
+    case ACTIONS.MECHANIC_ATTACK_TRUE_AFTER:
+        state = CARD_STATES.PERFORM_ACTION;
+        var dbf = ds_list_create();
+        var p = ds_list_create();
+        ds_list_add(p, DEBUFFS.MECHANIC_ATTACK, 2, 1);
+        ds_list_add(dbf, p); 
+        //ds_list_mark_as_list(dbf, 0);
+        var s = cardAttack(target, gameGetListByTargetGroup(actions[| 3], target), dmg, atkSpd, dbf);        
+        break;
+    // CAVE SPIDER
+    case ACTIONS.CAVE_SPIDER_BITE:
+        var ls = gameGetListByTargetGroup(actions[| 3], target);
+        var realTarget = cardIndexToPos(target, ls);
+        if (realTarget != noone)
+        {
+            with (realTarget)
+            {
+                cardChangeDmg(-(dmg - 2));
+                cardAddConstantBuff(getFraseLang("spider bite", -1));
+            }  
+        } 
+        cardDone();    
+        break;
+    // LANCEKNIGHT
+    case ACTIONS.LANDSKN_ATTACK_VERT:
+        state = CARD_STATES.PERFORM_ACTION;
+        var myind = cardPosToIndex(x, y);
+        if (myind >= global.cardsOnBoard / 2)
+            myind -= global.cardsOnBoard / 2;
+        var lss = gameGetListByTargetGroup(TARGET_GROUPS.ENEMY_CARDS, myind);
+        cardAttack(myind, lss, dmg, atkSpd, -1);
+        myind += global.cardsOnBoard / 2;
+        cardAttack(myind, lss, dmg, atkSpd, -1);
+        break;
+    // WOODEN GOLEM
+    case ACTIONS.WOOD_GOLEM_CARLO:
+        cardChangeHp(1);
+        cardDone();
         break;
     // not implemented
     default:
@@ -463,11 +610,14 @@ switch (act)
         break;        
 }
 
-if (act != ACTIONS.PASS_THE_TURN)
-    if (cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
-    {
-        cardDeleteBuff(BUFFS.INVISIBILITY);
-    }
+if (removeStealth)
+{
+    if (act != ACTIONS.PASS_THE_TURN)
+        if (cardHasBuff(BUFFS.INVISIBILITY, id) != -1)
+        {
+            cardDeleteBuff(BUFFS.INVISIBILITY);
+        }
+}
 
 /*
     ATTACK = 0,

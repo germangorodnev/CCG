@@ -5,6 +5,7 @@ ds_list_destroy(debuffs);
 ds_list_destroy(buffs);
 ds_list_destroy(deathrattles);
 ds_list_destroy(impacts);
+ds_list_destroy(cbuffs);
 if (path_exists(cardPath))
     path_delete(cardPath);
 actionsNames = 0; // actual name of action

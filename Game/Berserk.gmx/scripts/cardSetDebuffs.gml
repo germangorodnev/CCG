@@ -28,6 +28,8 @@ for (var i = 0, c = ds_list_size(argument0); i < c; i++)
             break;
         case DEBUFFS.CAVALRY:
             break;
+        case DEBUFFS.MECHANIC_ATTACK:
+            break;
         }
     }
     else

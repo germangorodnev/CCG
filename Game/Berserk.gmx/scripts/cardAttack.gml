@@ -1,11 +1,11 @@
 ///cardAttack(index where, list* whichList, int dmg, int speed, list* debuffs) returns the id of the shot
 var a = instance_create(x, y, oAttack);
-var t = argument1[| argument0]; 
+var t = cardIndexToPos(argument0, argument1);
 a.parent = id;
 a.pl = player;
 with (a)
 {
-    if (!is_undefined(t))
+    if (t != noone)
         target = t;
     else
         target = noone;

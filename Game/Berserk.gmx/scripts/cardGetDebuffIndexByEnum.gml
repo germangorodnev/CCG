@@ -7,6 +7,9 @@ case DEBUFFS.POISON:
 case DEBUFFS.STUN:
     return sDebuffStun;
     break;
+case DEBUFFS.MECHANIC_ATTACK:
+    return sDebuffMech;
+    break;
 default:
     return sNoone;
     break;

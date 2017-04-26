@@ -9,7 +9,9 @@ with (oCardBase)
 {
     cardBeginStep();
 }
+global.beginAP = min(global.beginAP + 1, 14);
 global.AP = global.beginAP;
 clientSetState(CLIENT_STATES.CHOOSING_CARD);
+instance_activate_object(oEndTurn);
 // DEBUG
 //surface_save(application_surface, string(current_hour) + "." + string(current_minute) + "." + string(current_second) + ".png");

@@ -51,7 +51,8 @@
     </sounds>
     <sounds name="Music">
       <sound>sound\mskMenu</sound>
-      <sound>sound\mskGame</sound>
+      <sound>sound\mskGame1</sound>
+      <sound>sound\mskGame2</sound>
     </sounds>
     <sound>sound\sndChat</sound>
   </sounds>
@@ -77,7 +78,10 @@
         <sprite>sprites\sWindR</sprite>
         <sprite>sprites\sWindInn</sprite>
       </sprites>
-      <sprite>sprites\sMenuButtons</sprite>
+      <sprites name="Buttons">
+        <sprite>sprites\sMenuButtons</sprite>
+        <sprite>sprites\sRussianButtons</sprite>
+      </sprites>
       <sprite>sprites\sTextbox</sprite>
       <sprite>sprites\sCardActionsBack</sprite>
       <sprite>sprites\sEndTurn</sprite>
@@ -92,11 +96,15 @@
     <sprites name="Buff Icons">
       <sprite>sprites\sBuffBlock</sprite>
       <sprite>sprites\sInvis</sprite>
+      <sprite>sprites\sGrH3</sprite>
+      <sprite>sprites\sGrH2</sprite>
+      <sprite>sprites\sGrH1</sprite>
     </sprites>
     <sprites name="Debuff Icons">
       <sprite>sprites\sDebuffPoison</sprite>
       <sprite>sprites\sDebuffStun</sprite>
       <sprite>sprites\sVisible</sprite>
+      <sprite>sprites\sDebuffMech</sprite>
     </sprites>
     <sprites name="Helpers">
       <sprite>sprites\sPlaceNotFree</sprite>
@@ -185,11 +193,15 @@
         <script>scripts\cardListPosToX.gml</script>
         <script>scripts\cardListPosToY.gml</script>
         <script>scripts\cardParamToStr.gml</script>
+        <script>scripts\cardCompareParams.gml</script>
+        <script>scripts\cardPosToIndex.gml</script>
+        <script>scripts\cardIndexToPos.gml</script>
       </scripts>
       <scripts name="Buffs">
         <script>scripts\cardHasBuff.gml</script>
         <script>scripts\cardSetBuff.gml</script>
         <script>scripts\cardDeleteBuff.gml</script>
+        <script>scripts\cardAddConstantBuff.gml</script>
       </scripts>
       <scripts name="Debuffs">
         <script>scripts\cardSetDebuffs.gml</script>
@@ -247,6 +259,17 @@
         <script>scripts\clientBeginTurn.gml</script>
         <script>scripts\clientEndTurn.gml</script>
       </scripts>
+      <scripts name="Sync">
+        <script>scripts\clientSendAllCards.gml</script>
+      </scripts>
+      <scripts name="Card Placement">
+        <script>scripts\clientCreateCardPlaceUI.gml</script>
+        <script>scripts\cplCreateDeck.gml</script>
+        <script>scripts\cplCreateArrows.gml</script>
+        <script>scripts\cplAddCard.gml</script>
+        <script>scripts\cplDone.gml</script>
+        <script>scripts\cplPageChange.gml</script>
+      </scripts>
       <script>scripts\setGameState.gml</script>
       <script>scripts\clientSetState.gml</script>
       <script>scripts\sendOnStart.gml</script>
@@ -257,8 +280,14 @@
       <script>scripts\clientCheckCardsDone.gml</script>
       <script>scripts\clientEndPerforming.gml</script>
       <script>scripts\changeAP.gml</script>
+      <script>scripts\clientPlaceEnemyCards.gml</script>
+      <script>scripts\clientSaveEnemyCards.gml</script>
     </scripts>
     <scripts name="Server">
+      <scripts name="Card comparison">
+        <script>scripts\serverSendAll.gml</script>
+        <script>scripts\serverCardCompare.gml</script>
+      </scripts>
       <script>scripts\beginTurn.gml</script>
       <script>scripts\endTurn.gml</script>
       <script>scripts\connectDisconnectClient.gml</script>
@@ -266,6 +295,7 @@
       <script>scripts\sendToNextRoom.gml</script>
       <script>scripts\changeGameState.gml</script>
       <script>scripts\gameStart.gml</script>
+      <script>scripts\serverSendCards.gml</script>
     </scripts>
     <scripts name="Game">
       <script>scripts\gameGetListByTargetGroup.gml</script>
@@ -279,6 +309,7 @@
       <script>scripts\findCardPosInDeckWithNumbByIndex.gml</script>
       <script>scripts\gameGetCard.gml</script>
       <script>scripts\gameGetCardsCount.gml</script>
+      <script>scripts\gamePlaySound.gml</script>
     </scripts>
     <scripts name="Deck making">
       <script>scripts\dmCreateCards.gml</script>
@@ -317,6 +348,7 @@
     <script>scripts\getFraseLang.gml</script>
     <script>scripts\windowInitialise.gml</script>
     <script>scripts\windowInitialiseAboutCard.gml</script>
+    <script>scripts\soundChange.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdDarkenSprite.shader</shader>
@@ -367,6 +399,7 @@
       <object>objects\oShop</object>
       <object>objects\oCurrLang</object>
       <object>objects\oModes</object>
+      <object>objects\oSound</object>
     </objects>
     <objects name="Lobby">
       <objects name="Deck picker">
@@ -377,12 +410,15 @@
       <object>objects\oSendFrase</object>
       <object>objects\oToGame</object>
       <object>objects\oCardAmountChange</object>
+      <object>objects\oCardPlaceType</object>
     </objects>
     <objects name="Game">
       <object>objects\oEndTurn</object>
       <object>objects\oNewTurn</object>
       <object>objects\oFrasePopup</object>
       <object>objects\oWinLose</object>
+      <object>objects\oCardPlaceUI</object>
+      <object>objects\oPlaceHolder</object>
     </objects>
     <objects name="Deck making">
       <object>objects\oCardCollectionContoller</object>
@@ -406,6 +442,8 @@
     </objects>
     <object>objects\oWindow</object>
     <object>objects\oBeta</object>
+    <object>objects\oMusicController</object>
+    <object>objects\oGameLists</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rInit</room>
@@ -421,7 +459,7 @@
     <room>rooms\rGame</room>
     <room>rooms\rCustomMode</room>
   </rooms>
-  <constants number="20">
+  <constants number="25">
     <constant name="for_client">__________</constant>
     <constant name="CL_CONNECT_INF">0</constant>
     <constant name="CL_PING">1</constant>
@@ -429,6 +467,8 @@
     <constant name="CL_ENDED_TURN">3</constant>
     <constant name="CL_RESPOND">4</constant>
     <constant name="CL_ENDED_ACTION_PERFORM">5</constant>
+    <constant name="CL_CMPINF">6</constant>
+    <constant name="CL_HAND_DONE">7</constant>
     <constant name="for_server">__________</constant>
     <constant name="SR_BROADCAST">0</constant>
     <constant name="SR_CHAT_FRASE">1</constant>
@@ -439,6 +479,9 @@
     <constant name="SR_OTHER_PLAYER_ACTIONS">6</constant>
     <constant name="SR_NEXT_TURN">7</constant>
     <constant name="SR_NICKNAME">8</constant>
+    <constant name="SR_TRUE_INF">9</constant>
+    <constant name="SR_ENEMY_ONLY_HAND">10</constant>
+    <constant name="SR_PLACE_ENEMY_CARDS_NOW">11</constant>
     <constant name="GAME_CONFIGURATONS">______________</constant>
     <constant name="CARD_X">384</constant>
     <constant name="CARD_Y">512</constant>

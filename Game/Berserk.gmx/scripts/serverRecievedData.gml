@@ -5,6 +5,20 @@ var cmd = buffer_read(buff, buffer_u16);
 
 switch (cmd)
 {
+case CL_CMPINF:
+    if (serverCardCompare(buff)) // SO GOOD
+    {
+        endTurn();
+        beginTurn();
+    }
+    else
+    {
+        // SEND INF TO THE ENEMY CLIENT
+        show_message("wrong");
+        beginTurn();
+    }
+    break;
+
 case CL_CONNECT_INF:
     if (opIP == 0)
         exit;
@@ -17,7 +31,7 @@ case CL_CONNECT_INF:
     var n = global.opName;
     with (oClient)
     {
-        addChatFrase(getFraseLang("conn"), n);
+        addChatFrase(getFraseLang("conn", -1), n);
     }
     // send our nickname
     buffer_seek(playerBuffer, buffer_seek_start, 0);
@@ -60,10 +74,18 @@ case CL_RESPOND: // just a signal that client made something we told him to do
             buffer_write(playerBuffer, buffer_u16, SR_GAME_INIT);
             for (var i = 0; i < global.cardsOnBoard * 2; i++)
             {
-                var c = instance_find(oCard, i);
+                var c = instance_find(oCardBase, i);
                 buffer_write(playerBuffer, buffer_u16, c.type);
             }
             network_send_packet(opSocket, playerBuffer, buffer_tell(playerBuffer));
+        }
+        else if (global.gameState == GAME_STATES.CARD_PLACE)
+        {
+            //  manual placing
+            buffer_seek(playerBuffer, buffer_seek_start, 0);
+            buffer_write(playerBuffer, buffer_u16, SR_CHANGE_GAME_STATE);
+            buffer_write(playerBuffer, buffer_u8, GAME_STATES.CARD_PLACE);
+            network_send_packet(opSocket, playerBuffer, buffer_tell(playerBuffer));    
         }
         break;
     case SR_GAME_INIT: // he initialised the game, now prep zero turns and play
@@ -71,10 +93,16 @@ case CL_RESPOND: // just a signal that client made something we told him to do
         global.AP = 0;
         break;
     case SR_CHANGE_GAME_STATE:
-        changeGameState(GAME_STATES.PERFORM_ACTIONS);
+        var st = buffer_read(buff, buffer_u16); // GAME_STATES
+        if (st == GAME_STATES.ZERO_TURN)
+            changeGameState(GAME_STATES.PERFORM_ACTIONS);
         break;
-    case SR_NEXT_TURN:
-    
+    case SR_PLACE_ENEMY_CARDS_NOW:
+        global.opDone = true;
+        if (global.playerDone && global.opDone)
+        {
+            alarm[3] = 1 * room_speed;
+        }
         break;
     }
     break;    
@@ -87,22 +115,42 @@ case CL_ENDED_TURN: // client ended turn, so we have to read player card's decis
         global.turnDone = true;
         buffer_seek(playerBuffer, buffer_seek_start, 0);
         buffer_write(playerBuffer, buffer_u16, SR_OTHER_PLAYER_ACTIONS);
+        buffer_write(playerBuffer, buffer_u8, ds_list_size(global.cards));
+        var b = playerBuffer;
         for (var i = 0, c = ds_list_size(global.cards); i < c; i++)
         {
             var card = global.cards[| i];
-            buffer_write(playerBuffer, buffer_string, ds_list_write(card.actions));
+            // pack and send
+            with (card)
+            {
+                cardWriteAction(b);
+            }
         }
         network_send_packet(opSocket, playerBuffer, buffer_tell(playerBuffer));        
     }
     else
     {
         // that is from other player
-        global.opTurnDone = true;        
-        for (var i = 0, c = ds_list_size(global.opCards); i < c; i++)
+        global.opTurnDone = true;  
+        var c = buffer_read(buff, buffer_u8);      
+        for (var i = 0; i < c; i++)
         {
-            var card = global.opCards[| i];
+            /*var card = global.opCards[| i];
             ds_list_clear(card.actions);
-            ds_list_read(card.actions, buffer_read(buff, buffer_string));
+            ds_list_read(card.actions, buffer_read(buff, buffer_string));*/
+            var _x, _y, _type, _actions;
+            _x = buffer_read(buff, buffer_s16);
+            _y = room_height - buffer_read(buff, buffer_s16);
+            _type = buffer_read(buff, buffer_u16);
+            var card = instance_position(_x, _y, oCardBase);
+            if (card != noone)
+            {
+                if (card.type == _type)
+                {
+                    ds_list_clear(card.actions);
+                    ds_list_read(card.actions, buffer_read(buff, buffer_string));
+                }
+            }
         }
     }
     // check if both players have send the actions
@@ -128,10 +176,51 @@ case CL_ENDED_ACTION_PERFORM: // he is done
     {
         if (global.gameState != GAME_STATES.CHOOSE_ACTIONS)
         {
+            changeGameState(GAME_STATES.COMPARING_CARDS);
             // move to the next turn
-            endTurn();
-            beginTurn();
+            //endTurn();
+            //beginTurn();
         }
+    }
+    break;
+    
+case CL_HAND_DONE:
+    if (sock == opSocket)
+    {
+        clientSaveEnemyCards(buff);
+        //clientPlaceEnemyCards();
+        // other player is done
+        global.opDone = true;
+    }
+    else
+    {
+        // send card inf to the enemy
+        buffer_seek(playerBuffer, buffer_seek_start, 0);
+        buffer_write(playerBuffer, buffer_u16, SR_ENEMY_ONLY_HAND);
+        for (var i = 0; i < global.cardsOnBoard; i++)
+        {
+            buffer_write(playerBuffer, buffer_u16, buffer_read(buff, buffer_u16));
+        }
+        // OUR one written
+        network_send_packet(opSocket, playerBuffer, buffer_tell(playerBuffer));
+
+        // our player is done
+        global.playerDone = true;
+    }
+    if (global.playerDone && global.opDone)
+    {
+        // beign to PLAY
+        clientPlaceEnemyCards();
+        global.playerDone = true;
+        instance_activate_object(oEndTurn);
+        with (oCardPlaceUI)
+            instance_destroy();
+        buffer_seek(playerBuffer, buffer_seek_start, 0);
+        buffer_write(playerBuffer, buffer_u16, SR_PLACE_ENEMY_CARDS_NOW);
+        network_send_packet(opSocket, playerBuffer, buffer_tell(playerBuffer));
+        global.opDone = false;
+        //changeGameState(GAME_STATES.ZERO_TURN);
+        //global.AP = 0;
     }
     break;
 }

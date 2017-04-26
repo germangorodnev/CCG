@@ -34,7 +34,7 @@ else if (t == network_type_disconnect) // Someone went away
         var n = global.opName;
         with (oClient)
         {
-            addChatFrase(getFraseLang("disc"), n);
+            addChatFrase(getFraseLang("disc", -1), n);
         }
         ds_list_clear(opDeck);
         global.opName = "Player";

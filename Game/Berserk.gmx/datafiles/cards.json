@@ -10,15 +10,15 @@
 			"English":
 			[
 				"Attack",  
-				"Heal on 2", 
-				"Fulminate potion: 2 turns, 1 dmg", 
+				"Heal: +2|", 
+				"Fulminate potion: 2`, 1{", 
 				"Pass the turn" 
 			],
 			"Russian":
 			[
 				"Атака",  
-				"Исцеление на 2", 
-				"Отравленная склянка: 2 хода, 1 урон", 
+				"Исцеление: +2|", 
+				"Отравленная склянка: 2` 1{", 
 				"Пропуск хода" 
 			]
 		},
@@ -53,13 +53,14 @@
 			}
 		],
 		"description": {
-			"Russian": "Безумный доктор. Алхимик",
-			"English": "Insane doctor alchemist"
+			"Russian": "Безумный доктор. Алхимик. Иммунитет к ядам",
+			"English": "Insane doctor alchemist. Immunity to poisons"
 		},
 		"rarity": 1,
 		"AP": 2,
 		"resists": [
-			0
+			1,
+			3
 		],
 		"class": 0
 	},
@@ -74,13 +75,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Backstab: 3 abs. dmg.",
+				"Backstab: ignores}",
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака",  
-				"Удар в спину: 3 ур. жз.", 
+				"Удар в спину: игнорирует}", 
 				"", 
 				"Пропуск хода"
 			]
@@ -124,7 +125,7 @@
 		"resists": [
 			0
 		],
-		"class": 1
+		"class": 0
 	},
 
 	{
@@ -137,13 +138,13 @@
 		"actionNames": {
 			"English": [
 				"Attack",
-				"Stun on 1 turn",
+				"Stun on 1`",
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака",
-				"Оглушение на 1 ход",
+				"Оглушение на 1`",
 				"",
 				"Пропуск хода"
 			]
@@ -179,7 +180,7 @@
 			}
 		],
 		"description": {
-			 "Russian": "Дикий мимик. Намного сильнее и опаснее чем его городской родственник.",
+			 "Russian": "Дикий мимик",
 			 "English": "Wild mimic"
 		},
 		"rarity": 0,
@@ -205,7 +206,7 @@
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Attack",
+				"Атака",
 				"",
 				"",
 				"Pass the turn"				
@@ -325,13 +326,13 @@
 		"mana": 0,
 		"actionNames": { 
 			"English": [
-				"Destroy Armor->death",
+				"Destroy}->die",
 				"",
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
-			"Уничтожить броню->умереть",
+			"Уничтожить}->умереть",
 			"",
 			"",
 			"Пропуск хода" 
@@ -387,15 +388,15 @@
 		"mana": 4,
 		"actionNames": {
 			"English": [
-				"Sword strike: destroy armor/abs. dmg/miss", 
-				"Impact of the divine: steal the enemy card if all the params <=3", 
-				"+1 Mana",
+				"Sword strike: destroy}/dmg|/miss", 
+				"Impact of the divine: steal the card if { | } [ less than 4", 
+				"+1 [",
 				"Pass the turn" 
 			],
 			"Russian": [
-				"Удар мечом: снятие брони/абс. урон/промах", 
-				"Влияние божества: ворует карту, если все параметры <=3", 
-				"+1  мана",
+				"Удар мечом: уничтожение}/урон|/промах", 
+				"Влияние божества: ворует карту, {|}[ меньше 4", 
+				"+1 [",
 				"Пропуск хода" 
 			]
 		},
@@ -514,13 +515,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Block on 1 turn", 
+				"Block on 1`", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Блокирование на 1 ход", 
+				"Блокирование на 1`", 
 				"",
 				"Пропуск хода" 
 			]
@@ -578,14 +579,14 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Fireball: 6 dmg", 
-				"Bless: +2 dmg; +1 armor",
+				"Fireball: 6{", 
+				"Bless: +2{; +1}",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Шар огня: 6 ур.", 
-				"Благословение: +2 атк; +1 бр.",
+				"Шар огня: 6{", 
+				"Благословение: +2{; +1}",
 				"Пропуск хода" 
 			]
 		},
@@ -684,12 +685,13 @@
 
 		],
 		"description": {
-			"Russian": "Порчанка.#Заражает союзника гнойниками",
-			"English": "Corupty witch"
+			"Russian": "Порчанка. Иммунитет к ядам",
+			"English": "Corupty witch. Immunity to poisons"
 		},
 		"rarity": 1,
 		"AP": 1,
 		"resists": [
+			1,
 			0
 		],
 		"class": 0
@@ -769,13 +771,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Devour: 1 dmg, +2 hp if kills enemy, 0 dmg otherwise", 
+				"Finishing: If enemy has 1| - Killing and receives +2| ", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Пожирание: 1 ур; при убийстве +2 жз; иначе 0 урона", 
+				"Добивание: Если у врага 1| - убивает, и получает +2|", 
 				"",
 				"Пропуск хода" 
 			]
@@ -896,13 +898,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Devour: 2 dmg, +3 hp if kills enemy, 0 dmg otherwise", 
+				"Finishing: if enemy has 2| - Killing and receives +2|", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Пожирание: 2 ур; при убийстве +3 жз, иначе 0 урона", 
+				"Добивание: если у врага 2| - убивает и получает +2|", 
 				"",
 				"Пропуск хода" 
 			]
@@ -958,14 +960,14 @@
 		"mana": 4,
 		"actionNames": {
 			"English": [
-				"PRESSURE: 4 dmg, can be blocked with armor", 
-				"Lightning: -3 hp; -1 armor", 
+				"PRESSURE: 4 {; can be blocked with}", 
+				"Lightning: -3|; -1}", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
-				"ДАВЛЕНИЕ: 4 ур, может быть заблокирован броней", 
-				"Молния: -3 жз; -1 брони", 
+				"ДАВЛЕНИЕ: 4{; блокируется}", 
+				"Молния: -3|; -1}", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1022,13 +1024,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Block on 2 turns", 
+				"Block on 2`", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Блокирование на 2 хода", 
+				"Блокирование на 2`", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1085,13 +1087,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Kiss of love: +1 hp, +1 dmg", 
+				"Kiss of love: +1|, +1{", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Поцелуй любви: +1 жз, +1 урон", 
+				"Поцелуй любви: +1|, +1{", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1148,14 +1150,14 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Rage attack: double dmg, -1 hp", 
-				"Generation gap: +2 dmg if there's mother or father on board",
+				"Rage attack: double dmg, -1|", 
+				"Generation gap: +2{ if there's mother or father on board",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Яростная атака: двойной урон, -1 жз.", 
-				"Конфликт поколений: +2 урона если на столе есть мать или отец",
+				"Яростная атака: двойной урон, -1|.", 
+				"Конфликт поколений: +2{ если на столе есть мать или отец",
 				"Пропуск хода" 
 			]
 		},
@@ -1316,13 +1318,14 @@
 			}
 		],
 		"description": {
-			"Russian": "Голем-сокрушитель",
-			"English": "Golem-crusher"
+			"Russian": "Голем-сокрушитель. Иммунитет к рассечению кожи",
+			"English": "Golem-crusher. Immunity to skin incision"
 		},
 		"rarity": 2,
 		"AP": 4,
 		"resists": [
-			0
+			1,
+			3
 		],
 		"class": 1
 	},
@@ -1400,13 +1403,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"True vision: all cards lose invisibility for 2 turns", 
+				"True vision: all cards lose invisibility for 2`", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Истинное зрение: все карты теряют невидимость на 2 хода", 
+				"Истинное зрение: все карты теряют невидимость на 2`", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1463,13 +1466,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Mana potion: +1 mana to the ally", 
+				"Mana potion: +1[ to the ally", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Зелье маны: +1 мана союзнику", 
+				"Зелье маны: +1[ союзнику", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1590,7 +1593,7 @@
 			"English": [
 				"Attack", 
 				"To me: summons abominatio in ally team", 
-				"Transformation: transforms ally minion in another minion with some chance. Chance depends on the amount of Inventor's abominatio",
+				"Transformation: transforms ally card in another card with some chance. Chance depends on the amount of Inventor's abominatio",
 				"Pass the turn" 
 			],
 			"Russian": [
@@ -1653,13 +1656,13 @@
 		"actionNames": {
 			"English": [
 				"Attaсk", 
-				"Secret code: all abominatios gain +1 attack", 
+				"Secret code: all abominatios gain +1{", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Секретный код: все абоминаты получают +1 атк.", 
+				"Секретный код: все абоминаты получают +1{", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1716,13 +1719,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Fire arrows: +2 attack on 2 turns", 
+				"Fire arrows: +2{ on 2`", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Огненные стрелы: +2 атаки на 2 хода", 
+				"Огненные стрелы: +2{  на 2`", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1779,13 +1782,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Rearing: -3 hp on 2 turns (hp cannot be less than 1)", 
+				"Rearing: -3| on 2` (| cannot be less than 1)", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"На дыбы: -3 жз. на 2 хода (жз не может упасть меньше 1)", 
+				"На дыбы: -3| на 2` (| не может упасть меньше 1)", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1905,13 +1908,13 @@
 		"actionNames": {
 			"English": [
 				"Attack", 
-				"Pet: become a pet for a rider", 
+				"", 
 				"",
 				"Pass the turn" 
 			],
 			"Russian": [
 				"Атака", 
-				"Питомец: стать питомцем для наездника", 
+				"", 
 				"",
 				"Пропуск хода" 
 			]
@@ -1925,8 +1928,8 @@
 				"instant": false
 			},
 			{
-				"ENUM": 37,
-				"mana": 0,
+				"ENUM": -1,
+				"mana": 1,
 				"needT": true,
 				"targetType": 2,
 				"instant": false
@@ -1947,8 +1950,8 @@
 			}
 		],
 		"description": {
-			"Russian": "Ездовой медведь. Может стать питомцем для Наездиков",
-			"English": "Sled bear. Can become a pet for Riders"
+			"Russian": "Ездовой медведь.",
+			"English": "Sled bear."
 		},
 		"rarity": 1,
 		"AP": 2,
@@ -2199,12 +2202,13 @@
 			}
 		],
 		"description": {
-			"Russian": "Усиливающее зеркало. +1 урон снарядам, пролетающим через эту карту",
-			"English": "Empowering mirror. +1 dmg to attacks flying through this card"
+			"Russian": "Усиливающее зеркало. +1{ снарядам, пролетающим через эту карту. Иммунитет к ядам",
+			"English": "Empowering mirror. +1{ to projectiles that flying through this card. Poison immunity"
 		},
 		"rarity": 0,
 		"AP": 1,
 		"resists": [
+			1,
 			0
 		],
 		"class": 2
@@ -2262,12 +2266,13 @@
 			}
 		],
 		"description": {
-			"Russian": "Иноземный усилитель сигнала. +2 урона снарядам, пролетающим через эту карту",
-			"English": "Unknown signal amplifier. +2 dmg to attacks flying through this card"
+			"Russian": "Иноземный усилитель сигнала. +2{ снарядам, пролетающим через эту карту. Иммунитет к ядам",
+			"English": "Unknown signal amplifier. +2{ to attacks flying through this card. Poison immunity"
 		},
 		"rarity": 0,
 		"AP": 1,
 		"resists": [
+			1,
 			0
 		],
 		"class": 2
@@ -2329,11 +2334,829 @@
 			"English": "Officer of the koncha - regiment"
 		},
 		"rarity": 2,
-		"AP": 14,
+		"AP": 6,
 		"resists": [
 			0
 		],
 		"class": 0
 	},
 
+	{
+		"cardIndex": 37,
+		"hp": 6,
+		"dmg": 3,
+		"armor": 0,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Fresh grave: summons random card that died this game", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Свежая могила: призывает случайную карту, умершую в течение игры", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 40,
+				"mana": 1,
+				"needT": false,
+				"targetType": 2,
+				"instant": true
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Могильщик",
+			"English": "Gravedigger"
+		},
+		"rarity": 1,
+		"AP": 2,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 38,
+		"hp": 2,
+		"dmg": 4,
+		"armor": 2,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Stealth attack: instant, gains invisibility if it kills enemy", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Скрытная атака: мгновенная, получает невидимость если эта атака убивает противника", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 41,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": true
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Скрытный убийца. Невидимость.",
+			"English": "Stealth killer. Invisibility"
+		},
+		"rarity": 0,
+		"AP": 2,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 39,
+		"hp": 3,
+		"dmg": 2,
+		"armor": 3,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Backstab: ignores}", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Удар в спину: атака игнорирует}", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 42,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Ниндзя. ВЖУХ",
+			"English": "Ninja. WZSHUKH"
+		},
+		"rarity": 2,
+		"AP": 2,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 40,
+		"hp": 2,
+		"dmg": 3,
+		"armor": 2,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Дискометчик",
+			"English": "Discthrower"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 41,
+		"hp": 3,
+		"dmg": 3,
+		"armor": 3,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Диско-дискометчик. +1{  снарядам, пролетающим через эту карту",
+			"English": "Disco-discthrower. +1{  to attacks flying through this card"
+		},
+		"rarity": 1,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 42,
+		"hp": 2,
+		"dmg": 5,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Мясник",
+			"English": "Мясник"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 43,
+		"hp": 3,
+		"dmg": 1,
+		"armor": 1,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Heal: +2|", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Лечение: +2|", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 43,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Полевой медик",
+			"English": "Field medic"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{
+		"cardIndex": 44,
+		"hp": 3,
+		"dmg": 4,
+		"armor": 1,
+		"usesMana": true,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack: also poisons (2`; 1{) enemy if [ > 2", 
+				"Lesser heal: +3|",
+				"The great healing: +3| for all cards in 3`",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака: также отравляет (2`; 1{) врага если [ > 2", 
+				"Малое исцеление: +3|", 
+				"Великое исцеление: лечит все карты +3| через 3`",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 46,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 44,
+				"mana": 2,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 45,
+				"mana": 4,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Боевой медик. Получает 1[ каждый ход",
+			"English": "Battle medic. Gains 1[ each turn"
+		},
+		"rarity": 2,
+		"AP": 3,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{	
+		"cardIndex": 45,
+		"hp": 4,
+		"dmg": 2,
+		"armor": 3,
+		"usesMana": true,
+		"mana": 2,
+		"actionNames": {
+			"English": [
+				"Attack: enemy will also be damaged next 2` on 1|.", 
+				"New spare parts: +3| for ally mech", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака: враг будет также получать - 1| 2`", 
+				"Новые запчасти: +3| для союзного механизма", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 47,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 48,
+				"mana": 1,
+				"needT": true,
+				"targetType": 3,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Механик. Гараж - его второй дом",
+			"English": "Mechanic. His second house is garage"
+		},
+		"rarity": 1,
+		"AP": 2,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{	
+		"cardIndex": 46,
+		"hp": 4,
+		"dmg": 2,
+		"armor": 2,
+		"usesMana": true,
+		"mana": 1,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Bite: sets { to 2", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Укус: { = 2", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 49,
+				"mana": 1,
+				"needT": true,
+				"targetType": 1,
+				"instant": true
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Пещерный паук",
+			"English": "Cave spider"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": -1
+	},
+
+	{	
+		"cardIndex": 47,
+		"hp": 3,
+		"dmg": 2,
+		"armor": 1,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Penetrative attack: vertical non-target attack, damages 2 enemies", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Пробивающая атака: вертикальная атака без выбора цели, наносит урон 2 врагам", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 50,
+				"mana": 0,
+				"needT": false,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Ландскнехт. Примяком из 1.4к70",
+			"English": "Landsknecht. Straight from 1.4k70"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
+
+	{	
+		"cardIndex": 48,
+		"hp": 4,
+		"dmg": 3,
+		"armor": 0,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"Papa Carlo visit: restores 1|", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"Поход к папе Карло: восстанавливает 1|", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": 51,
+				"mana": 0,
+				"needT": false,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Деревянный голем",
+			"English": "Wooden golem"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 1
+	},
+
+	{	
+		"cardIndex": 49,
+		"hp": 2,
+		"dmg": 3,
+		"armor": 4,
+		"usesMana": false,
+		"mana": 0,
+		"actionNames": {
+			"English": [
+				"Attack", 
+				"", 
+				"",
+				"Pass the turn" 
+			],
+			"Russian": [
+				"Атака", 
+				"", 
+				"",
+				"Пропуск хода" 
+			]
+		},
+		"actionIndex": [
+			{
+				"ENUM": 0,
+				"mana": 0,
+				"needT": true,
+				"targetType": 1,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": -1,
+				"mana": 1,
+				"needT": true,
+				"targetType": 2,
+				"instant": false
+			},
+			{
+				"ENUM": 1,
+				"mana": 0,
+				"needT": false,
+				"targetType": -1,
+				"instant": false
+			}
+		],
+		"description": {
+			"Russian": "Солдат",
+			"English": "Solider"
+		},
+		"rarity": 0,
+		"AP": 1,
+		"resists": [
+			0
+		],
+		"class": 0
+	},
 ]

@@ -129,6 +129,7 @@ var ang = sin(current_time / 300) * aMax;
 draw_sprite_ext(sBooster, 0, b3x, b3y, 1, 1, ang, image_blend, 1);
 draw_set_font(fBigNumbs);
 draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 drawTextOutline(b3x, b3y, string(global.packs3), white, black, 1, 1, 0, 1);
 drawTextOutline(b3x, bcosty, b3cost, white, black, 1, 1, 0, 1);
 

@@ -82,8 +82,11 @@ if (c != noone)
     {
         if (blockable)
         {
+        if (c.player != pl)
+        {
             cardPressurePerformer(c);
             cardAttackDestroy();
+        }
         }
         else
         {

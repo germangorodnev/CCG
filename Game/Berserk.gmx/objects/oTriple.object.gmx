@@ -76,8 +76,11 @@ if (c != noone)
     // if it can block this shit
     if (cardHasBuff(BUFFS.BLOCK, c) != -1)
     {
+        if (c.player != pl)
+        {
         cardTripleAttackPerformer(c);
         cardAttackDestroy();
+        }
     }
     else
     {

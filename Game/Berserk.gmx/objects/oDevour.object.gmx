@@ -100,8 +100,11 @@ if (c != noone)
     {
         if (blockable)
         {
+        if (c.player != pl)
+        {
             cardDevourPerformer(c, parent, dmg, heal);
             exit;            
+        }
         }
         else
         {

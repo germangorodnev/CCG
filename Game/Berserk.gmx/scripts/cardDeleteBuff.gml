@@ -14,6 +14,16 @@ for (var i = 0, c = ds_list_size(buffs); i < c; i++)
         case BUFFS.FIRE_ARROWS:
             cardChangeDmg(-2);
             break;
+        case BUFFS.GREAT_HEAL: // heal all by 3
+            var pl = player;
+            with (oCardBase)
+            {
+                if (pl == player)
+                {
+                    cardChangeHp(3);
+                }
+            }
+            break;
         }
         ds_list_destroy(ls);
         ds_list_delete(buffs, i);
